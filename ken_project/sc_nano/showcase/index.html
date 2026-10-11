@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRT6-hnRNP A1 肠道类器官 Nanopore 长读长 scRNA-seq 分析报告</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; max-width: 1500px; margin: 0 auto; padding: 20px; background-color: #eef1f6; }
+  h1,h2,h3,h4 { color: #1f2a44; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(20,40,80,.08); margin-bottom: 26px; overflow: hidden; }
+  .card-header { padding: 20px 26px; border-bottom: 1px solid #e5e9f0; background: #f8fafd; }
+  .card-header h2 { margin: 0; font-size: 1.4em; }
+  .card-body { padding: 22px 26px; }
+  .hero { text-align: center; padding: 34px 24px; margin-bottom: 26px; }
+  .hero h1 { font-size: 2.1em; margin: 0 0 6px; }
+  .hero .sub { color: #5b6b83; font-size: 1.05em; }
+  .hero .meta { color: #718096; font-size: .9em; margin-top: 12px; }
+  .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(20,40,80,.08); padding: 12px 18px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .sticky-nav a { text-decoration: none; color: #385898; background: #eef2fa; padding: 6px 14px; border-radius: 8px; font-size: .92em; font-weight: 600; }
+  .sticky-nav a:hover { background: #dde5f3; }
+  .warn { background: #fff8e6; border-left: 5px solid #f5a623; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  .note { background: #eef4ff; border-left: 5px solid #4a90d9; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  .skip { background: #f3f4f6; border-left: 5px solid #9aa3af; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; color: #55606e; }
+  table { border-collapse: collapse; width: 100%; font-size: .92em; margin: 10px 0; }
+  th, td { border: 1px solid #d9dee8; padding: 6px 10px; text-align: left; }
+  th { background: #f0f3f9; color: #33415c; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfe; }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .tab-btn { padding: 8px 16px; background: #eef2f7; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: .95em; font-weight: 600; color: #475467; }
+  .tab-btn:hover { background: #dde5f3; }
+  .tab-btn.active { background: #2563eb; color: #fff; border-color: #1d4ed8; }
+  .pdfframe { width: 100%; height: 640px; border: 1px solid #d9dee8; border-radius: 8px; background: #f8f8f8; }
+  .pdfframe.wide { height: 700px; }
+  .imgcol { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .imgcol .one { grid-column: 1 / -1; }
+  .imgcol .q { grid-column: span 1; }
+  .imgbox { background: #fafbfe; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; }
+  .imgbox iframe { width: 100%; height: 520px; border: none; border-radius: 6px; background: #fff; }
+  .imgbox img { width: 100%; border-radius: 6px; background: #fff; }
+  .imgbox figcaption { font-size: .9em; color: #5b6b83; margin-top: 8px; text-align: center; font-weight: 600; }
+  .dl { display: inline-block; margin: 4px 6px 4px 0; text-decoration: none; background: #385898; color: #fff; padding: 7px 14px; border-radius: 8px; font-weight: 600; font-size: .9em; }
+  .dl:hover { background: #2b4377; }
+  .filelist { columns: 3; font-size: .9em; }
+  .filelist div { break-inside: avoid; margin: 4px 0; }
+  .filelist a { color: #385898; text-decoration: none; }
+  .small { font-size: .86em; color: #718096; }
+  .mono { font-family: Consolas, monospace; }
+  @media (max-width: 1000px) { .imgcol { grid-template-columns: 1fr; } .filelist { columns: 1; } }
+</style>
+</head>
+<body>
+
+<div class="card hero">
+  <h1>SIRT6 · hnRNP A1 肠道类器官 · Nanopore 长读长 scRNA-seq 分析报告</h1>
+  <div class="sub">Oxford Nanopore · EPI2ME wf-single-cell（10xv3 全长转录本）· 与 10X 同 GEM 配对</div>
+  <div class="meta">数据源：公司交付 upstream/ + 细胞重捞回（wf-single-cell 重跑 abundance≥50 + 10X 白名单对齐）&nbsp;|&nbsp; 下游 05/06/07/09 本地 R 计算 &nbsp;|&nbsp; 报告更新：2026-09-21（KO 与 A1-Het 样本标签勘误对调，所有图表数据已同步；此前 2026-09-20 细胞重捞回：55,983/55,985 = 99.996% 对齐 10X，PCP 完全恢复）</div>
+</div>
+
+<div class="sticky-nav" id="nav"></div>
+
+<!-- ============ 1 数据概览 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-overview">1. 数据概览与上机质控</h2></div>
+  <div class="card-body">
+    <p>本组学与 <b>sc_10x 为同一次 Chromium GEM 分库的双平台测序</b>（Nanopore 全长 cDNA），因此 10X Nanobarcode 在两平台一一对应（barcode 交叠 100%，见第 7 节）。上游 01 basecalling / 02 QC / 03 wf-single-cell 由测序公司完成，本报告记录其交付结果、<b>细胞重捞回修正</b>与本地 05/06/07/09 下游分析。</p>
+    <div class="note"><b>细胞重捞回（2026-09-20 完成）：</b>公司交付的细胞调用用 quantile 方法算出阈值 448 reads，把 13,401 个 10X 验证细胞（reads 22~447，中位 ~310，主要是低 RNA 的 Paneth Cells Progenitors）系统性丢弃。修正：wf-single-cell 2.2.0 原参数重跑（细胞调用改 <span class="mono">abundance ≥50 reads</span>）+ 10X barcode 白名单对齐（BLAZE/ScNapBar matched-short-read 策略）。最终 <b>55,983/55,985（99.996%）细胞与 10X 完全对齐</b>，PCP 从 301/314/136/183 恢复到 3,397/6,465/2,541/3,704（与 10X 一致，仅 KO 因 2 个细胞 reads&lt;50 未恢复）。</div>
+    <div class="warn"><b>重要提示：</b>每种基因型仅 <b>1 个生物学样本（n=1/组，两平台一致）</b>。06 DTU 的 p 值来自伪重复（每样本细胞拆 3 份），<b>偏乐观、仅作探索性排序</b>；正式统计结论依赖补送生物学重复（见 06 说明文件）。</div>
+    <table id="qc-table"></table>
+    <p class="small">reads / full-length 数取自 wf-single-cell 交付的 <span class="mono">config_stats.json</span>；检测细胞数 = 白名单对齐后的最终细胞数（与 10X filtered 矩阵一致）。</p>
+
+    <h3>NanoPlot 读长质控（公司交付报告）</h3>
+    <div class="tab-bar" id="np-tabs"></div>
+    <iframe class="pdfframe wide" id="np-frame"></iframe>
+  </div>
+</div>
+
+<!-- ============ 2 wf-single-cell ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-wf">2. wf-single-cell 矩阵与官方报告</h2></div>
+  <div class="card-body">
+    <p>EPI2ME wf-single-cell（10xv3 chemistry）的基因/转录本计数矩阵 + 官方报告：barcode 检出（knee plot）见下，完整报告按样本切换。</p>
+    <div class="tab-bar" id="knee-tabs"></div>
+    <iframe class="pdfframe" id="knee-frame"></iframe>
+    <h3>官方 wf-single-cell 报告</h3>
+    <div class="tab-bar" id="wf-tabs"></div>
+    <iframe class="pdfframe wide" id="wf-frame"></iframe>
+  </div>
+</div>
+
+<!-- ============ 3 Seurat 聚类 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-seurat">3. Seurat 聚类（公司交付，gene 层）</h2></div>
+  <div class="card-body">
+    <p>公司按样本独立运行 Seurat 标准流程并输出差异基因/富集分析（DIFF、enrich/GO/KEGG/Reactome 等）。此处展示每样本 gene 层 cluster UMAP。<b>跨样本统一注释</b>由第 7 节 10X 注释按 barcode 转移完成（99.8% 成功率）。</p>
+    <div class="imgcol">
+      <div class="imgbox q"><img src="seurat/UMAP_cluster_A1_Het.png"><figcaption>A1-Het · gene cluster UMAP</figcaption></div>
+      <div class="imgbox q"><img src="seurat/UMAP_cluster_A1_Rescue.png"><figcaption>A1-Rescue · gene cluster UMAP</figcaption></div>
+      <div class="imgbox q"><img src="seurat/UMAP_cluster_KO.png"><figcaption>KO · gene cluster UMAP</figcaption></div>
+      <div class="imgbox q"><img src="seurat/UMAP_cluster_WT.png"><figcaption>WT · gene cluster UMAP</figcaption></div>
+    </div>
+    <p class="small">交付物中还含 tSNE、PCA、Marker/DIFF 表、GO/KEGG/Reactome 富集等（位于 upstream/3.Seurat/&lt;sample&gt;/{gene,isoform}/，此处未全部内嵌）。</p>
+  </div>
+</div>
+
+<!-- ============ 4 Isoform 定量 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-isoform">4. Isoform 定量（05）</h2></div>
+  <div class="card-body">
+    <p>基于细胞重捞回后的 <b>transcript_rescued_feature_bc_matrix</b>（细胞 × ENSMUST 转录本，10X 白名单对齐），用 GFF 的 <span class="mono">cmp_ref</span> 属性做 tx→gene 映射（实测匹配率 99.7%），并对每样本做 pseudobulk（06/07 输入）。</p>
+    <table id="iso-table"></table>
+    <div class="note">跨样本合并矩阵：<span class="mono">54,936</span> 转录本 × 4 样本（<span class="mono">pb_tx_all.csv</span>）；基因层面 <span class="mono">pb_gene_all.csv</span>。tx→gene 映射见 <span class="mono">tx_gene_map.csv</span>。</div>
+    <p>
+      <a class="dl" href="isoform/05_summary.txt" download>下载 05 摘要</a>
+      <a class="dl" href="isoform/pb_tx_all.csv" download>下载合并转录本 pseudobulk</a>
+      <a class="dl" href="isoform/pb_gene_all.csv" download>下载合并基因 pseudobulk</a>
+      <a class="dl" href="isoform/tx_gene_map.csv" download>下载 tx→gene 映射</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 5 DTU ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-dtu">5. 差异转录本使用 DTU（06）</h2></div>
+  <div class="card-body">
+    <p>对 4 组对比（A1Het_vs_WT / KO_vs_WT / A1Rescue_vs_WT / A1Rescue_vs_A1Het，对比名已随 2026-09-21 KO/A1-Het 标签勘误对调）做转录本使用差异分析。当前 n=1/组：<b>正式的 satuRn 检验未产出</b>（每样本细胞随机拆 3 份的伪重复 p 值偏乐观，仅存档）；本报告以<b>描述性 Δusage</b>与 <b>hnRNP A1 经典/候选靶基因专项图</b>为准。</p>
+    <div class="warn"><b>Δusage 说明：</b><span class="mono">usage_delta_*.csv</span> 为转录本在两组 pseudobulk 中的存在/缺失切换（0/1 presence），每对比约 2.5 万条转录本条目，<b>仅适合探索性筛选</b>；真实差异使用比例（PSI 值）需生物学重复后重算。</div>
+    <h3>靶基因转录本使用图（Pkm / Bin1 / Casp9 / Mapt / Hnrnpa1 / Sirt6 / App / Grin1）</h3>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="dtu/App_usage.pdf"></iframe><figcaption>App</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Bin1_usage.pdf"></iframe><figcaption>Bin1</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Casp9_usage.pdf"></iframe><figcaption>Casp9</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Grin1_usage.pdf"></iframe><figcaption>Grin1</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Hnrnpa1_usage.pdf"></iframe><figcaption>Hnrnpa1</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Mapt_usage.pdf"></iframe><figcaption>Mapt</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Pkm_usage.pdf"></iframe><figcaption>Pkm</figcaption></div>
+      <div class="imgbox"><iframe src="dtu/Sirt6_usage.pdf"></iframe><figcaption>Sirt6</figcaption></div>
+    </div>
+    <p>
+      <a class="dl" href="dtu/README_stats_note.txt" download>查看统计设计说明</a>
+      <a class="dl" href="dtu/usage_delta_KO_vs_WT.csv" download>Δusage KO vs WT</a>
+      <a class="dl" href="dtu/usage_delta_A1Het_vs_WT.csv" download>Δusage A1Het vs WT</a>
+      <a class="dl" href="dtu/usage_delta_A1Rescue_vs_WT.csv" download>Δusage A1Rescue vs WT</a>
+      <a class="dl" href="dtu/usage_delta_A1Rescue_vs_A1Het.csv" download>Δusage A1Rescue vs A1Het</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 6 APA ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-apa">6. 可变多聚腺苷酸化 APA（07，描述性）</h2></div>
+  <div class="card-body">
+    <p>基于 GFF 3' 端簇调用 PAS（poly(A) 位点），构建 consensus PAU 矩阵，计算每对比的 ΔPAU 与基因级 3'UTR 延长指数（distal change）。<b>严格统计版（APALORD）需 IsoQuant 前置文件，交付数据暂缺</b>，故为描述性结果。</p>
+    <div class="note"><b>直方图过滤说明：</b>原始直方图左右两侧均出现高峰，根因是 63.7% 的基因仅有 1 个 PAS，其 PAU 值非 0 即 1——基因在某样本中未检出（PAU=0）vs 检出（PAU=1）产生 |ΔPAU|=1 的 dropout 噪声，制造左右对称的假信号。已修复：直方图仅保留<b>两侧都检出</b>（0 < PAU < 1）的基因，过滤掉 ~9,240 个 dropout 基因，仅保留 ~1,240 个真实 APA 变化基因。</div>
+    <h3>3'UTR 延长/缩短指数分布（distal change 直方图，已过滤 dropout）</h3>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="apa/APA_distal_hist_KO_vs_WT.pdf"></iframe><figcaption>KO vs WT</figcaption></div>
+      <div class="imgbox"><iframe src="apa/APA_distal_hist_A1Het_vs_WT.pdf"></iframe><figcaption>A1Het vs WT</figcaption></div>
+      <div class="imgbox"><iframe src="apa/APA_distal_hist_A1Rescue_vs_WT.pdf"></iframe><figcaption>A1Rescue vs WT</figcaption></div>
+      <div class="imgbox"><iframe src="apa/APA_distal_hist_A1Rescue_vs_A1Het.pdf"></iframe><figcaption>A1Rescue vs A1Het</figcaption></div>
+    </div>
+    <div class="note"><b>靶基因 PAS 明细：</b>App / Bin1 / Casp9 / Grin1 / Hnrnpa1 / Mapt / Pkm / Sirt6 共 88 条 PAS 记录（4 样本），含每 PAS 的 PAU 值，见 <span class="mono">APA_target_genes.csv</span>。</div>
+    <p>
+      <a class="dl" href="apa/APA_target_genes.csv" download>下载靶基因 PAS 明细</a>
+      <a class="dl" href="apa/PAU_matrix.csv" download>下载 consensus PAU 矩阵</a>
+      <a class="dl" href="apa/APA_distal_change_KO_vs_WT.csv" download>下载 distal change KO vs WT</a>
+      <a class="dl" href="apa/APA_distal_change_A1Rescue_vs_A1Het.csv" download>下载 distal change A1Rescue vs A1Het</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 7 整合 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-integrate">7. 与 10X 单细胞级整合（09，同 GEM 配对）</h2></div>
+  <div class="card-body">
+    <h3>7.1 Barcode 交叠矩阵（配对验证）</h3>
+    <p>Nanopore 各样本细胞 barcode 与 10X 四库的交叠百分比：<b>对角线 = 配对样本（100%）</b>，非对角 ~0.4% 为随机本底。细胞重捞回后对角线达到满值。</p>
+    <table id="ov-table"></table>
+    <h3>7.2 配对概览与双平台一致性</h3>
+    <table id="pair-table"></table>
+    <p class="small">shared_cells = barcode 在双平台同时检出且计入 10X filtered 矩阵的细胞；nCount_spearman = 共享细胞双平台 UMI 数相关性（log1p）；pb_gene_spearman = 配对 pseudobulk 基因表达 Spearman。细胞重捞回后 nano 细胞数与 10X 完全一致，<b>单细胞 UMI 相关性从 ~0.89 提升至 ~0.987</b>。</p>
+    <h3>7.3 细胞类型组成比较（Nanopore vs 10X）</h3>
+    <div class="imgbox one"><iframe src="integrate/composition_comparison.pdf"></iframe><figcaption>配对基因型下：Nanopore（白名单对齐后）vs 10X 全库的组成 —— 完全一致</figcaption></div>
+    <div class="note"><b>PCP 恢复验证：</b>细胞重捞回前 Paneth Cells Progenitors 在 Nanopore 端仅检出 10X 的 5~12%（301/314/136/183）；重捞回后 <b>WT 3,397 / KO 6,465 / A1-Het 2,541 / A1-Rescue 3,704，与 10X 逐一精确对齐</b>（KO 差 2 个 = reads&lt;50 的未恢复细胞）。所有其余细胞类型（ISC、TA、Enterocytes、Paneth 等）两平台计数完全一致。</div>
+    <h3>7.4 Nanopore 细胞类型标签转移 UMAP</h3>
+    <p>10X 注释的细胞类型标签通过 barcode（同 GEM 配对，匹配率 ~100%）直接转移到 Nanopore 细胞，在 Nanopore 自建 UMAP 上可视化验证转移效果。</p>
+    <div class="imgcol">
+      <div class="imgbox one"><iframe src="integrate/UMAP_nano_celltype_transferred.pdf"></iframe><figcaption>Nanopore UMAP · 左：细胞类型（10X barcode 转移）；右：基因型</figcaption></div>
+    </div>
+    <h3>7.5 探索性 logFC 一致性（基因层，n=1/组）</h3>
+    <p>双平台各自 pseudobulk 计算基因 log2FC，比较方向一致性（Spearman rho）。细胞重捞回后 <b>rho 0.43~0.50</b>，双平台基因层方向一致性良好（n=1，转录本层差异以 Nanopore 全长读数为准）。橙色点为 Sirt6 / Hnrnpa1。</p>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="integrate/logFC_concordance_KO_vs_WT.pdf"></iframe><figcaption>KO vs WT · rho=0.496</figcaption></div>
+      <div class="imgbox"><iframe src="integrate/logFC_concordance_A1Het_vs_WT.pdf"></iframe><figcaption>A1Het vs WT · rho=0.448</figcaption></div>
+      <div class="imgbox"><iframe src="integrate/logFC_concordance_A1Rescue_vs_WT.pdf"></iframe><figcaption>A1Rescue vs WT · rho=0.459</figcaption></div>
+      <div class="imgbox"><iframe src="integrate/logFC_concordance_A1Rescue_vs_A1Het.pdf"></iframe><figcaption>A1Rescue vs A1Het · rho=0.430</figcaption></div>
+    </div>
+    <p>
+      <a class="dl" href="integrate/barcode_overlap_matrix.csv" download>下载 barcode 交叠矩阵</a>
+      <a class="dl" href="integrate/pair_summary.csv" download>下载配对概览</a>
+      <a class="dl" href="integrate/composition_comparison.csv" download>下载组成比较</a>
+      <a class="dl" href="integrate/shared_cells_cDNA_TXdE5k.csv" download>下载 WT 共享细胞表</a>
+      <a class="dl" href="integrate/logFC_concordance_KO_vs_WT.csv" download>下载 logFC 一致性 KO vs WT</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 8 文件清单 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-files">8. 本报告包含的文件</h2></div>
+  <div class="card-body">
+    <p>以下全部文件与本 <span class="mono">index.html</span> 位于同一 <span class="mono">showcase</span> 目录内，打包整个目录后可在本地浏览器（Chrome/Edge 推荐）直接查看。</p>
+    <div class="filelist" id="filelist"></div>
+  </div>
+</div>
+
+<script>
+const SAMPLES = ["A1_Het", "A1_Rescue", "KO", "WT"];   // 与展示文件名一致（下划线）
+const SAMP_LABEL = {A1_Het:"A1-Het", A1_Rescue:"A1-Rescue", KO:"KO", WT:"WT"};
+const QC = [
+  {s:"cDNA_TXdB7j", g:"KO",      reads:145901242, fl:127157362, cells:16973},
+  {s:"cDNA_TXdH8k", g:"A1-Rescue", reads:137994176, fl:120823670, cells:15529},
+  {s:"cDNA_TXdC7j", g:"A1-Het",  reads:157315341, fl:136596146, cells:16603},
+  {s:"cDNA_TXdE5k", g:"WT",      reads:148538472, fl:129358795, cells:14278}
+];
+const ISO = [
+  ["cDNA_TXdB7j","KO",16973,39718,"99.7%",22027],
+  ["cDNA_TXdH8k","A1-Rescue",15529,38176,"99.7%",20947],
+  ["cDNA_TXdC7j","A1-Het",16603,39909,"99.7%",21783],
+  ["cDNA_TXdE5k","WT",14278,39609,"99.7%",21898]
+];
+const OVERLAP = [
+  ["cDNA_TXdB7j",0.4,100.0,0.5,0.4],
+  ["cDNA_TXdH8k",0.4,0.4,0.4,100.0],
+  ["cDNA_TXdC7j",0.5,0.5,100.0,0.4],
+  ["cDNA_TXdE5k",100.0,0.5,0.4,0.4]
+];
+const PAIR = [
+  ["cDNA_TXdB7j","KO",16973,16975,16973,100,0.987,0.892],
+  ["cDNA_TXdH8k","A1-Rescue",15529,15529,15529,100,0.988,0.905],
+  ["cDNA_TXdC7j","A1-Het",16603,16603,16603,100,0.986,0.897],
+  ["cDNA_TXdE5k","WT",14278,14278,14278,100,0.987,0.895]
+];
+const FILES = [
+  "qc/NanoPlot_*.html (4)", "matrix/kneeplot_*.png (4)", "matrix/wf_single_cell_report_*.html (4)",
+  "seurat/UMAP_cluster_*.png (4)", "isoform/05_summary.txt", "isoform/pb_tx_all.csv",
+  "isoform/pb_gene_all.csv", "isoform/tx_gene_map.csv", "dtu/*_usage.pdf (8)",
+  "dtu/README_stats_note.txt", "dtu/usage_delta_*.csv (4)", "apa/APA_distal_hist_*.pdf (4)",
+  "apa/APA_target_genes.csv", "apa/PAU_matrix.csv", "apa/APA_distal_change_*.csv (4)",
+  "integrate/composition_comparison.pdf+csv", "integrate/barcode_overlap_matrix.csv",
+  "integrate/pair_summary.csv", "integrate/shared_cells_*.csv (4)",
+  "integrate/UMAP_nano_celltype_transferred.pdf",
+  "integrate/logFC_concordance_*.csv+pdf (4)"
+];
+
+// nav
+const nav = ["overview","wf","seurat","isoform","dtu","apa","integrate","files"];
+const navLabels = ["1 概览/QC","2 wf-single-cell","3 Seurat","4 Isoform","5 DTU","6 APA","7 10X整合","8 文件"];
+document.getElementById("nav").innerHTML = navLabels.map((l,i)=>`<a href="#sec-${nav[i]}">${l}</a>`).join("");
+
+// QC table
+let qh = "<tr><th>Nano 样本</th><th>基因型</th><th>总 reads</th><th>全长 reads</th><th>全长%</th><th>检测细胞数</th></tr>";
+let qt = QC.map(d=>`<tr><td>${d.s}</td><td>${d.g}</td><td>${d.reads.toLocaleString()}</td><td>${d.fl.toLocaleString()}</td><td>${(100*d.fl/d.reads).toFixed(1)}%</td><td>${d.cells.toLocaleString()}</td></tr>`).join("");
+document.getElementById("qc-table").innerHTML = qh + qt;
+
+// isoform table
+let ih = "<tr><th>样本</th><th>基因型</th><th>细胞数</th><th>转录本数</th><th>tx→gene 匹配</th><th>pseudobulk 基因数</th></tr>";
+let it = ISO.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2].toLocaleString()}</td><td>${r[3].toLocaleString()}</td><td>${r[4]}</td><td>${r[5].toLocaleString()}</td></tr>`).join("");
+document.getElementById("iso-table").innerHTML = ih + it;
+
+// overlap table
+let oh = "<tr><th>Nano \\ 10X</th><th>WT</th><th>KO</th><th>A1-Het</th><th>A1-Rescue</th></tr>";
+let ot = OVERLAP.map(r=>`<tr><td>${r[0]}</td>${r.slice(1).map(v=>`<td>${v}%</td>`).join("")}</tr>`).join("");
+document.getElementById("ov-table").innerHTML = oh + ot;
+
+// pair table
+let ph = "<tr><th>Nano 样本</th><th>基因型</th><th>Nano 细胞</th><th>10X 细胞</th><th>共享细胞</th><th>共享%(nano)</th><th>nCount Spearman</th><th>gene Spearman</th></tr>";
+let pt = PAIR.map(r=>`<tr>${r.map(v=>`<td>${typeof v==="number"&&v<3? v.toFixed(3): v}</td>`).join("")}</tr>`).join("");
+document.getElementById("pair-table").innerHTML = ph + pt;
+
+// tabs
+function makeTabs(elId, items, frameId, baseSrc, mapName){
+  let el = document.getElementById(elId);
+  let html = items.map((it,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${SAMP_LABEL[it]}</button>`).join("");
+  el.innerHTML = html;
+  let set = i => { document.getElementById(frameId).src = baseSrc + mapName(items[i]); el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
+  set(0);
+}
+makeTabs("np-tabs", SAMPLES, "np-frame", "qc/NanoPlot_", s=>s+".html");
+makeTabs("knee-tabs", SAMPLES, "knee-frame", "matrix/kneeplot_", s=>s+".png");
+makeTabs("wf-tabs", SAMPLES, "wf-frame", "matrix/wf_single_cell_report_", s=>s+".html");
+
+// file list
+document.getElementById("filelist").innerHTML = FILES.map(f=>`<div><a href="${f.replace(/\*/g,"A1_Het")}" download>${f}</a></div>`).join("");
+</script>
+</body>
+</html>
