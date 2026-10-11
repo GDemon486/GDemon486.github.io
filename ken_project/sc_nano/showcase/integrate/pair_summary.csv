@@ -1,0 +1,5 @@
+"nano_sample","tenx_library","genotype","nano_cells","tenx_cells","shared_cells","shared_pct_nano","nCount_spearman","pb_gene_spearman"
+"cDNA_TXdB7j","KO","KO",16973,16975,16973,100,0.987467891386149,0.892088671078298
+"cDNA_TXdH8k","A1-Rescue","A1-Rescue",15529,15529,15529,100,0.987936669977591,0.904747160195332
+"cDNA_TXdC7j","A1-Het","A1-Het",16603,16603,16603,100,0.986313424223985,0.897313677169255
+"cDNA_TXdE5k","WT","WT",14278,14278,14278,100,0.987329098310664,0.894893992478068

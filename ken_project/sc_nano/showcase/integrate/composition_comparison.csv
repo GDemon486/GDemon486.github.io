@@ -1,0 +1,89 @@
+"genotype","platform","type","n","frac"
+"A1-Het","10X","Paneth Cells Progenitors",2541,0.153044630488466
+"A1-Het","10X","Paneth Cells",1330,0.0801060049388665
+"A1-Het","10X","Dedifferentiating Paneth-like cells",1547,0.093175932060471
+"A1-Het","10X","TA Cells - G2/M",2674,0.161055230982353
+"A1-Het","10X","TA Cells - S",2546,0.153345780882973
+"A1-Het","10X","TA Cells",174,0.0104800337288442
+"A1-Het","10X","Intestinal Stem Cells",3918,0.235981449135698
+"A1-Het","10X","Goblet cells",555,0.0334276937902789
+"A1-Het","10X","Enteroendocrine Cells",572,0.0344516051316027
+"A1-Het","10X","Absorptive enterocytes",564,0.0339697645003915
+"A1-Het","10X","Early Differentiating Enterocytes",182,0.0109618743600554
+"A1-Het","Nanopore","Paneth Cells Progenitors",2541,0.153044630488466
+"A1-Het","Nanopore","Paneth Cells",1330,0.0801060049388665
+"A1-Het","Nanopore","Dedifferentiating Paneth-like cells",1547,0.093175932060471
+"A1-Het","Nanopore","TA Cells - G2/M",2674,0.161055230982353
+"A1-Het","Nanopore","TA Cells - S",2546,0.153345780882973
+"A1-Het","Nanopore","TA Cells",174,0.0104800337288442
+"A1-Het","Nanopore","Intestinal Stem Cells",3918,0.235981449135698
+"A1-Het","Nanopore","Goblet cells",555,0.0334276937902789
+"A1-Het","Nanopore","Enteroendocrine Cells",572,0.0344516051316027
+"A1-Het","Nanopore","Absorptive enterocytes",564,0.0339697645003915
+"A1-Het","Nanopore","Early Differentiating Enterocytes",182,0.0109618743600554
+"A1-Rescue","10X","Paneth Cells Progenitors",3704,0.238521475948226
+"A1-Rescue","10X","Paneth Cells",1568,0.1009723742675
+"A1-Rescue","10X","Dedifferentiating Paneth-like cells",761,0.0490050872561015
+"A1-Rescue","10X","TA Cells - G2/M",1630,0.104964904372464
+"A1-Rescue","10X","TA Cells - S",204,0.0131367119582716
+"A1-Rescue","10X","TA Cells",3105,0.199948483482517
+"A1-Rescue","10X","Intestinal Stem Cells",2092,0.134715693219138
+"A1-Rescue","10X","Goblet cells",811,0.0522248695988151
+"A1-Rescue","10X","Enteroendocrine Cells",565,0.036383540472664
+"A1-Rescue","10X","Absorptive enterocytes",840,0.054092343357589
+"A1-Rescue","10X","Early Differentiating Enterocytes",249,0.0160345160667139
+"A1-Rescue","Nanopore","Paneth Cells Progenitors",3704,0.238521475948226
+"A1-Rescue","Nanopore","Paneth Cells",1568,0.1009723742675
+"A1-Rescue","Nanopore","Dedifferentiating Paneth-like cells",761,0.0490050872561015
+"A1-Rescue","Nanopore","TA Cells - G2/M",1630,0.104964904372464
+"A1-Rescue","Nanopore","TA Cells - S",204,0.0131367119582716
+"A1-Rescue","Nanopore","TA Cells",3105,0.199948483482517
+"A1-Rescue","Nanopore","Intestinal Stem Cells",2092,0.134715693219138
+"A1-Rescue","Nanopore","Goblet cells",811,0.0522248695988151
+"A1-Rescue","Nanopore","Enteroendocrine Cells",565,0.036383540472664
+"A1-Rescue","Nanopore","Absorptive enterocytes",840,0.054092343357589
+"A1-Rescue","Nanopore","Early Differentiating Enterocytes",249,0.0160345160667139
+"KO","10X","Paneth Cells Progenitors",6467,0.380972017673049
+"KO","10X","Paneth Cells",1673,0.0985567010309278
+"KO","10X","Dedifferentiating Paneth-like cells",1280,0.0754050073637702
+"KO","10X","TA Cells - G2/M",1424,0.0838880706921944
+"KO","10X","TA Cells - S",2216,0.130544918998527
+"KO","10X","TA Cells",19,0.00111929307805596
+"KO","10X","Intestinal Stem Cells",2775,0.163475699558174
+"KO","10X","Goblet cells",460,0.0270986745213549
+"KO","10X","Enteroendocrine Cells",363,0.0213843888070692
+"KO","10X","Absorptive enterocytes",231,0.0136082474226804
+"KO","10X","Early Differentiating Enterocytes",67,0.00394698085419735
+"KO","Nanopore","Paneth Cells Progenitors",6465,0.380899075001473
+"KO","Nanopore","Paneth Cells",1673,0.098568314381665
+"KO","Nanopore","Dedifferentiating Paneth-like cells",1280,0.0754138926530372
+"KO","Nanopore","TA Cells - G2/M",1424,0.0838979555765039
+"KO","Nanopore","TA Cells - S",2216,0.130560301655571
+"KO","Nanopore","TA Cells",19,0.00111942496906852
+"KO","Nanopore","Intestinal Stem Cells",2775,0.163494962587639
+"KO","Nanopore","Goblet cells",460,0.0271018676721852
+"KO","Nanopore","Enteroendocrine Cells",363,0.0213869086195723
+"KO","Nanopore","Absorptive enterocytes",231,0.0136098509397278
+"KO","Nanopore","Early Differentiating Enterocytes",67,0.00394744594355741
+"WT","10X","Paneth Cells Progenitors",3397,0.237918475977028
+"WT","10X","Paneth Cells",1765,0.123616753046645
+"WT","10X","Dedifferentiating Paneth-like cells",1327,0.0929401877013587
+"WT","10X","TA Cells - G2/M",2297,0.160876873511696
+"WT","10X","TA Cells - S",1022,0.0715786524723351
+"WT","10X","TA Cells",257,0.0179997198487183
+"WT","10X","Intestinal Stem Cells",1848,0.129429892141757
+"WT","10X","Goblet cells",589,0.0412522762291637
+"WT","10X","Enteroendocrine Cells",373,0.0261241070177896
+"WT","10X","Absorptive enterocytes",214,0.0149880935705281
+"WT","10X","Early Differentiating Enterocytes",1189,0.0832749684829808
+"WT","Nanopore","Paneth Cells Progenitors",3397,0.237918475977028
+"WT","Nanopore","Paneth Cells",1765,0.123616753046645
+"WT","Nanopore","Dedifferentiating Paneth-like cells",1327,0.0929401877013587
+"WT","Nanopore","TA Cells - G2/M",2297,0.160876873511696
+"WT","Nanopore","TA Cells - S",1022,0.0715786524723351
+"WT","Nanopore","TA Cells",257,0.0179997198487183
+"WT","Nanopore","Intestinal Stem Cells",1848,0.129429892141757
+"WT","Nanopore","Goblet cells",589,0.0412522762291637
+"WT","Nanopore","Enteroendocrine Cells",373,0.0261241070177896
+"WT","Nanopore","Absorptive enterocytes",214,0.0149880935705281
+"WT","Nanopore","Early Differentiating Enterocytes",1189,0.0832749684829808
