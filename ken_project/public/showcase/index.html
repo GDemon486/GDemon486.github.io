@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRT6 WT vs KO 公共数据（MSC/MEF）bulk DEG/GO/KEGG 分析报告</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; max-width: 1500px; margin: 0 auto; padding: 20px; background-color: #eef1f6; }
+  h1,h2,h3,h4 { color: #1f2a44; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(20,40,80,.08); margin-bottom: 26px; overflow: hidden; }
+  .card-header { padding: 20px 26px; border-bottom: 1px solid #e5e9f0; background: #f8fafd; }
+  .card-header h2 { margin: 0; font-size: 1.4em; }
+  .card-body { padding: 22px 26px; }
+  .hero { text-align: center; padding: 34px 24px; margin-bottom: 26px; }
+  .hero h1 { font-size: 2.0em; margin: 0 0 6px; }
+  .hero .sub { color: #5b6b83; font-size: 1.05em; }
+  .hero .meta { color: #718096; font-size: .9em; margin-top: 12px; }
+  .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(20,40,80,.08); padding: 12px 18px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .sticky-nav a { text-decoration: none; color: #385898; background: #eef2fa; padding: 6px 14px; border-radius: 8px; font-size: .92em; font-weight: 600; }
+  .sticky-nav a:hover { background: #dde5f3; }
+  .warn { background: #fff8e6; border-left: 5px solid #f5a623; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  .note { background: #eef4ff; border-left: 5px solid #4a90d9; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  table { border-collapse: collapse; width: 100%; font-size: .92em; margin: 10px 0; }
+  th, td { border: 1px solid #d9dee8; padding: 6px 10px; text-align: left; }
+  th { background: #f0f3f9; color: #33415c; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfe; }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .tab-btn { padding: 8px 16px; background: #eef2f7; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: .95em; font-weight: 600; color: #475467; }
+  .tab-btn:hover { background: #dde5f3; }
+  .tab-btn.active { background: #2563eb; color: #fff; border-color: #1d4ed8; }
+  .pdfframe { width: 100%; height: 640px; border: 1px solid #d9dee8; border-radius: 8px; background: #f8f8f8; }
+  .imgcol { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .imgcol .one { grid-column: 1 / -1; }
+  .imgbox { background: #fafbfe; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; }
+  .imgbox iframe { width: 100%; height: 520px; border: none; border-radius: 6px; background: #fff; }
+  .imgbox figcaption { font-size: .9em; color: #5b6b83; margin-top: 8px; text-align: center; font-weight: 600; }
+  @media (max-width: 1000px) { .imgcol { grid-template-columns: 1fr; } }
+  .dl { display: inline-block; margin: 4px 6px 4px 0; text-decoration: none; background: #385898; color: #fff; padding: 7px 14px; border-radius: 8px; font-weight: 600; font-size: .9em; }
+  .dl:hover { background: #2b4377; }
+  .small { font-size: .86em; color: #718096; }
+  .mono { font-family: Consolas, monospace; }
+</style>
+</head>
+<body>
+
+<div class="card hero">
+  <h1>SIRT6 WT vs KO 公共数据 · bulk DEG / GO / KEGG 分析报告</h1>
+  <div class="sub">GEO 公共数据集（小鼠 MEF · 人 hMSC）· edgeR/voom + limma + clusterProfiler · 仿 sc_10x 下游 06/06b 流程</div>
+  <div class="meta">数据源：GSE109280（MEF RNA-seq）· GSE64642（hMSC RNA-seq）· GSE28585 / GSE13207（MEF 芯片）· 对照 sc_10x（本实验室肠道类器官 10X scRNA-seq）&nbsp;|&nbsp; NGDC HRA003336 仅有原始 FASTQ 未纳入本报告</div>
+</div>
+
+<div class="sticky-nav" id="nav"></div>
+
+<!-- ============ 1 数据概览 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-overview">1. 数据概览与统计设计</h2></div>
+  <div class="card-body">
+    <table id="ds-table"></table>
+    <div class="warn"><b>统计设计分级（如实标注 stat_class）：</b>
+      <b>formal</b> —— GSE109280（WT×3 vs Sirt6-/-×3，真实生物学重复）与 GSE64642（WT×2 vs KO×2，df 低按半定量解读）支持正式统计检验；
+      <b>array_main</b> —— 两套芯片为 2×4 全交叉设计（每格 n=1），用 <span class="mono">~genotype+time</span> 模型的 genotype 主效应检验（KO_vs_WT_main，有残差 df）；
+      <b>exploratory</b> —— 芯片单时点 1v1 无 p 值，仅 |logFC|≥1 的探索性排序（图表为 MA-plot）。详见 <span class="mono">README_statistical_design.txt</span>。</div>
+    <div class="note">阈值：formal/main 用 padj&lt;0.05 且 |logFC|≥0.25（与 sc_10x 一致）；exploratory 用 |logFC|≥1.0。up_in_&lt;组&gt; 表示该基因在该组相对升高。GSE64642 为人源（hsa），其余为小鼠（mmu）。</div>
+  </div>
+</div>
+
+<!-- ============ 2 DEG ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-deg">2. 差异表达（数据集 × 对比 双级切换）</h2></div>
+  <div class="card-body">
+    <p>火山图（formal/main，有 p 值）与 MA-plot（exploratory，无 p 值）按 数据集 → 对比 两级切换。GSE109280 含 Sirt6 KO 效应、ATM KO 对照与敲除特异性对比；GSE64642 分早/晚传代；两套芯片含 TNF-α 主效应与各时点。</p>
+    <div class="tab-bar" id="vol-ds-tabs"></div>
+    <div class="tab-bar" id="vol-cn-tabs"></div>
+    <iframe class="pdfframe" id="vol-frame"></iframe>
+    <h3>DEG 数量汇总</h3>
+    <table id="deg-table"></table>
+    <p class="small">n_tested = 通过检测的基因数；up/down = direction 计数（阈值见第 1 节）。</p>
+    <p>
+      <a class="dl" href="data/all_datasets_all_contrasts_DEG.csv" download>下载全量 DEG 表（4 数据集 × 全部对比）</a>
+      <a class="dl" href="data/DEG_counts_summary.csv" download>下载 DEG 数量汇总</a>
+      <a class="dl" href="data/README_statistical_design.txt" download>查看统计设计说明</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 3 GO ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-go">3. GO 富集（GO-BP top terms，分方向，自上而下按 Gene ratio 降序）</h2></div>
+  <div class="card-body">
+    <p>clusterProfiler enrichGO（ont=ALL，dotplot 仅展示 BP）；universe = 该数据集该对比的全部检测基因。每个对比分 up_in_KO / up_in_WT 两方向面板。</p>
+    <div class="tab-bar" id="go-ds-tabs"></div>
+    <div class="tab-bar" id="go-cn-tabs"></div>
+    <iframe class="pdfframe" id="go-frame"></iframe>
+    <p><a class="dl" href="data/all_datasets_GO_enrichment.csv" download>下载 GO 富集全表</a></p>
+  </div>
+</div>
+
+<!-- ============ 4 KEGG ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-kegg">4. KEGG 通路富集</h2></div>
+  <div class="card-body">
+    <p>clusterProfiler enrichKEGG（GSE64642 = hsa，其余 = mmu，在线 REST 查询）；分方向面板，展示规则同 GO。</p>
+    <div class="tab-bar" id="kegg-ds-tabs"></div>
+    <div class="tab-bar" id="kegg-cn-tabs"></div>
+    <iframe class="pdfframe" id="kegg-frame"></iframe>
+    <p><a class="dl" href="data/all_datasets_KEGG_enrichment.csv" download>下载 KEGG 富集全表</a>
+       <a class="dl" href="data/README_enrichment_note.txt" download>查看富集解读说明</a></p>
+  </div>
+</div>
+
+<!-- ============ 5 sc_10x 对照 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-sc10x">5. sc_10x 对照数据集（SIRT6-hnRNP A1 肠道类器官 10X scRNA-seq）</h2></div>
+  <div class="card-body">
+    <p>本实验室 sc_10x 项目（WT / KO / A1-Het / A1-Rescue 肠道类器官 10X 3' v3）的 pseudobulk DEG 与 GO/KEGG 结果，作为第 6 节跨数据集对比的对照单元。此处展示 <b>KO vs WT</b> 主对比（Global + 10 个细胞类型，按钮切换）；完整 5 对比结果见 <span class="mono">sc10x/data/</span> 全表。</p>
+    <div class="warn"><b>统计口径（与 sc_10x 报告一致）：</b>每基因型仅 1 个生物学样本，DEG 为<b>伪重复</b>（每样本每细胞类型随机拆 3 份，seed=42）edgeR+voom 结果，p 值系统性偏乐观，仅作探索性排序；与 public bulk 的 formal / main 结果对比时应注意此差异。</div>
+    <h3>火山图（细胞类型切换）</h3>
+    <div class="tab-bar" id="sc10x-vol-tabs"></div>
+    <iframe class="pdfframe" id="sc10x-vol-frame"></iframe>
+    <h3>GO 富集 dotplot（细胞类型切换）</h3>
+    <div class="tab-bar" id="sc10x-go-tabs"></div>
+    <iframe class="pdfframe" id="sc10x-go-frame"></iframe>
+    <h3>KEGG 富集 dotplot（细胞类型切换）</h3>
+    <div class="tab-bar" id="sc10x-kegg-tabs"></div>
+    <iframe class="pdfframe" id="sc10x-kegg-frame"></iframe>
+    <p>
+      <a class="dl" href="sc10x/data/all_celltypes_all_contrasts_DEG.csv" download>下载 sc_10x 全量 DEG 表（5 对比 × Global+10 细胞类型）</a>
+      <a class="dl" href="sc10x/data/all_celltypes_GO_enrichment.csv" download>下载 sc_10x GO 富集</a>
+      <a class="dl" href="sc10x/data/all_celltypes_KEGG_enrichment.csv" download>下载 sc_10x KEGG 富集</a>
+      <a class="dl" href="sc10x/data/README_pseudorep_design.txt" download>查看伪重复设计说明</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 6 总结对比 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-summary">6. 跨数据集总结对比（SIRT6 KO vs WT）</h2></div>
+  <div class="card-body">
+    <p>6 个分析单元统一取 <b>SIRT6 KO vs WT</b> 主对比：sc_10x Global（pseudobulk）、GSE109280（MEF RNA-seq）、GSE64642 早/晚代（hMSC）、GSE28585 与 GSE13207（MEF 芯片主效应）。人源 GSE64642 基因按 Title-case 规则近似映射为鼠直系同源形式（SIRT6→Sirt6），仅保留可对应基因。</p>
+    <h3>6.1 DEG 规模与集合重叠</h3>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="summary/Summary_DEG_counts_bar.pdf"></iframe><figcaption>各单元显著 DEG 数量（up_in_KO / up_in_WT）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/Summary_DEG_jaccard_heatmap.pdf"></iframe><figcaption>DEG 集合两两 Jaccard 相似度热图（分方向）</figcaption></div>
+    </div>
+    <div class="imgbox one"><iframe class="pdfframe" src="summary/Summary_DEG_intersection_upset.pdf"></iframe><figcaption>UpSet：跨单元共享/特异 DEG（任一方向显著，top 交集组合 + 成员点阵）</figcaption></div>
+    <div class="imgbox one"><iframe class="pdfframe" src="summary/Summary_logFC_cor_heatmap.pdf"></iframe><figcaption>共同检测基因 logFC 的单元两两 Spearman 相关热图（方向一致性）</figcaption></div>
+    <h3>6.2 共享通路（GO-BP / KEGG）—— 以 sc_10x Global 高富集通路为主</h3>
+    <p class="small">行集合 = sc_10x Global（KO vs WT）每方向 padj 最小的 top20 显著条目（不足 20 条时取全部显著条目）；格子 = 该条目在各单元的 -log10(padj)，灰色 = 该单元未显著富集。直接回答"我们的高富集通路在其它样本中是否复现、强度如何"。</p>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="summary/Summary_GO_shared_heatmap_KOup.pdf"></iframe><figcaption>GO-BP：sc_10x Global top20 条目 × 各单元（up_in_KO）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/Summary_GO_shared_heatmap_WTup.pdf"></iframe><figcaption>GO-BP：sc_10x Global top20 条目 × 各单元（up_in_WT）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/Summary_KEGG_shared_heatmap_KOup.pdf"></iframe><figcaption>KEGG：sc_10x Global 显著条目 × 各单元（up_in_KO；hsa/mmu id 去前缀对齐）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/Summary_KEGG_shared_heatmap_WTup.pdf"></iframe><figcaption>KEGG：sc_10x Global top20 条目 × 各单元（up_in_WT）</figcaption></div>
+    </div>
+    <p>
+      <a class="dl" href="summary/shared_DEGs_KO_vs_WT.csv" download>下载跨单元共享 DEG 宽表（≥2 单元显著）</a>
+      <a class="dl" href="summary/DEG_sets_sizes.csv" download>下载各单元 DEG 集合大小</a>
+      <a class="dl" href="summary/README_cross_summary.txt" download>查看总结口径说明</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 7 细胞类型层总结 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-ct">7. sc_10x 细胞类型拆分对比（15 单元）</h2></div>
+  <div class="card-body">
+    <p>将 sc_10x 从 Global 拆分到 10 个细胞类型（TA Cells 因 KO 样本细胞数&lt;30 无检验结果，不含），与 public 5 个 bulk 单元（GSE109280 / GSE28585 / GSE13207 / GSE64642 早/晚代）组成 15 个分析单元，展示内容与第 6 节一致。</p>
+    <h3>7.1 DEG 规模与集合重叠</h3>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="summary/CT_Summary_DEG_counts_bar.pdf"></iframe><figcaption>15 单元显著 DEG 数量（up_in_KO / up_in_WT）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/CT_Summary_DEG_jaccard_heatmap.pdf"></iframe><figcaption>15 单元 DEG 集合两两 Jaccard 相似度（分方向）</figcaption></div>
+    </div>
+    <div class="imgbox one"><iframe class="pdfframe" src="summary/CT_Summary_DEG_intersection_upset.pdf"></iframe><figcaption>UpSet：15 单元共享/特异 DEG（top 组合 + 成员点阵）</figcaption></div>
+    <div class="imgbox one"><iframe class="pdfframe" src="summary/CT_Summary_logFC_cor_heatmap.pdf"></iframe><figcaption>15 单元共同基因 logFC Spearman 相关热图</figcaption></div>
+    <h3>7.2 共享通路（GO-BP / KEGG）—— 以 sc_10x 细胞类型共识条目为主</h3>
+    <p class="small">行集合 = 在 ≥2 个 sc_10x 细胞类型中显著富集的条目（top30，按共享细胞类型数与 padj 排序）；格子 = 该条目在全部 15 单元（含 public bulk）的 -log10(padj)，灰色 = 未显著。</p>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="summary/CT_Summary_GO_shared_heatmap_KOup.pdf"></iframe><figcaption>GO-BP：sc_10x 细胞类型共识 top30 × 15 单元（up_in_KO）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/CT_Summary_GO_shared_heatmap_WTup.pdf"></iframe><figcaption>GO-BP：sc_10x 细胞类型共识 top30 × 15 单元（up_in_WT）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/CT_Summary_KEGG_shared_heatmap_KOup.pdf"></iframe><figcaption>KEGG：sc_10x 细胞类型共识 top30 × 15 单元（up_in_KO）</figcaption></div>
+      <div class="imgbox"><iframe src="summary/CT_Summary_KEGG_shared_heatmap_WTup.pdf"></iframe><figcaption>KEGG：sc_10x 细胞类型共识 top30 × 15 单元（up_in_WT）</figcaption></div>
+    </div>
+    <p>
+      <a class="dl" href="summary/CT_shared_DEGs_KO_vs_WT.csv" download>下载细胞类型层共享 DEG 宽表（≥2 单元显著）</a>
+      <a class="dl" href="summary/CT_DEG_sets_sizes.csv" download>下载 15 单元 DEG 集合大小</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 8 文件 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-files">8. 本报告包含的文件</h2></div>
+  <div class="card-body">
+    <p>全部文件与本 <span class="mono">index.html</span> 位于同一 <span class="mono">showcase</span> 目录，打包后可在本地浏览器直接查看。</p>
+    <p class="small mono" id="filelist"></p>
+  </div>
+</div>
+
+<script>
+var DATASETS = [
+{id:"GSE109280_MEF",label:"GSE109280 · Mouse MEF (RNA-seq, n=3)",contrasts:[["Sirt6_KO vs WT","Sirt6_KO_vs_WT"],["ATM_KO vs WT","ATM_KO_vs_WT"],["Sirt6 KO vs ATM KO","Sirt6_KO_vs_ATM_KO"]]},
+{id:"GSE64642_hMSC",label:"GSE64642 · Human hMSC (FPKM, n=2)",contrasts:[["early_KO vs WT","early_KO_vs_WT"],["late_KO vs WT","late_KO_vs_WT"]]},
+{id:"GSE28585_MEF_array",label:"GSE28585 · Mouse MEF (array)",contrasts:[["KO vs WT · main","KO_vs_WT_main"],["KO vs WT · 0min","KO_vs_WT_0min"],["KO vs WT · 1.5h","KO_vs_WT_1_5h"],["KO vs WT · 6h","KO_vs_WT_6h"],["KO vs WT · 24h","KO_vs_WT_24h"]]},
+{id:"GSE13207_MEF_array",label:"GSE13207 · Mouse MEF (array)",contrasts:[["KO vs WT · main","KO_vs_WT_main"],["KO vs WT · 0hr","KO_vs_WT_0hr"],["KO vs WT · 1.5hr","KO_vs_WT_1_5hr"],["KO vs WT · 6hr","KO_vs_WT_6hr"],["KO vs WT · 24hr","KO_vs_WT_24hr"]]}
+];
+var CNT = [
+["GSE109280_MEF","Sirt6_KO_vs_WT","formal",13757,4926,4437],["GSE109280_MEF","ATM_KO_vs_WT","formal",13757,4229,3899],["GSE109280_MEF","Sirt6_KO_vs_ATM_KO","formal",13757,4607,4455],["GSE64642_hMSC","early_KO_vs_WT","formal",23616,1516,2330],["GSE64642_hMSC","late_KO_vs_WT","formal",23616,1830,1764],["GSE28585_MEF_array","KO_vs_WT_main","formal",18120,1930,1856],["GSE28585_MEF_array","KO_vs_WT_0min","exploratory",18120,1056,4265],["GSE28585_MEF_array","KO_vs_WT_1_5h","exploratory",18120,1380,3520],["GSE28585_MEF_array","KO_vs_WT_6h","exploratory",18120,2728,2439],["GSE28585_MEF_array","KO_vs_WT_24h","exploratory",18120,3529,1369],["GSE13207_MEF_array","KO_vs_WT_main","formal",20651,530,1292],["GSE13207_MEF_array","KO_vs_WT_0hr","exploratory",20651,182,1508],["GSE13207_MEF_array","KO_vs_WT_1_5hr","exploratory",20651,129,650],["GSE13207_MEF_array","KO_vs_WT_6hr","exploratory",20651,1110,387],["GSE13207_MEF_array","KO_vs_WT_24hr","exploratory",20651,1055,744]
+];
+var nav = ["overview","deg","go","kegg","sc10x","summary","ct","files"];
+var navLabels = ["1 数据概览","2 DEG","3 GO","4 KEGG","5 sc_10x","6 总结对比","7 细胞类型层","8 文件"];
+document.getElementById("nav").innerHTML = navLabels.map(function(l,i){return '<a href="#sec-'+nav[i]+'">'+l+'</a>';}).join("");
+
+// dataset overview
+var DS_INFO = {
+  GSE109280_MEF: ["Mus musculus","MEF (小鼠胚胎成纤维)","bulk RNA-seq · read count","WT×3 / Sirt6-/-×3 / Atm-/-×3","formal"],
+  GSE64642_hMSC: ["Homo sapiens","hMSC (人骨髓间充质干细胞)","bulk RNA-seq · FPKM","WT×2 / KO×2 (早/晚传代)","formal (n=2, 半定量)"],
+  GSE28585_MEF_array: ["Mus musculus","MEF","Illumina MouseRef-8 芯片","WT / S6KO × TNF-α 4 时点 (每格 n=1)","main 正式 + 单时点探索"],
+  GSE13207_MEF_array: ["Mus musculus","MEF","MEEBO 双色芯片 (log2 ratio)","WT / KO × TNF-α 4 时点 (0h 各 2 张)","main 正式 + 单时点探索"]
+};
+var dh = "<tr><th>数据集</th><th>物种</th><th>细胞类型</th><th>平台/数据类型</th><th>样本设计</th><th>统计分级</th></tr>";
+dh += DATASETS.map(function(d){var i=DS_INFO[d.id];return "<tr><td>"+d.label+"</td><td>"+i[0]+"</td><td>"+i[1]+"</td><td>"+i[2]+"</td><td>"+i[3]+"</td><td>"+i[4]+"</td></tr>";}).join("");
+document.getElementById("ds-table").innerHTML = dh;
+
+// DEG counts table
+var gh = "<tr><th>数据集</th><th>对比</th><th>统计分级</th><th>检测基因数</th><th>up_in_组1</th><th>up_in_组2</th></tr>";
+gh += CNT.map(function(r){return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3].toLocaleString()+"</td><td>"+r[4].toLocaleString()+"</td><td>"+r[5].toLocaleString()+"</td></tr>";}).join("");
+document.getElementById("deg-table").innerHTML = gh;
+
+// dual-level tabs: dataset (top) -> contrast (bottom), shared by deg/go/kegg
+function makeSection(frameId, dsTabsId, cnTabsId, prefix){
+  var st = {d:0, c:0};
+  var dsEl = document.getElementById(dsTabsId), cnEl = document.getElementById(cnTabsId);
+  function upd(){ document.getElementById(frameId).src = prefix + DATASETS[st.d].id + "_" + DATASETS[st.d].contrasts[st.c][1] + ".pdf"; }
+  function buildCn(){
+    cnEl.innerHTML = DATASETS[st.d].contrasts.map(function(c,i){
+      return '<button class="tab-btn'+(i===st.c?' active':'')+'" data-i="'+i+'">'+c[0]+'</button>';}).join("");
+    Array.prototype.forEach.call(cnEl.querySelectorAll(".tab-btn"), function(b){
+      b.onclick = function(){ st.c = +b.dataset.i;
+        Array.prototype.forEach.call(cnEl.querySelectorAll(".tab-btn"), function(x,j){x.classList.toggle("active", j===st.c);});
+        upd(); };
+    });
+  }
+  dsEl.innerHTML = DATASETS.map(function(d,i){
+    return '<button class="tab-btn'+(i===0?' active':'')+'" data-i="'+i+'">'+d.label+'</button>';}).join("");
+  Array.prototype.forEach.call(dsEl.querySelectorAll(".tab-btn"), function(b){
+    b.onclick = function(){ st.d = +b.dataset.i; st.c = 0;
+      Array.prototype.forEach.call(dsEl.querySelectorAll(".tab-btn"), function(x,j){x.classList.toggle("active", j===st.d);});
+      buildCn(); upd(); };
+  });
+  buildCn(); upd();
+}
+makeSection("vol-frame","vol-ds-tabs","vol-cn-tabs","deg/Volcano_");
+makeSection("go-frame","go-ds-tabs","go-cn-tabs","go/GO_dotplot_");
+makeSection("kegg-frame","kegg-ds-tabs","kegg-cn-tabs","kegg/KEGG_dotplot_");
+
+// ---- section 5: sc_10x (KO vs WT, celltype single-level tabs) ----
+var SC10X_CTS = [
+  ["Global (all cells)","Global"], ["Absorptive enterocytes","Absorptive_enterocytes"],
+  ["Dedifferentiating Paneth-like cells","Dedifferentiating_Paneth-like_cells"],
+  ["Early Differentiating Enterocytes","Early_Differentiating_Enterocytes"],
+  ["Enteroendocrine Cells","Enteroendocrine_Cells"], ["Goblet cells","Goblet_cells"],
+  ["Intestinal Stem Cells","Intestinal_Stem_Cells"], ["Paneth Cells","Paneth_Cells"],
+  ["Paneth Cells Progenitors","Paneth_Cells_Progenitors"],
+  ["TA Cells - G2/M","TA_Cells_-_G2_M"], ["TA Cells - S","TA_Cells_-_S"]
+];
+function makeSimpleTabs(frameId, tabsId, prefix){
+  var st = {i:0};
+  var el = document.getElementById(tabsId);
+  el.innerHTML = SC10X_CTS.map(function(c,i){
+    return '<button class="tab-btn'+(i===0?' active':'')+'" data-i="'+i+'">'+c[0]+'</button>';}).join("");
+  function upd(){ document.getElementById(frameId).src = prefix + SC10X_CTS[st.i][1] + "_KO_vs_WT.pdf"; }
+  Array.prototype.forEach.call(el.querySelectorAll(".tab-btn"), function(b){
+    b.onclick = function(){ st.i = +b.dataset.i;
+      Array.prototype.forEach.call(el.querySelectorAll(".tab-btn"), function(x,j){x.classList.toggle("active", j===st.i);});
+      upd(); };
+  });
+  upd();
+}
+makeSimpleTabs("sc10x-vol-frame","sc10x-vol-tabs","sc10x/deg/Volcano_");
+makeSimpleTabs("sc10x-go-frame","sc10x-go-tabs","sc10x/go/GO_dotplot_");
+makeSimpleTabs("sc10x-kegg-frame","sc10x-kegg-tabs","sc10x/kegg/KEGG_dotplot_");
+
+// file list
+var FILES = ["deg/Volcano_*.pdf (15)", "go/GO_dotplot_*.pdf (15)",
+  "kegg/KEGG_dotplot_*.pdf (15)", "data/all_datasets_all_contrasts_DEG.csv",
+  "data/DEG_counts_summary.csv", "data/all_datasets_GO_enrichment.csv",
+  "data/all_datasets_KEGG_enrichment.csv", "data/README_statistical_design.txt",
+  "data/README_enrichment_note.txt",
+  "sc10x/deg/Volcano_*_KO_vs_WT.pdf (11)", "sc10x/go/GO_dotplot_*_KO_vs_WT.pdf (11)",
+  "sc10x/kegg/KEGG_dotplot_*_KO_vs_WT.pdf (11)",
+  "sc10x/data/all_celltypes_all_contrasts_DEG.csv (full 5-contrast)",
+  "sc10x/data/all_celltypes_GO_enrichment.csv", "sc10x/data/all_celltypes_KEGG_enrichment.csv",
+  "sc10x/data/README_pseudorep_design.txt",
+  "summary/Summary_DEG_counts_bar.pdf", "summary/Summary_DEG_jaccard_heatmap.pdf",
+  "summary/Summary_DEG_intersection_upset.pdf", "summary/Summary_logFC_cor_heatmap.pdf",
+  "summary/Summary_GO_shared_heatmap_KOup.pdf", "summary/Summary_GO_shared_heatmap_WTup.pdf",
+  "summary/Summary_KEGG_shared_heatmap_KOup.pdf", "summary/Summary_KEGG_shared_heatmap_WTup.pdf",
+  "summary/shared_DEGs_KO_vs_WT.csv", "summary/DEG_sets_sizes.csv",
+  "summary/CT_Summary_DEG_counts_bar.pdf", "summary/CT_Summary_DEG_jaccard_heatmap.pdf",
+  "summary/CT_Summary_DEG_intersection_upset.pdf", "summary/CT_Summary_logFC_cor_heatmap.pdf",
+  "summary/CT_Summary_GO_shared_heatmap_KOup.pdf", "summary/CT_Summary_GO_shared_heatmap_WTup.pdf",
+  "summary/CT_Summary_KEGG_shared_heatmap_KOup.pdf", "summary/CT_Summary_KEGG_shared_heatmap_WTup.pdf",
+  "summary/CT_shared_DEGs_KO_vs_WT.csv", "summary/CT_DEG_sets_sizes.csv",
+  "summary/README_cross_summary.txt"];
+document.getElementById("filelist").innerHTML = FILES.join("<br>");
+</script>
+</body>
+</html>

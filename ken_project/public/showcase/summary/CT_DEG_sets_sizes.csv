@@ -1,0 +1,16 @@
+"unit","unit_id","up_in_KO","up_in_WT"
+"sc10x · Absorptive enterocytes","sc10x_Absorptive_enterocytes",1101,1162
+"sc10x · Dedifferentiating Paneth-like cells","sc10x_Dedifferentiating_Paneth-like_cells",1223,1121
+"sc10x · Early Differentiating Enterocytes","sc10x_Early_Differentiating_Enterocytes",1153,743
+"sc10x · Enteroendocrine Cells","sc10x_Enteroendocrine_Cells",910,923
+"sc10x · Goblet cells","sc10x_Goblet_cells",1548,1322
+"sc10x · Intestinal Stem Cells","sc10x_Intestinal_Stem_Cells",1807,1633
+"sc10x · Paneth Cells","sc10x_Paneth_Cells",1148,1100
+"sc10x · Paneth Cells Progenitors","sc10x_Paneth_Cells_Progenitors",841,1035
+"sc10x · TA Cells - G2/M","sc10x_TA_Cells_-_G2_M",1971,2188
+"sc10x · TA Cells - S","sc10x_TA_Cells_-_S",1263,1322
+"GSE109280 (MEF)","GSE109280",4926,4437
+"GSE28585 (MEF array)","GSE28585",1930,1856
+"GSE13207 (MEF array)","GSE13207",530,1292
+"GSE64642 early (hMSC)","GSE64642_early",1516,2330
+"GSE64642 late (hMSC)","GSE64642_late",1830,1764
