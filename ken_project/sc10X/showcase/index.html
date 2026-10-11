@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRT6-hnRNP A1 肠道类器官 10X scRNA-seq 分析报告</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; max-width: 1500px; margin: 0 auto; padding: 20px; background-color: #eef1f6; }
+  h1,h2,h3,h4 { color: #1f2a44; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(20,40,80,.08); margin-bottom: 26px; overflow: hidden; }
+  .card-header { padding: 20px 26px; border-bottom: 1px solid #e5e9f0; background: #f8fafd; }
+  .card-header h2 { margin: 0; font-size: 1.4em; }
+  .card-body { padding: 22px 26px; }
+  .hero { text-align: center; padding: 34px 24px; margin-bottom: 26px; }
+  .hero h1 { font-size: 2.1em; margin: 0 0 6px; }
+  .hero .sub { color: #5b6b83; font-size: 1.05em; }
+  .hero .meta { color: #718096; font-size: .9em; margin-top: 12px; }
+  .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(20,40,80,.08); padding: 12px 18px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .sticky-nav a { text-decoration: none; color: #385898; background: #eef2fa; padding: 6px 14px; border-radius: 8px; font-size: .92em; font-weight: 600; }
+  .sticky-nav a:hover { background: #dde5f3; }
+  .warn { background: #fff8e6; border-left: 5px solid #f5a623; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  .warn code { background: #f0ead6; padding: 1px 5px; border-radius: 4px; }
+  .note { background: #eef4ff; border-left: 5px solid #4a90d9; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; }
+  .skip { background: #f3f4f6; border-left: 5px solid #9aa3af; padding: 12px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .95em; color: #55606e; }
+  table { border-collapse: collapse; width: 100%; font-size: .92em; margin: 10px 0; }
+  th, td { border: 1px solid #d9dee8; padding: 6px 10px; text-align: left; }
+  th { background: #f0f3f9; color: #33415c; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfe; }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .tab-btn { padding: 8px 16px; background: #eef2f7; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: .95em; font-weight: 600; color: #475467; }
+  .tab-btn:hover { background: #dde5f3; }
+  .tab-btn.active { background: #2563eb; color: #fff; border-color: #1d4ed8; }
+  .pdfframe { width: 100%; height: 640px; border: 1px solid #d9dee8; border-radius: 8px; background: #f8f8f8; }
+  .pdfframe.wide { height: 560px; }
+  .imgcol { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .imgcol .one { grid-column: 1 / -1; }
+  .imgcol .three { grid-column: span 1; }
+  .imgbox { background: #fafbfe; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; }
+  .imgbox iframe { width: 100%; height: 520px; border: none; border-radius: 6px; background: #fff; }
+  .imgbox figcaption { font-size: .9em; color: #5b6b83; margin-top: 8px; text-align: center; font-weight: 600; }
+  .dl { display: inline-block; margin: 4px 6px 4px 0; text-decoration: none; background: #385898; color: #fff; padding: 7px 14px; border-radius: 8px; font-weight: 600; font-size: .9em; }
+  .dl:hover { background: #2b4377; }
+  .filelist { columns: 3; font-size: .9em; }
+  .filelist div { break-inside: avoid; margin: 4px 0; }
+  .filelist a { color: #385898; text-decoration: none; }
+  .small { font-size: .86em; color: #718096; }
+  .mono { font-family: Consolas, monospace; }
+  @media (max-width: 1000px) { .imgcol { grid-template-columns: 1fr; } .filelist { columns: 1; } }
+</style>
+</head>
+<body>
+
+<div class="card hero">
+  <h1>SIRT6 · hnRNP A1 肠道类器官 · 10X scRNA-seq 分析报告</h1>
+  <div class="sub">10X Genomics 3' v3 · Cell Ranger 6.0.1（mm10-2020-A）· 标准 R/Seurat 流程 · 两级细胞注释</div>
+  <div class="meta">数据源：ZhouZJ_10X3RNA_CPOS-240719-YLC-24658a（WT / KO / A1-Het / A1-Rescue，n=1/基因型）&nbsp;|&nbsp; 报告更新：2026-09-21（KO 与 A1-Het 样本标签勘误对调，所有图表数据已同步）</div>
+</div>
+
+<div class="sticky-nav" id="nav"></div>
+
+<!-- ============ 1 数据概览 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-overview">1. 数据概览与质控</h2></div>
+  <div class="card-body">
+    <p>上游为测序公司返回的 Cell Ranger 6.0.1 标准结果（参考基因组 mm10-2020-A，Single Cell 3' v3）。<b>流程不额外做本地 QC 过滤</b>：直接用 Cell Ranger cell calling 后的 filtered 矩阵进行分析。</p>
+    <div class="warn"><b>重要提示：</b>每种基因型目前仅 <b>1 个独立样本（n=1）</b>。细胞组成、DEG、Milo/propeller 等<b>统计检验</b>因无生物学重复而受限（报告中已标注）——聚类、注释、比例图、拟时序、评分等描述性结果均完整可用。</div>
+    <table id="qc-table"></table>
+    <p class="small">n_cells = Cell Ranger 判定的细胞数（= filtered 矩阵，与 web_summary 的 Estimated Number of Cells 一致）；median_percent_mt 为线粒体基因 UMI 占比中位数。</p>
+
+    <h3>全样本 QC 小提琴图（描述性，无本地过滤）</h3>
+    <div class="imgbox"><iframe src="qc/QC_violin_all_samples.pdf"></iframe><figcaption>每细胞基因数 / UMI 数 / 线粒体%</figcaption></div>
+
+    <h3>Cell Ranger cell calling 效果（barcode rank / knee 图）</h3>
+    <p class="small">横轴为全部 barcode 按 UMI 数排序的序号（raw 矩阵，含背景液滴），绿色段为 Cell Ranger 判定为细胞的部分。绿色与灰色分界清晰说明 cell calling 合理。</p>
+    <div class="tab-bar" id="br-tabs"></div>
+    <iframe class="pdfframe" id="br-frame"></iframe>
+  </div>
+</div>
+
+<!-- ============ 2 Cell Ranger QC ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-cellranger">2. Cell Ranger 上游 QC 报告</h2></div>
+  <div class="card-body">
+    <p>测序公司返回的官方 web_summary（含比对率、饱和度、barcode/UMI 质量等）。</p>
+    <div class="tab-bar" id="ws-tabs"></div>
+    <iframe class="pdfframe wide" id="ws-frame"></iframe>
+  </div>
+</div>
+
+<!-- ============ 3 降维聚类 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-cluster">3. 标准化 · 降维 · 聚类</h2></div>
+  <div class="card-body">
+    <p>Seurat 标准流程：NormalizeData → FindVariableFeatures(3000) → ScaleData → PCA(50) → UMAP → 聚类（主分辨率 0.5，0.2–1.2 扫描）。<b>未做批次/基因型整合</b>（样本与基因型一一对应，整合会抹掉真实差异）。</p>
+    <div class="note">批次富集度（kNN 同基因型比例 vs 期望）：observed=0.527，expected=0.251，enrichment=<b>0.276</b>（阈值 0.15 → 检出示批次/基因型差异明显）。此提示基因型间确有转录差异，与"不整合、分组比较"的分析策略一致。</div>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="clustering/UMAP_byGenotype.pdf"></iframe><figcaption>UMAP · 按基因型上色</figcaption></div>
+      <div class="imgbox"><iframe src="clustering/UMAP_byCluster.pdf"></iframe><figcaption>UMAP · 按聚类簇上色</figcaption></div>
+    </div>
+    <p class="small">分辨率扫描图（clustree）因 clustree 与本机 ggplot2 兼容性未出图（详见运行说明），各分辨率聚类结果均保留在对象元数据中。</p>
+  </div>
+</div>
+
+<!-- ============ 4 注释 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-annotation">4. 细胞类型注释（两级流程）</h2></div>
+  <div class="card-body">
+    <p>细胞注释采用<b>数据驱动打分</b>（非硬编码映射）：marker 完全来自 <span class="mono">single_cell_marker.txt</span> / PPT 原表，对每个 cluster 计算各类 cell type 的 marker 集合平均表达 z-score（消除 mt-基因等高基线偏倚）等 <b>4 种打分方法</b>（avg_zscore / AddModuleScore / UCell / AUCell），投票确定注释。命名采用 PPT 原名。</p>
+    <div class="note"><b>L1 主谱系注释（分辨率 0.5，11 个 cluster → 6 大谱系）：</b>Paneth lineage、TA lineage、Intestinal Stem Cells、Enterocyte lineage、Goblet、EEC。L1 分辨率扫描在覆盖度（6 谱系 × 4 打分法 = 24/24 全覆盖）最优时停止拆分。</div>
+    <div class="note"><b>L2 谱系内亚群注释（解决 PPT 11 类全覆盖）：</b>对 Enterocyte / Paneth / TA 三大谱系分别<b>子聚类</b>并重新打分，区分终末与祖细胞亚群：
+      Enterocyte lineage（3,530 cells）→ <b>Absorptive enterocytes / Early Differentiating Enterocytes</b>；
+      Paneth lineage（27,362 cells）→ <b>Paneth Cells Progenitors / Paneth Cells / Dedifferentiating Paneth-like cells</b>；
+      TA lineage（17,578 cells）→ <b>TA Cells / TA Cells - S / TA Cells - G2/M</b>。
+      最终 <b>11/11 全部 PPT 细胞类型均被注释</b>（63,385 cells，见 <span class="mono">celltype_cell_counts.csv</span>）。</div>
+    <div class="imgcol">
+      <div class="imgbox one"><iframe src="annotation/marker_DotPlot.pdf"></iframe><figcaption>PPT 11 细胞类型 marker DotPlot（按最终注释分组）</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/UMAP_celltype.pdf"></iframe><figcaption>UMAP · 最终细胞类型</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/UMAP_lineage_broad.pdf"></iframe><figcaption>UMAP · L1 主谱系（6 大类）</figcaption></div>
+    </div>
+    <h3>L2 谱系内亚群 UMAP</h3>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_Enterocyte_lineage.pdf"></iframe><figcaption>Enterocyte 谱系子聚类</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_Paneth_lineage.pdf"></iframe><figcaption>Paneth 谱系子聚类</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_TA_lineage.pdf"></iframe><figcaption>TA 谱系子聚类</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/UMAP_split_genotype.pdf"></iframe><figcaption>UMAP · 按基因型分面（最终注释）</figcaption></div>
+    </div>
+    <h3>细胞类型组成（每基因型 %）与细胞数</h3>
+    <table id="prop-table"></table>
+    <p class="small">n_CELLS 为该细胞类型全基因型合计细胞数；百分比为各基因型内占比（全细胞注释表 <span class="mono">annotation_table.csv</span> 含每细胞 lineage+cell_type）。</p>
+    <h3>L1 聚类簇 → 谱系 → 最终细胞类型映射（11 cluster）</h3>
+    <table id="map-table"></table>
+    <p>
+      <a class="dl" href="data/annotation_table.csv" download>下载全细胞注释表 (annotation_table.csv)</a>
+      <a class="dl" href="data/L1_annotation_by_score.csv" download>下载 L1 谱系打分表</a>
+      <a class="dl" href="data/L1_score_matrix_avg_zscore.csv" download>下载 L1 打分矩阵</a>
+      <a class="dl" href="data/cluster_to_celltype_mapping.csv" download>下载 cluster→celltype 映射</a>
+      <a class="dl" href="data/celltype_cell_counts.csv" download>下载各细胞类型细胞数</a>
+      <a class="dl" href="data/proportion_per_sample.csv" download>下载细胞比例表</a>
+      <a class="dl" href="data/top_DE_marker_per_celltype.csv" download>下载每类型 top DE marker</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 5 组成 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-composition">5. 细胞组成分析</h2></div>
+  <div class="card-body">
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="composition/stacked_bar_by_sample.pdf"></iframe><figcaption>每样本细胞类型堆叠比例</figcaption></div>
+      <div class="imgbox"><iframe src="composition/grouped_bar_genotype.pdf"></iframe><figcaption>基因型分组比例（Mean±SEM）</figcaption></div>
+    </div>
+    <div class="warn"><b>统计检验受限：</b>Milo DA 与 propeller 需生物学重复，本批 n=1 无法检验（脚本已记 <span class="mono">milo_failed.txt / propeller_failed.txt</span>）。上述比例图为<b>描述性</b>展示；Rescue Index 同样因无重复全部为 0。<b>需补送生物学重复样本</b>后方可进行差异组成的假设检验。</div>
+    <p>
+      <a class="dl" href="data/rescue_index.csv" download>下载 Rescue Index</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 6 DEG ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-deg">6. 差异表达（伪重复 pseudobulk DEG）与 GO/KEGG 富集</h2></div>
+  <div class="card-body">
+    <div class="warn"><b>统计设计（n=1 的现实约束）：</b>每基因型仅 1 个生物学样本，无法估计组间生物学方差，不存在正式统计检验。本节采用<b>伪重复策略</b>：每样本每细胞类型的细胞随机拆 3 份（seed=42 可复现）→ 每组 3 个伪重复单元，跑完整 edgeR(filterByExpr+TMM) + limma-voom 流程。<b>p 值来自样本内拆分，系统性偏乐观，仅作探索性排序；正式结论必须补送生物学重复（n≥2/组）。</b>详见 <span class="mono">DEG_pseudorep_note.txt</span>。</div>
+    <p>设计对比（5 组，均可按键切换查看）：<b>KO vs WT</b>、A1_Het vs WT、<b>A1_Rescue vs KO</b>（设计性挽救对比：回补库 vs KO 背景）、<b>A1_Rescue vs A1_Het</b>（A1 剂量效应：回补库 vs A1 单倍剂量不足，同 KO 背景）、A1_Rescue vs WT。阈值 padj&lt;0.05 且 |log2FC|≥0.25；up_in_&lt;组&gt; 表示在该组中升高。除各细胞类型外，另含 <b>Global（全部细胞汇总）</b>层面的同套分析（Global 按钮排在细胞类型列表最前）。TA Cells 因 KO 样本仅 17 个细胞（&lt;30）未纳入检验，其余 10 类全部完成。</p>
+    <h3>火山图（对比 × 细胞类型 双级切换）</h3>
+    <div class="tab-bar" id="vol-cn-tabs"></div>
+    <div class="tab-bar" id="vol-tabs"></div>
+    <iframe class="pdfframe" id="vol-frame"></iframe>
+    <h3>GO 富集 dotplot（GO-BP top terms；对比 × 细胞类型 双级切换，分方向，自上而下按 Gene ratio 降序）</h3>
+    <div class="tab-bar" id="go-cn-tabs"></div>
+    <div class="tab-bar" id="go-tabs"></div>
+    <iframe class="pdfframe" id="go-frame"></iframe>
+    <h3>KEGG 通路富集 dotplot（对比 × 细胞类型 双级切换，分方向，自上而下按 Gene ratio 降序）</h3>
+    <div class="tab-bar" id="kegg-cn-tabs"></div>
+    <div class="tab-bar" id="kegg-tabs"></div>
+    <iframe class="pdfframe" id="kegg-frame"></iframe>
+    <p>挽救基因模式（KO 效应显著 + 回补(A1_Rescue vs KO)显著反转 + 回补后向 WT 靠拢）：<b>11443</b> 个基因×细胞类型组合满足全部三条，完整表见下载。无富集词条的组合切换后显示占位说明图。</p>
+    <p>
+      <a class="dl" href="data/all_celltypes_all_contrasts_DEG.csv" download>下载全量 DEG 表（全部检测基因 × 5 对比 ×（Global + 10 细胞类型））</a>
+      <a class="dl" href="data/rescue_pattern_genes.csv" download>下载挽救基因模式表</a>
+      <a class="dl" href="data/all_celltypes_GO_enrichment.csv" download>下载 GO 富集（全部对比×方向）</a>
+      <a class="dl" href="data/all_celltypes_KEGG_enrichment.csv" download>下载 KEGG 富集（全部对比×方向）</a>
+      <a class="dl" href="data/DEG_counts_summary.csv" download>下载 DEG 数量汇总</a>
+      <a class="dl" href="data/DEG_pseudorep_note.txt" download>查看伪重复统计设计说明</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 7 轨迹 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-trajectory">7. 拟时序分析</h2></div>
+  <div class="card-body">
+    <p>Monocle3 拟时序（UMAP 主图推断，ISC 为根）。下图用<b>流线箭头图</b>展示分化方向：从 ISC 根部出发，沿拟时序梯度场收敛到各终末命运（scVelo 风格）。</p>
+    <div class="imgcol">
+      <div class="imgbox one"><iframe src="trajectory/UMAP_pseudotime_arrows.pdf"></iframe><figcaption>分化流向箭头图 · root (ISC) → 终末命运（main）</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime.pdf"></iframe><figcaption>UMAP · 拟时序着色</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_trajectory.pdf"></iframe><figcaption>UMAP · 拟时序 + 主轨迹曲线</figcaption></div>
+      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_lineages.pdf"></iframe><figcaption>代表性 marker 沿拟时序的表达（按谱系分组）</figcaption></div>
+      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_root_terminal.pdf"></iframe><figcaption>根/终态 marker 沿拟时序的表达</figcaption></div>
+    </div>
+    <h3>各基因型拟时序密度</h3>
+    <div class="tab-bar" id="pt-tabs"></div>
+    <iframe class="pdfframe" id="pt-frame"></iframe>
+    <p><a class="dl" href="data/pseudotime_all_cells.csv" download>下载全细胞拟时序表</a></p>
+  </div>
+</div>
+
+<!-- ============ 8 通讯 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-pathway">8. 细胞通讯（CellChat）</h2></div>
+  <div class="card-body">
+    <p>CellChat v2.2 按四基因型（WT/KO/A1_Het/A1_Rescue）分别推断配体-受体通讯，合并后比较。每组 n=1，结果为<b>描述性</b>（无统计检验）。</p>
+    <div class="imgcol">
+      <div class="imgbox"><iframe src="cellchat/compare_interactions.pdf"></iframe><figcaption>互作数与强度比较（4 基因型）</figcaption></div>
+      <div class="imgbox"><iframe src="cellchat/signaling_heatmap.pdf"></iframe><figcaption>信号通路热图（ outgoing · merged ）</figcaption></div>
+    </div>
+    <h3>关键通路差异互作气泡图</h3>
+    <p class="small">每个 L-R pair 在 4 基因型间的通讯概率。WNT/NOTCH/BMP 已成功生成；EGF/TGFb/TNF/CXCL/FGF 因部分基因型无该通路推断结果，已自动跳过（见 08 日志的 *_err.txt）。</p>
+    <div class="tab-bar" id="cc-tabs"></div>
+    <iframe class="pdfframe" id="cc-frame"></iframe>
+    <div class="skip"><b>通路富集 / 衰老评分未更新：</b>Progeny、GO/KEGG 富集与 SenMayo 衰老评分（09 步）依赖 DEG 结果（因 n=1 无 DEG）或未在本次注释升级后重新生成——待补送重复样本后一并产出。</div>
+  </div>
+</div>
+
+<!-- ============ 9 文件清单 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-files">9. 本报告包含的文件</h2></div>
+  <div class="card-body">
+    <p>以下全部文件与本 <span class="mono">index.html</span> 位于同一 <span class="mono">showcase</span> 目录内，打包整个目录发送后即可在本地浏览器（Chrome/Edge 推荐）直接查看。</p>
+    <div class="filelist" id="filelist"></div>
+  </div>
+</div>
+
+<script>
+const SAMPLES = ["WT", "KO", "A1_Het", "A1_Rescue"];
+const QC = [
+  {s:"WT", raw:1349499, cells:14278, feat:2431, cnt:9748, mt:8.76},
+  {s:"KO", raw:1377053, cells:16975, feat:1100, cnt:3823, mt:5.5},
+  {s:"A1_Het", raw:1363436, cells:16603, feat:2763, cnt:11158, mt:6.03},
+  {s:"A1_Rescue", raw:1689405, cells:15529, feat:2541, cnt:10021, mt:5.11}
+];
+const CTYPES = ["Paneth Cells Progenitors","Paneth Cells","Dedifferentiating Paneth-like cells","TA Cells - G2/M","TA Cells - S","TA Cells","Intestinal Stem Cells","Goblet cells","Enteroendocrine Cells","Absorptive enterocytes","Early Differentiating Enterocytes"];
+// 细胞类型总细胞数（全基因型合计，来自 celltype_cell_counts.csv）
+const COUNTS = [16102,6351,4909,8022,5971,3585,10638,2409,1868,1858,1672];
+// prop[sample][ctype] = proportion (0-1)，来自 proportion_per_sample.csv（两级注释后）
+const PROP = {
+  "WT":[0.23792,0.12362,0.09294,0.16088,0.07158,0.01800,0.12943,0.04125,0.02612,0.01499,0.08327],
+  "KO":[0.38215,0.09897,0.07535,0.08342,0.13037,0.00100,0.16348,0.02680,0.02138,0.01355,0.00353],
+  "A1_Het":[0.15244,0.08017,0.09287,0.16136,0.15377,0.01042,0.23628,0.03349,0.03451,0.03403,0.01066],
+  "A1_Rescue":[0.23743,0.10142,0.04901,0.10496,0.01178,0.20207,0.13472,0.05210,0.03600,0.05467,0.01584]
+};
+// 11 个 L1 cluster → 谱系 → 主导最终细胞类型（来自 L1_annotation_by_score.csv + cluster_to_celltype_mapping.csv）
+const MAPPING = [
+  [0,"Paneth lineage","Paneth Cells Progenitors",12812],[1,"TA lineage","TA Cells - G2/M",7467],
+  [2,"Paneth lineage","Paneth Cells",5796],[3,"TA lineage","TA Cells - S",5722],
+  [4,"ISC","Intestinal Stem Cells",7554],[5,"Paneth lineage","Dedifferentiating Paneth-like cells",3339],
+  [6,"Enterocyte lineage","Absorptive enterocytes",1858],[7,"ISC","Intestinal Stem Cells",3084],
+  [8,"Goblet","Goblet cells",2409],[9,"EEC","Enteroendocrine Cells",1868],
+  [10,"Paneth lineage","Dedifferentiating Paneth-like cells",1044]
+];
+const FILES = [
+  "qc/barcode_rank_*.pdf (4)", "qc/QC_violin_all_samples.pdf", "clustering/UMAP_byGenotype.pdf",
+  "clustering/UMAP_byCluster.pdf", "annotation/marker_DotPlot.pdf", "annotation/UMAP_celltype.pdf",
+  "annotation/UMAP_lineage_broad.pdf", "annotation/UMAP_split_genotype.pdf",
+  "annotation/UMAP_subcluster_Enterocyte_lineage.pdf", "annotation/UMAP_subcluster_Paneth_lineage.pdf",
+  "annotation/UMAP_subcluster_TA_lineage.pdf", "composition/stacked_bar_by_sample.pdf",
+  "composition/grouped_bar_genotype.pdf", "trajectory/UMAP_pseudotime_arrows.pdf",
+  "trajectory/UMAP_pseudotime.pdf", "trajectory/UMAP_pseudotime_trajectory.pdf",
+  "trajectory/pseudotime_density_*.pdf (5)", "trajectory/marker_along_pseudotime_lineages.pdf",
+  "trajectory/marker_along_pseudotime_root_terminal.pdf", "cellranger/web_summary_*.html (4)",
+  "cellchat/compare_interactions.pdf", "cellchat/signaling_heatmap.pdf",
+  "cellchat/pathway_bubble_*.pdf (WNT/NOTCH/BMP)", "data/annotation_table.csv",
+  "data/L1_annotation_by_score.csv", "data/L1_score_matrix_avg_zscore.csv",
+  "data/L2_*_lineage_annotation_by_score.csv (3)", "data/cluster_to_celltype_mapping.csv",
+  "data/celltype_cell_counts.csv", "data/top_DE_marker_per_celltype.csv",
+  "data/proportion_per_sample.csv", "data/rescue_index.csv", "data/pseudotime_all_cells.csv",
+  "deg/Volcano_*.pdf (Global + 10 细胞类型 × 5 对比)", "go/GO_dotplot_*.pdf (11×5)",
+  "kegg/KEGG_dotplot_*.pdf (11×5)",
+  "data/all_celltypes_all_contrasts_DEG.csv", "data/rescue_pattern_genes.csv",
+  "data/all_celltypes_GO_enrichment.csv", "data/all_celltypes_KEGG_enrichment.csv",
+  "data/DEG_counts_summary.csv", "data/DEG_pseudorep_note.txt", "data/batch_metrics.csv"
+];
+const CT_SHORT = {"Paneth Cells Progenitors":"PCP","Early Differentiating Enterocytes":"EDE","TA Cells - G2/M":"TA-G2M",
+  "Intestinal Stem Cells":"ISC","TA Cells - S":"TA-S","Dedifferentiating Paneth-like cells":"DPL","TA Cells":"TA",
+  "Paneth Cells":"PC","Goblet cells":"GC","Enteroendocrine Cells":"EEC","Absorptive enterocytes":"AE"};
+
+// nav
+const nav = ["overview","cellranger","cluster","annotation","composition","deg","trajectory","pathway","files"];
+const navLabels = ["1 数据概览","2 CellRanger QC","3 聚类","4 注释","5 组成","6 DEG/富集","7 拟时序","8 通讯","9 文件"];
+document.getElementById("nav").innerHTML = navLabels.map((l,i)=>`<a href="#sec-${nav[i]}">${l}</a>`).join("");
+
+// QC table
+let qh = "<tr><th>样本</th><th>基因型</th><th>raw barcode 数</th><th>细胞数</th><th>中位基因数/细胞</th><th>中位UMI/细胞</th><th>线粒体% 中位</th></tr>";
+let qt = QC.map(d=>`<tr><td>${d.s}</td><td>${d.s.replace(/_/g,"-")}</td><td>${d.raw.toLocaleString()}</td><td>${d.cells.toLocaleString()}</td><td>${d.feat}</td><td>${d.cnt}</td><td>${d.mt}</td></tr>`).join("");
+document.getElementById("qc-table").innerHTML = qh + qt;
+
+// proportion table: rows=celltype, cols=sample + total cells
+let ph = "<tr><th>细胞类型</th>" + SAMPLES.map(s=>`<th>${s}</th>`).join("") + "<th>n_CELLS</th></tr>";
+let pt = CTYPES.map(ct=>{
+  let cells = SAMPLES.map(s=>{ let p=(PROP[s][CTYPES.indexOf(ct)]*100); return `<td>${p.toFixed(1)}%</td>`; }).join("");
+  return `<tr><th>${ct} (${CT_SHORT[ct]})</th>${cells}<td>${COUNTS[CTYPES.indexOf(ct)].toLocaleString()}</td></tr>`;
+}).join("");
+document.getElementById("prop-table").innerHTML = ph + pt;
+
+// mapping table
+let mh = "<tr><th>Cluster</th><th>L1 谱系</th><th>最终细胞类型</th><th>细胞数</th></tr>";
+let mt = MAPPING.map(m=>`<tr><td>${m[0]}</td><td>${m[1]}</td><td>${m[2]}</td><td>${m[3].toLocaleString()}</td></tr>`).join("");
+document.getElementById("map-table").innerHTML = mh + mt;
+
+// tab helper
+function makeTabs(elId, items, frameId, baseSrc, mapName){
+  let el = document.getElementById(elId);
+  let html = items.map((it,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${it}</button>`).join("");
+  el.innerHTML = html;
+  let set = i => { document.getElementById(frameId).src = baseSrc + mapName(items[i]) + ".pdf"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
+  set(0);
+}
+makeTabs("br-tabs", SAMPLES, "br-frame", "qc/barcode_rank_", s=>s);
+makeTabs("pt-tabs", SAMPLES, "pt-frame", "trajectory/pseudotime_density_", s=>s);
+// cellranger web_summary
+(function(){
+  let el = document.getElementById("ws-tabs");
+  el.innerHTML = SAMPLES.map((s,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${s}</button>`).join("");
+  let set = i => { document.getElementById("ws-frame").src = "cellranger/web_summary_" + SAMPLES[i] + ".html"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
+  set(0);
+})();
+// CellChat pathway bubble tabs (WNT/NOTCH/BMP 已成功生成，EGF 本次跳过)
+(function(){
+  const PATHS = ["WNT","NOTCH","BMP"];
+  let el = document.getElementById("cc-tabs");
+  el.innerHTML = PATHS.map((p,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${p}</button>`).join("");
+  let set = i => { document.getElementById("cc-frame").src = "cellchat/pathway_bubble_" + PATHS[i] + ".pdf"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
+  set(0);
+})();
+
+// ---- DEG + GO/KEGG section (pseudorep, 5 contrasts x 10 celltypes, dual tabs) ----
+const DEG_CTS = [["Global (all cells)", "Global"], ["Absorptive enterocytes", "Absorptive_enterocytes"], ["Dedifferentiating Paneth-like cells", "Dedifferentiating_Paneth-like_cells"], ["Early Differentiating Enterocytes", "Early_Differentiating_Enterocytes"], ["Enteroendocrine Cells", "Enteroendocrine_Cells"], ["Goblet cells", "Goblet_cells"], ["Intestinal Stem Cells", "Intestinal_Stem_Cells"], ["Paneth Cells", "Paneth_Cells"], ["Paneth Cells Progenitors", "Paneth_Cells_Progenitors"], ["TA Cells - G2/M", "TA_Cells_-_G2_M"], ["TA Cells - S", "TA_Cells_-_S"]];
+const DEG_CN_LIST = [["KO vs WT", "KO_vs_WT"], ["A1 Het vs WT", "A1_Het_vs_WT"], ["A1 Rescue vs KO", "A1_Rescue_vs_KO"], ["A1 Rescue vs A1 Het", "A1_Rescue_vs_A1_Het"], ["A1 Rescue vs WT", "A1_Rescue_vs_WT"]];
+function makeDualTabs(cnElId, ctElId, frameId, baseSrc, mid, suffix){
+  let cnEl = document.getElementById(cnElId), ctEl = document.getElementById(ctElId);
+  let s = {cn:0, ct:0};
+  cnEl.innerHTML = DEG_CN_LIST.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
+  ctEl.innerHTML = DEG_CTS.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
+  let upd = ()=>{ document.getElementById(frameId).src = baseSrc + DEG_CTS[s.ct][1] + mid + DEG_CN_LIST[s.cn][1] + suffix; };
+  cnEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ s.cn=+b.dataset.i; cnEl.querySelectorAll(".tab-btn").forEach((x,j)=>x.classList.toggle("active", j===s.cn)); upd(); });
+  ctEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ s.ct=+b.dataset.i; ctEl.querySelectorAll(".tab-btn").forEach((x,j)=>x.classList.toggle("active", j===s.ct)); upd(); });
+  upd();
+}
+makeDualTabs("vol-cn-tabs","vol-tabs","vol-frame","deg/Volcano_","_",".pdf");
+makeDualTabs("go-cn-tabs","go-tabs","go-frame","go/GO_dotplot_","_",".pdf");
+makeDualTabs("kegg-cn-tabs","kegg-tabs","kegg-frame","kegg/KEGG_dotplot_","_",".pdf");
+
+// file list
+document.getElementById("filelist").innerHTML = FILES.map(f=>`<div><a href="${f.replace(/\*/g,"WT")}" download>${f}</a></div>`).join("");
+</script>
+</body>
+</html>
