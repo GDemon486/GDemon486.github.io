@@ -1,0 +1,35 @@
+=== 05 isoform quant (模式A: wf-single-cell 交付矩阵) ===
+=== cDNA_TXdB7j (KO) ===
+
+  细胞 x 转录本: 16973 x 39718
+
+  tx->gene 匹配率: 39585/39718 (99.7%)
+
+  pseudobulk: 39585 tx / 22027 genes
+
+=== cDNA_TXdH8k (A1-Rescue) ===
+
+  细胞 x 转录本: 15529 x 38176
+
+  tx->gene 匹配率: 38065/38176 (99.7%)
+
+  pseudobulk: 38065 tx / 20947 genes
+
+=== cDNA_TXdC7j (A1-Het) ===
+
+  细胞 x 转录本: 16603 x 39909
+
+  tx->gene 匹配率: 39779/39909 (99.7%)
+
+  pseudobulk: 39779 tx / 21783 genes
+
+=== cDNA_TXdE5k (WT) ===
+
+  细胞 x 转录本: 14278 x 39609
+
+  tx->gene 匹配率: 39474/39609 (99.7%)
+
+  pseudobulk: 39474 tx / 21898 genes
+
+合并矩阵: 54936 tx x 4 samples
+
