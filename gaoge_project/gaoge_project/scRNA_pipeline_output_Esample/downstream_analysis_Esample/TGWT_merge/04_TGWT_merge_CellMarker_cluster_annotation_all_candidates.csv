@@ -1,0 +1,348 @@
+﻿sample,cluster,rank,cell_type,score,summary_file
+TGWT_merge,0,1,Stromal cell,4.87,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,2,Descending and ascending thin limb cell,3.27,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,3,Podocyte,3.06,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,4,Proliferating tubule cell,2.71,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,5,Descending thin limb cell,2.7,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,6,Parietal epithelial cell,2.61,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,7,Thick ascending limb cell,2.29,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,8,Cap mesenchymal cell,2.24,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,9,Macula densa thick ascending limb cell,2.18,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,10,Progenitor cell,1.65,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,11,Natural killer cell,1.44,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,12,Basophil,1.42,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,13,Ascending loop of henle cell,1.41,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,14,Injured thick ascending limb cell,1.31,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,0,15,Injured proximal tubule cell,0.97,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,1,1,Stromal cell,3.95,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,2,Intercalated cell,3.28,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,3,Descending thin limb cell,2.72,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,4,Endothelial cell,1.68,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,5,Descending and ascending thin limb cell,1.68,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,6,Type B intercalated cell,1.63,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,7,Immune cell,1.57,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,8,Transitional intercalated cell,1.39,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,9,Injured proximal tubule cell,1.31,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,10,Podocyte,1.12,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,11,Alpha intercalated cell,0.92,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,12,Basophil,0.75,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,13,Monocyte,0.73,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,14,Beta intercalated cell,0.67,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,1,15,S1 proximal tubule cell,0.64,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,2,1,Intercalated cell,5.71,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,2,Type B intercalated cell,3.35,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,3,Distal convoluted tubule cell,3.05,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,4,Distal tubule cell,2.81,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,5,Connecting tubule cell,2.79,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,6,Profibrotic tubule cell,2.37,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,7,Alpha intercalated cell,2.23,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,8,Injured distal tubule cell,1.96,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,9,Type a intercalated cell,1.93,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,10,Collecting duct principal cell,1.8,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,11,Beta intercalated cell,1.61,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,12,Transitional intercalated cell,1.31,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,13,Podocyte,1.16,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,14,Descending and ascending thin limb cell,0.61,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,2,15,Connecting tubular cell,0.54,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,3,1,Ureteric bud tip cell,7.19,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,2,S3 proximal tubule cell,4.07,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,3,Epithelial cell,3.21,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,4,Collecting duct principal cell,2.73,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,5,Injured distal tubule cell,2.2,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,6,Connecting tubular cell,1.64,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,7,Podocyte,1.57,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,8,Distal tubule cell,1.52,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,9,Transitional intercalated cell,1.39,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,10,Descending thin limb cell,1.27,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,11,Medullary cell,0.77,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,12,Thick ascending limb cell,0.61,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,13,Endothelial cell,0.6,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,14,S2 proximal tubule cell,0.59,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,3,15,Proliferating tubule cell,0.57,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,4,1,Stromal cell,33.39,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,2,Medullary cell,1.95,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,3,Myofibroblast,1.84,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,4,Glomerular endothelial cell,1.67,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,5,Fibroblast,0.96,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,6,Plasmacytoid dendritic cell,0.81,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,7,Macula densa thick ascending limb cell,0.54,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,8,Mesangial cell,0.54,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,9,Thick ascending limb cell,0.52,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,10,S1 proximal tubule cell,0.47,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,11,Distal convoluted tubule cell,0.43,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,12,CD8+ T cell,0.4,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,13,Ascending loop of henle cell,0.34,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,14,CD8 T cell,0.33,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,4,15,Distal convoluted tubular cell,0.33,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,5,1,Collecting duct principal cell,37.65,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,2,Connecting tubular cell,20.87,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,3,Distal tubule cell,17.33,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,4,Connecting tubule cell,6.64,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,5,Type a intercalated cell,5.32,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,6,Intercalated cell,5.25,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,7,Injured distal tubule cell,4.4,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,8,Alpha intercalated cell,3.95,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,9,Proliferating collecting duct cell,3.63,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,10,Intercalated cell of collecting duct,3.11,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,11,Beta intercalated cell,3.02,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,12,Collecting duct cell,3.01,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,13,Descending and ascending thin limb cell,2.92,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,14,Principal cell,2.72,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,5,15,Transitional intercalated cell,2.61,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,6,1,Proximal tubule cell,43.01,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,2,S3 proximal tubule cell,36.2,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,3,S2 proximal tubule cell,32.48,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,4,S1 proximal tubule cell,28.28,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,5,Injured proximal tubule cell,23.61,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,6,Proximal tubule brush border cell,17.63,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,7,Proliferating proximal tubule cell,14.22,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,8,Epithelial cell,10.66,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,9,Descending thin limb cell,5.93,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,10,Proximal convoluted tubular cell,5.5,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,11,Immune cell,5.45,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,12,Collecting duct principal cell,4.38,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,13,Proximal tubular cell,4.28,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,14,Beta intercalated cell,3.79,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,6,15,Ascending loop of henle cell,3.37,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,7,1,Podocyte,15.51,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,2,Proliferating lymphocyte,9.58,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,3,Natural killer cell,8.55,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,4,Macrophage,7.75,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,5,CD4 T cell,6.54,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,6,B lymphocyte,6.04,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,7,Basophil,5.36,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,8,T helper 17 cell,2.22,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,9,Proliferating cell,2.17,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,10,Leukocyte,1.84,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,11,CD8+ T cell,1.49,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,12,Ascending loop of henle cell,1.04,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,13,Dendritic cell,0.88,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,14,Neutrophil,0.7,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,7,15,T cell,0.69,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,8,1,Descending and ascending thin limb cell,10.73,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,2,Descending thin limb cell,9.25,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,3,Parietal epithelial cell,5.82,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,4,Injured thick ascending limb cell,2.13,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,5,Neuron,2.12,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,6,Epithelial cell,2.12,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,7,Thick ascending limb cell,1.73,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,8,Macula densa thick ascending limb cell,1.63,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,9,Type a intercalated cell,1.46,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,10,Distal tubule cell,1.28,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,11,Profibrotic tubule cell,1.15,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,12,Podocyte,1.05,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,13,Connecting tubular cell,0.91,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,14,Myocyte,0.84,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,8,15,Injured distal tubule cell,0.81,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,9,1,Intercalated cell,1.82,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,2,Endothelial cell,1.78,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,3,Type B intercalated cell,1.75,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,4,Type a intercalated cell,1.66,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,5,Descending and ascending thin limb cell,1.46,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,6,Stromal cell,1.44,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,7,Podocyte,1.35,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,8,Descending thin limb cell,1.21,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,9,Thick ascending limb cell,1.1,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,10,Macula densa thick ascending limb cell,1.06,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,11,Ascending loop of henle cell,0.79,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,12,S2 proximal tubule cell,0.64,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,13,Beta intercalated cell,0.64,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,14,Injured thick ascending limb cell,0.61,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,9,15,Basophil,0.59,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,10,1,Stromal cell,7.06,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,2,Parietal epithelial cell,4.43,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,3,Intercalated cell,3.46,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,4,Renal stromal cell,2.24,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,5,Interstitial cell,2.24,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,6,Podocyte,2.19,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,7,Descending thin limb cell,2.11,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,8,Type B intercalated cell,1.7,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,9,Progenitor cell,1.65,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,10,Descending and ascending thin limb cell,1.31,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,11,Transitional intercalated cell,1.24,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,12,Alpha intercalated cell,0.74,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,13,Beta intercalated cell,0.69,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,14,Myocyte,0.67,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,10,15,Macula densa thick ascending limb cell,0.64,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,11,1,Glomerular endothelial cell,38.76,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,2,Endothelial cell,32.57,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,3,Vascular endothelial cell,17.7,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,4,Stromal cell,9.42,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,5,Natural killer T cell,1.41,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,6,Regulatory T cell,1.24,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,7,B lymphocyte,0.56,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,8,B cell,0.45,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,9,CD8 T cell,0.43,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,10,Natural killer cell,0.42,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,11,T helper 17 cell,0.4,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,12,S1 proximal tubule cell,0.38,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,13,Epithelial cell,0.35,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,14,Transitional intercalated cell,0.26,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,11,15,Dendritic cell,0.21,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,12,1,Stromal cell,23.19,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,2,Extracellular matrix -producing cell,11.48,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,3,Fibroblast,9.71,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,4,Natural killer cell,6.47,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,5,Renal stromal cell,6.22,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,6,Medullary cell,5.97,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,7,Endothelial cell,5.83,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,8,Basophil,5.36,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,9,Pericyte,5.19,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,10,Proliferating lymphocyte,5.1,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,11,CD4 T cell,4.78,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,12,Macrophage,4.67,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,13,Neutrophil,4.24,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,14,Regulatory T cell,4.12,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,12,15,B lymphocyte,4.07,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,13,1,Ascending loop of henle cell,37.87,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,2,Macula densa thick ascending limb cell,37.65,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,3,Thick ascending limb cell,33.49,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,4,Distal convoluted tubular cell,29.17,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,5,Injured thick ascending limb cell,28.27,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,6,Distal convoluted tubule cell,25.71,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,7,Distal tubule cell,23.91,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,8,Descending thin limb cell,21.48,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,9,Distal convoluted tubule type 2 cell,19.53,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,10,Descending and ascending thin limb cell,17.38,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,11,Connecting tubule cell,16.51,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,12,Intercalated cell of collecting duct,15.51,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,13,Connecting tubular cell,14.28,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,14,Macula densa cell,11.99,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,13,15,Injured distal tubule cell,10.74,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,14,1,Collecting duct principal cell,31.48,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,2,Connecting tubule cell,21.3,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,3,Injured distal tubule cell,18.98,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,4,Epithelial cell,17.17,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,5,Distal convoluted tubule cell,14.39,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,6,Transitional intercalated cell,9.48,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,7,Intercalated cell of collecting duct,6.03,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,8,Distal tubule cell,5.46,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,9,Profibrotic tubule cell,5.41,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,10,Beta intercalated cell,4.56,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,11,Ascending loop of henle cell,4.09,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,12,Alpha intercalated cell,4.01,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,13,Neutrophil,3.39,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,14,Distal convoluted tubule type 2 cell,3.28,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,14,15,Distal convoluted tubular cell,3.23,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,15,1,Stromal cell,12.97,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,2,Pericyte,1.44,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,3,Macula densa cell,1.32,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,4,Parietal epithelial cell,1.21,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,5,Injured proximal tubule cell,1.15,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,6,Endothelial cell,1.03,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,7,Macula densa thick ascending limb cell,0.66,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,8,Thick ascending limb cell,0.62,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,9,Collecting duct principal cell,0.61,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,10,Mesangial cell,0.58,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,11,Proliferating tubule cell,0.44,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,12,Injured thick ascending limb cell,0.43,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,13,Ascending loop of henle cell,0.39,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,14,Macrophage,0.38,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,15,15,Distal convoluted tubular cell,0.37,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,16,1,Medullary cell,14.89,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,2,Stromal cell,11.06,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,3,Smooth muscle cell,6.8,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,4,Fibroblast,6.4,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,5,T helper 17 cell,6.09,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,6,Beta intercalated cell,5.66,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,7,Intercalated cell of collecting duct,5.61,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,8,Mesangial cell,5.47,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,9,Macrophage,4.67,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,10,Proliferating lymphocyte,4.64,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,11,Collecting duct principal cell,4.54,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,12,Natural killer cell,4.46,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,13,CD8 effector T cell,4.3,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,14,Regulatory T cell,4.12,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,16,15,Endothelial cell,4.05,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,17,1,Collecting duct principal cell,8.63,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,2,Distal tubule cell,8.31,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,3,Injured distal tubule cell,8.19,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,4,Connecting tubular cell,3.58,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,5,Ureteric bud tip cell,2.43,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,6,Descending thin limb cell,2.07,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,7,Distal convoluted tubule type 2 cell,1.54,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,8,Injured thick ascending limb cell,1.26,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,9,Macula densa cell,1.21,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,10,Descending and ascending thin limb cell,1.2,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,11,Epithelial cell,1.03,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,12,Plasmacytoid dendritic cell,0.91,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,13,Alpha intercalated cell,0.83,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,14,S3 proximal tubule cell,0.68,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,17,15,Thick ascending limb cell,0.54,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,18,1,Endothelial cell,56.96,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,2,Glomerular endothelial cell,47.26,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,3,Vascular endothelial cell,24.3,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,4,Stromal cell,6.07,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,5,Cortical renal endothelial cell,2.44,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,6,Plasma cell,1.43,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,7,CD4 T cell,0.52,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,8,Plasmacytoid dendritic cell,0.52,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,9,Monocyte,0.37,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,10,B lymphocyte,0.31,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,11,Natural killer cell,0.29,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,18,12,CD8 effector T cell,0.29,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,19,1,Macrophage,34.77,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,2,Immune cell,29.0,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,3,Dendritic cell,16.11,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,4,Neutrophil,13.88,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,5,Monocyte,8.59,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,6,Proliferating macrophage,2.39,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,7,Plasmacytoid dendritic cell,2.18,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,8,Polymorphonuclear leukocyte,2.09,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,9,Monocyte-derived dendritic cell,2.01,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,10,Memory B cell,1.89,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,11,Leukocyte,1.68,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,12,Basophil,1.47,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,13,CD8 T cell,1.46,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,14,Myeloid cell,0.86,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,19,15,Fibroblast,0.74,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,20,1,Red blood cell,9.34,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,2,Type a intercalated cell,4.46,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,3,Intercalated cell,3.94,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,4,Type B intercalated cell,3.31,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,5,Tubular cell,2.5,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,6,CD4 T cell,2.4,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,7,Intercalated a cell,2.38,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,8,Connecting tubular cell,1.55,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,9,Myeloid cell,1.11,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,10,Alpha intercalated cell,1.1,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,11,Macrophage,1.08,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,12,Immune cell,0.86,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,13,CD8 effector T cell,0.83,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,14,Intercalated cell of collecting duct,0.78,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,20,15,CD8 T cell,0.77,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,21,1,S3 proximal tubule cell,3.43,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,21,2,Proximal tubule cell,2.17,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,21,3,Parietal epithelial cell,0.84,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,21,4,Injured distal tubule cell,0.75,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,21,5,S2 proximal tubule cell,0.74,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,21,6,Podocyte,0.69,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,22,1,Podocyte,48.12,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,2,Sertoli cell,2.77,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,3,Intercalated B cell,2.29,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,4,Glomerular cell,2.17,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,5,Collecting duct transient cell,1.27,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,6,Parietal epithelial cell,1.1,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,7,S2 proximal tubule cell,0.96,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,8,Distal tubule cell,0.88,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,9,Collecting duct intercalated cell,0.75,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,10,Epithelial cell,0.75,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,11,Glomerular endothelial cell,0.7,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,12,Alpha intercalated cell,0.59,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,13,Beta intercalated cell,0.58,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,14,Collecting duct principal cell,0.54,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,22,15,Intercalated cell,0.53,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,23,1,Intercalated cell,2.65,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,2,Type B intercalated cell,1.97,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,3,Alpha intercalated cell,1.3,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,4,Type a intercalated cell,1.09,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,5,Dendritic cell,0.93,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,6,B cell,0.85,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,7,Stromal cell,0.79,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,8,Beta intercalated cell,0.68,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,9,S1 proximal tubule cell,0.65,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,10,Podocyte,0.62,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,11,Descending and ascending thin limb cell,0.61,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,12,Descending thin limb cell,0.51,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,13,Injured thick ascending limb cell,0.49,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv
+TGWT_merge,23,14,Endothelial cell,0.3,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv

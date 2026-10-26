@@ -1,0 +1,25 @@
+﻿sample,cluster,cell_type,score,summary_file
+TGWT_merge,0,Stromal cell,4.87,cellmarker3.0\TGWT_merge_cluster0_CellMarker_summary.csv
+TGWT_merge,1,Stromal cell,3.95,cellmarker3.0\TGWT_merge_cluster1_CellMarker_summary.csv
+TGWT_merge,2,Intercalated cell,5.71,cellmarker3.0\TGWT_merge_cluster2_CellMarker_summary.csv
+TGWT_merge,3,Ureteric bud tip cell,7.19,cellmarker3.0\TGWT_merge_cluster3_CellMarker_summary.csv
+TGWT_merge,4,Stromal cell,33.39,cellmarker3.0\TGWT_merge_cluster4_CellMarker_summary.csv
+TGWT_merge,5,Collecting duct principal cell,37.65,cellmarker3.0\TGWT_merge_cluster5_CellMarker_summary.csv
+TGWT_merge,6,Proximal tubule cell,43.01,cellmarker3.0\TGWT_merge_cluster6_CellMarker_summary.csv
+TGWT_merge,7,Podocyte,15.51,cellmarker3.0\TGWT_merge_cluster7_CellMarker_summary.csv
+TGWT_merge,8,Descending and ascending thin limb cell,10.73,cellmarker3.0\TGWT_merge_cluster8_CellMarker_summary.csv
+TGWT_merge,9,Intercalated cell,1.82,cellmarker3.0\TGWT_merge_cluster9_CellMarker_summary.csv
+TGWT_merge,10,Stromal cell,7.06,cellmarker3.0\TGWT_merge_cluster10_CellMarker_summary.csv
+TGWT_merge,11,Glomerular endothelial cell,38.76,cellmarker3.0\TGWT_merge_cluster11_CellMarker_summary.csv
+TGWT_merge,12,Stromal cell,23.19,cellmarker3.0\TGWT_merge_cluster12_CellMarker_summary.csv
+TGWT_merge,13,Ascending loop of henle cell,37.87,cellmarker3.0\TGWT_merge_cluster13_CellMarker_summary.csv
+TGWT_merge,14,Collecting duct principal cell,31.48,cellmarker3.0\TGWT_merge_cluster14_CellMarker_summary.csv
+TGWT_merge,15,Stromal cell,12.97,cellmarker3.0\TGWT_merge_cluster15_CellMarker_summary.csv
+TGWT_merge,16,Medullary cell,14.89,cellmarker3.0\TGWT_merge_cluster16_CellMarker_summary.csv
+TGWT_merge,17,Collecting duct principal cell,8.63,cellmarker3.0\TGWT_merge_cluster17_CellMarker_summary.csv
+TGWT_merge,18,Endothelial cell,56.96,cellmarker3.0\TGWT_merge_cluster18_CellMarker_summary.csv
+TGWT_merge,19,Macrophage,34.77,cellmarker3.0\TGWT_merge_cluster19_CellMarker_summary.csv
+TGWT_merge,20,Red blood cell,9.34,cellmarker3.0\TGWT_merge_cluster20_CellMarker_summary.csv
+TGWT_merge,21,S3 proximal tubule cell,3.43,cellmarker3.0\TGWT_merge_cluster21_CellMarker_summary.csv
+TGWT_merge,22,Podocyte,48.12,cellmarker3.0\TGWT_merge_cluster22_CellMarker_summary.csv
+TGWT_merge,23,Intercalated cell,2.65,cellmarker3.0\TGWT_merge_cluster23_CellMarker_summary.csv

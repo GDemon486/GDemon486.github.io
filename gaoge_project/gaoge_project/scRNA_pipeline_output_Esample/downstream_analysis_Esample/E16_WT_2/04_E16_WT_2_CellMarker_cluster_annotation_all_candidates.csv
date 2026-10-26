@@ -1,0 +1,346 @@
+﻿sample,cluster,rank,cell_type,score,summary_file
+E16_WT_2,0,1,Descending and ascending thin limb cell,3.4,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,2,Ascending loop of henle cell,3.38,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,3,Parietal epithelial cell,3.13,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,4,Descending thin limb cell,2.83,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,5,Thick ascending limb cell,2.29,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,6,Macula densa thick ascending limb cell,2.15,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,7,Stromal cell,2.04,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,8,Distal convoluted tubular cell,1.63,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,9,S3 proximal tubule cell,1.56,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,10,Epithelial cell,1.18,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,11,Injured thick ascending limb cell,1.12,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,12,Plasmacytoid dendritic cell,0.97,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,13,Injured distal tubule cell,0.95,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,14,Type a intercalated cell,0.56,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,0,15,Distal tubule cell,0.49,cellmarker3.0\E16_WT_2_cluster0_CellMarker_summary.csv
+E16_WT_2,1,1,Stromal cell,37.45,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,2,Pericyte,5.57,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,3,Mesangial cell,2.41,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,4,Extracellular matrix -producing cell,2.27,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,5,Glomerular endothelial cell,1.9,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,6,CD8 T cell,1.37,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,7,Immune cell,1.19,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,8,Fibroblast,0.82,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,9,CD8 effector T cell,0.62,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,10,Beta intercalated cell,0.6,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,11,Intercalated cell,0.54,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,12,Transitional intercalated cell,0.52,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,13,Alpha intercalated cell,0.49,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,14,Monocyte,0.48,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,1,15,S3 proximal tubule cell,0.47,cellmarker3.0\E16_WT_2_cluster1_CellMarker_summary.csv
+E16_WT_2,2,1,Distal tubule cell,1.75,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,2,Connecting tubule cell,1.68,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,3,Natural killer T cell,1.68,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,4,Distal convoluted tubule cell,1.62,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,5,Stromal cell,1.33,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,6,Injured proximal tubule cell,1.2,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,7,Collecting duct principal cell,1.1,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,8,Injured distal tubule cell,1.06,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,9,Descending and ascending thin limb cell,0.76,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,10,Connecting tubular cell,0.69,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,11,Distal convoluted tubular cell,0.65,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,12,Descending thin limb cell,0.6,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,13,Beta intercalated cell,0.59,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,14,Regulatory T cell,0.58,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,2,15,Dendritic cell,0.55,cellmarker3.0\E16_WT_2_cluster2_CellMarker_summary.csv
+E16_WT_2,3,1,Macrophage,18.71,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,2,Proliferating lymphocyte,12.2,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,3,Beta intercalated cell,9.78,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,4,Natural killer cell,7.78,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,5,Ascending loop of henle cell,6.33,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,6,Intercalated cell of collecting duct,5.97,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,7,Proximal tubule cell,5.37,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,8,CD4 T cell,5.32,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,9,B lymphocyte,4.77,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,10,T helper 17 cell,4.44,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,11,Basophil,4.25,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,12,Podocyte,4.01,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,13,CD8 effector T cell,3.16,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,14,Regulatory T cell,3.03,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,3,15,Epithelial cell,2.8,cellmarker3.0\E16_WT_2_cluster3_CellMarker_summary.csv
+E16_WT_2,4,1,Proximal tubule cell,56.69,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,2,S2 proximal tubule cell,44.43,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,3,S1 proximal tubule cell,40.64,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,4,S3 proximal tubule cell,40.57,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,5,Injured proximal tubule cell,39.09,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,6,Proximal tubule brush border cell,20.55,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,7,Proliferating proximal tubule cell,16.37,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,8,Epithelial cell,12.56,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,9,Immune cell,11.83,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,10,Descending thin limb cell,9.45,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,11,Proximal tubular cell,7.66,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,12,Endothelial cell,7.6,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,13,Profibrotic tubule cell,6.44,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,14,Proximal convoluted tubular cell,5.35,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,4,15,Proliferating tubule cell,5.14,cellmarker3.0\E16_WT_2_cluster4_CellMarker_summary.csv
+E16_WT_2,5,1,Endothelial cell,4.61,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,2,Podocyte,2.79,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,3,Intercalated cell,1.68,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,4,Transitional intercalated cell,1.49,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,5,Descending thin limb cell,1.49,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,6,Injured distal tubule cell,1.33,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,7,Stromal cell,1.17,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,8,Distal convoluted tubule cell,1.0,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,9,Macula densa thick ascending limb cell,0.88,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,10,Distal convoluted tubular cell,0.88,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,11,Thick ascending limb cell,0.86,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,12,Distal tubule cell,0.84,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,13,Connecting tubule cell,0.74,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,14,Beta intercalated cell,0.72,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,5,15,Distal convoluted tubule type 2 cell,0.65,cellmarker3.0\E16_WT_2_cluster5_CellMarker_summary.csv
+E16_WT_2,6,1,Ureteric bud tip cell,7.09,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,2,Injured distal tubule cell,2.16,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,3,Collecting duct principal cell,2.16,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,4,S3 proximal tubule cell,2.06,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,5,Epithelial cell,1.51,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,6,Podocyte,1.44,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,7,Transitional intercalated cell,1.31,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,8,T helper 17 cell,0.75,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,9,Medullary cell,0.74,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,10,Thick ascending limb cell,0.57,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,11,Parietal epithelial cell,0.51,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,12,Descending and ascending thin limb cell,0.47,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,13,Natural killer T cell,0.47,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,14,Distal tubule cell,0.46,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,6,15,Macula densa thick ascending limb cell,0.43,cellmarker3.0\E16_WT_2_cluster6_CellMarker_summary.csv
+E16_WT_2,7,1,Collecting duct principal cell,5.77,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,2,Inner medullary collecting ductal cell,5.25,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,3,Inner medullary collecting duct cell,3.78,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,4,Type B intercalated cell,3.54,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,5,Descending thin limb of Henle’s loop,2.91,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,6,Connecting tubular cell,2.67,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,7,Collecting duct cell,2.43,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,8,Podocyte,2.36,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,9,Intercalated cell,2.07,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,10,Type a intercalated cell,1.9,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,11,Long descending limb cell,1.83,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,12,Beta intercalated cell,1.8,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,13,Proliferating tubule cell,1.34,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,14,Transitional intercalated cell,1.23,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,7,15,Thick ascending limb cell,0.85,cellmarker3.0\E16_WT_2_cluster7_CellMarker_summary.csv
+E16_WT_2,8,1,Glomerular endothelial cell,46.46,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,2,Endothelial cell,35.43,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,3,Vascular endothelial cell,22.14,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,4,Stromal cell,12.48,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,5,Pericyte,1.41,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,6,B lymphocyte,0.59,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,7,Mesangial cell,0.56,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,8,B cell,0.47,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,9,T helper 17 cell,0.42,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,10,Regulatory T cell,0.42,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,11,S1 proximal tubule cell,0.4,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,12,Epithelial cell,0.37,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,13,Natural killer T cell,0.37,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,14,Natural killer cell,0.34,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,8,15,Transitional intercalated cell,0.28,cellmarker3.0\E16_WT_2_cluster8_CellMarker_summary.csv
+E16_WT_2,9,1,Parietal epithelial cell,4.16,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,2,Descending and ascending thin limb cell,3.45,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,3,Descending thin limb cell,2.87,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,4,S1 proximal tubule cell,2.08,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,5,Ascending loop of henle cell,1.49,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,6,Macula densa cell,1.12,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,7,Injured proximal tubule cell,0.96,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,8,Thick ascending limb cell,0.8,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,9,Macula densa thick ascending limb cell,0.74,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,10,Alpha intercalated cell,0.64,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,11,Distal convoluted tubule cell,0.64,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,12,S3 proximal tubule cell,0.59,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,13,Natural killer T cell,0.54,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,14,Stromal cell,0.45,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,9,15,Basophil,0.45,cellmarker3.0\E16_WT_2_cluster9_CellMarker_summary.csv
+E16_WT_2,10,1,Distal convoluted tubular cell,33.48,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,2,Distal tubule cell,27.5,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,3,Distal convoluted tubule cell,24.91,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,4,Distal convoluted tubule type 2 cell,23.01,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,5,Connecting tubule cell,22.83,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,6,Injured distal tubule cell,16.14,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,7,Connecting tubular cell,13.35,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,8,Macula densa thick ascending limb cell,12.41,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,9,Intercalated cell of collecting duct,11.15,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,10,Collecting duct principal cell,9.84,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,11,Thick ascending limb cell,9.63,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,12,Transitional intercalated cell,8.08,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,13,Ascending loop of henle cell,7.4,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,14,Epithelial cell,6.12,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,10,15,Injured thick ascending limb cell,5.92,cellmarker3.0\E16_WT_2_cluster10_CellMarker_summary.csv
+E16_WT_2,11,1,Natural killer T cell,3.16,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,2,Nephron progenitor cell,2.83,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,3,Cap mesenchymal cell,2.27,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,4,Progenitor cell,2.18,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,5,Intercalated cell,1.41,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,6,Profibrotic tubule cell,1.36,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,7,Podocyte,1.16,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,8,Collecting duct principal cell,0.83,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,9,Macula densa cell,0.82,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,10,Proliferating lymphocyte,0.63,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,11,Connecting tubular cell,0.54,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,12,Immune cell,0.54,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,13,S3 proximal tubule cell,0.51,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,14,Beta intercalated cell,0.49,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,11,15,Type B intercalated cell,0.48,cellmarker3.0\E16_WT_2_cluster11_CellMarker_summary.csv
+E16_WT_2,12,1,Stromal cell,3.55,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,2,Thick ascending limb cell,2.5,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,3,Macula densa thick ascending limb cell,2.41,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,4,Macula densa cell,1.62,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,5,Ascending loop of henle cell,1.57,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,6,Fibroblast,1.19,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,7,Endothelial cell,0.92,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,8,Alpha intercalated cell,0.75,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,9,Distal convoluted tubule cell,0.62,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,10,Distal convoluted tubular cell,0.5,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,11,Parietal epithelial cell,0.47,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,12,Beta intercalated cell,0.45,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,13,Podocyte,0.42,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,14,Distal tubule cell,0.38,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,12,15,Injured thick ascending limb cell,0.38,cellmarker3.0\E16_WT_2_cluster12_CellMarker_summary.csv
+E16_WT_2,13,1,Collecting duct principal cell,35.7,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,2,Distal tubule cell,15.41,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,3,Epithelial cell,14.4,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,4,Profibrotic tubule cell,7.3,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,5,Transitional intercalated cell,4.09,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,6,Alpha intercalated cell,3.64,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,7,Proliferating collecting duct cell,3.63,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,8,Injured thick ascending limb cell,3.35,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,9,Collecting duct cell,3.01,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,10,Principal cell,2.72,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,11,Injured distal tubule cell,2.39,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,12,Short loop descending limb cell,2.01,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,13,Collecting ductal cell,1.84,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,14,Loop of henle cell,1.72,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,13,15,Connecting tubular cell,1.54,cellmarker3.0\E16_WT_2_cluster13_CellMarker_summary.csv
+E16_WT_2,14,1,Podocyte,36.77,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,2,Sertoli cell,2.85,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,3,Intercalated B cell,2.37,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,4,Glomerular cell,2.24,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,5,Collecting duct transient cell,1.35,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,6,Parietal epithelial cell,1.35,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,7,Macrophage,1.26,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,8,S2 proximal tubule cell,1.14,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,9,Distal tubule cell,1.04,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,10,Collecting duct intercalated cell,0.82,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,11,Glomerular endothelial cell,0.81,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,12,Collecting duct principal cell,0.7,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,13,Alpha intercalated cell,0.69,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,14,Beta intercalated cell,0.69,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,14,15,Endothelial cell,0.64,cellmarker3.0\E16_WT_2_cluster14_CellMarker_summary.csv
+E16_WT_2,15,1,Macula densa thick ascending limb cell,30.87,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,2,Thick ascending limb cell,27.12,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,3,Injured thick ascending limb cell,23.7,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,4,Ascending loop of henle cell,18.6,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,5,Descending thin limb cell,12.55,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,6,Macula densa cell,11.37,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,7,Descending and ascending thin limb cell,11.26,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,8,Type B intercalated cell,5.84,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,9,Parietal epithelial cell,5.67,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,10,Distal convoluted tubular cell,5.52,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,11,Profibrotic tubule cell,3.97,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,12,Loop of henle cell,3.37,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,13,Distal tubule cell,3.16,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,14,Intercalated cell of collecting duct,2.93,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,15,15,Stromal cell,2.57,cellmarker3.0\E16_WT_2_cluster15_CellMarker_summary.csv
+E16_WT_2,16,1,Transitional intercalated cell,3.98,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,2,Mesangial cell,3.27,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,3,Injured distal tubule cell,2.6,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,4,Injured proximal tubule cell,2.6,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,5,Endothelial cell,2.38,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,6,Descending thin limb cell,1.76,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,7,General proximal cell,1.75,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,8,Thin ascending limb cell,1.75,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,9,Injured thick ascending limb cell,1.67,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,10,Distal convoluted tubule cell,1.58,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,11,Connecting tubule cell,1.47,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,12,Proximal tubular cell,1.45,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,13,Distal tubule cell,1.41,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,14,Proliferating proximal tubule cell,1.29,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,16,15,Distal convoluted tubule type 2 cell,1.28,cellmarker3.0\E16_WT_2_cluster16_CellMarker_summary.csv
+E16_WT_2,17,1,Erythrocyte,2.72,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,2,Type a intercalated cell,2.55,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,3,Tubular cell,2.55,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,4,Inflammatory cell,2.55,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,5,Natural killer cell,2.46,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,6,Intercalated a cell,2.42,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,7,Intercalated cell,2.22,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,8,CD4 T cell,2.22,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,9,Myofibroblast,2.07,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,10,Type B intercalated cell,1.85,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,11,Red blood cell,1.82,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,12,Connecting tubular cell,1.66,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,13,Dendritic cell,1.62,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,14,Injured distal tubule cell,1.56,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,17,15,Endothelial cell,1.55,cellmarker3.0\E16_WT_2_cluster17_CellMarker_summary.csv
+E16_WT_2,18,1,Endothelial cell,67.26,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,2,Glomerular endothelial cell,39.23,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,3,Vascular endothelial cell,36.71,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,4,Stromal cell,4.02,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,5,CD4 T cell,2.98,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,6,B lymphocyte,2.44,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,7,Cortical renal endothelial cell,2.42,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,8,CD4+ T cell,2.24,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,9,Effector CD8+ T cell,1.88,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,10,Mesangial cell,1.59,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,11,Proximal tubular cell,1.43,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,12,Plasma cell,1.41,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,13,CD8 effector T cell,1.31,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,14,Proliferating lymphocyte,1.26,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,18,15,Natural killer cell,1.24,cellmarker3.0\E16_WT_2_cluster18_CellMarker_summary.csv
+E16_WT_2,19,1,Macrophage,48.52,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,2,Immune cell,34.59,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,3,Neutrophil,25.48,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,4,Monocyte,14.66,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,5,Dendritic cell,7.66,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,6,Basophil,4.54,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,7,CD8 effector T cell,3.44,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,8,Natural killer cell,3.39,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,9,Regulatory T cell,2.64,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,10,Myeloid cell,2.14,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,11,Proliferating lymphocyte,1.56,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,12,Natural killer T cell,1.53,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,13,T helper 17 cell,1.36,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,14,Fibroblast,0.74,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,19,15,T cell,0.71,cellmarker3.0\E16_WT_2_cluster19_CellMarker_summary.csv
+E16_WT_2,20,1,Collecting duct principal cell,11.47,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,2,Intercalated cell,10.07,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,3,Beta intercalated cell,9.85,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,4,Type B intercalated cell,9.39,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,5,Distal tubule cell,7.99,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,6,Connecting tubular cell,7.33,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,7,Type a intercalated cell,7.25,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,8,Collecting ductal cell,5.68,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,9,Macula densa thick ascending limb cell,4.5,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,10,Transitional intercalated cell,3.93,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,11,Distal convoluted tubular cell,3.7,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,12,Collecting duct intercalated cell,3.17,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,13,Distal convoluted tubule type 2 cell,2.98,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,14,Alpha intercalated cell,2.76,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,20,15,Thick ascending limb cell,2.61,cellmarker3.0\E16_WT_2_cluster20_CellMarker_summary.csv
+E16_WT_2,21,1,Dendritic cell,1.87,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,2,Profibrotic tubule cell,1.18,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,3,Plasmacytoid dendritic cell,1.17,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,4,Glomerular endothelial cell,1.12,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,5,Alpha intercalated cell,0.92,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,6,Monocyte,0.83,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,7,Myocyte,0.79,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,8,B lymphocyte,0.73,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,9,Endothelial cell,0.68,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,10,Descending and ascending thin limb cell,0.63,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,11,Immune cell,0.61,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,12,Natural killer cell,0.61,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,13,Descending thin limb cell,0.49,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,14,Connecting tubular cell,0.46,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,21,15,Macrophage,0.43,cellmarker3.0\E16_WT_2_cluster21_CellMarker_summary.csv
+E16_WT_2,22,1,S2 proximal tubule cell,1.96,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,2,S3 proximal tubule cell,1.95,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,3,Profibrotic tubule cell,1.38,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,4,S1 proximal tubule cell,1.04,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,5,B lymphocyte,0.96,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,6,Immune cell,0.81,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,7,Dendritic cell,0.81,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,8,Macrophage,0.8,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,9,Type B intercalated cell,0.71,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,10,Intercalated cell,0.69,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,11,Beta intercalated cell,0.68,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,12,Descending and ascending thin limb cell,0.68,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,13,Plasmacytoid dendritic cell,0.67,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,14,Proximal tubule brush border cell,0.67,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv
+E16_WT_2,22,15,Natural killer T cell,0.57,cellmarker3.0\E16_WT_2_cluster22_CellMarker_summary.csv

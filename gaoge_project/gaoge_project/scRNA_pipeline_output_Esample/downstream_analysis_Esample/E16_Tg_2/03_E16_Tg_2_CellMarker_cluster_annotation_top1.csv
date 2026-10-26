@@ -1,0 +1,27 @@
+﻿sample,cluster,cell_type,score,summary_file
+E16_Tg_2,0,Stromal cell,3.96,cellmarker3.0\E16_Tg_2_cluster0_CellMarker_summary.csv
+E16_Tg_2,1,Stromal cell,19.36,cellmarker3.0\E16_Tg_2_cluster1_CellMarker_summary.csv
+E16_Tg_2,2,Endothelial cell,9.02,cellmarker3.0\E16_Tg_2_cluster2_CellMarker_summary.csv
+E16_Tg_2,3,Intercalated cell,2.54,cellmarker3.0\E16_Tg_2_cluster3_CellMarker_summary.csv
+E16_Tg_2,4,Stromal cell,14.86,cellmarker3.0\E16_Tg_2_cluster4_CellMarker_summary.csv
+E16_Tg_2,5,Ureteric bud tip cell,7.3,cellmarker3.0\E16_Tg_2_cluster5_CellMarker_summary.csv
+E16_Tg_2,6,Glomerular endothelial cell,39.31,cellmarker3.0\E16_Tg_2_cluster6_CellMarker_summary.csv
+E16_Tg_2,7,Collecting duct principal cell,26.98,cellmarker3.0\E16_Tg_2_cluster7_CellMarker_summary.csv
+E16_Tg_2,8,Macula densa thick ascending limb cell,20.56,cellmarker3.0\E16_Tg_2_cluster8_CellMarker_summary.csv
+E16_Tg_2,9,Parietal epithelial cell,6.42,cellmarker3.0\E16_Tg_2_cluster9_CellMarker_summary.csv
+E16_Tg_2,10,Podocyte,21.22,cellmarker3.0\E16_Tg_2_cluster10_CellMarker_summary.csv
+E16_Tg_2,11,Podocyte,5.07,cellmarker3.0\E16_Tg_2_cluster11_CellMarker_summary.csv
+E16_Tg_2,12,Proximal tubule cell,56.31,cellmarker3.0\E16_Tg_2_cluster12_CellMarker_summary.csv
+E16_Tg_2,13,Stromal cell,9.28,cellmarker3.0\E16_Tg_2_cluster13_CellMarker_summary.csv
+E16_Tg_2,14,Podocyte,3.05,cellmarker3.0\E16_Tg_2_cluster14_CellMarker_summary.csv
+E16_Tg_2,15,Alpha intercalated cell,5.33,cellmarker3.0\E16_Tg_2_cluster15_CellMarker_summary.csv
+E16_Tg_2,16,Stromal cell,6.86,cellmarker3.0\E16_Tg_2_cluster16_CellMarker_summary.csv
+E16_Tg_2,17,Stromal cell,17.86,cellmarker3.0\E16_Tg_2_cluster17_CellMarker_summary.csv
+E16_Tg_2,18,Collecting duct principal cell,2.91,cellmarker3.0\E16_Tg_2_cluster18_CellMarker_summary.csv
+E16_Tg_2,19,Podocyte,6.19,cellmarker3.0\E16_Tg_2_cluster19_CellMarker_summary.csv
+E16_Tg_2,20,Distal tubule cell,9.59,cellmarker3.0\E16_Tg_2_cluster20_CellMarker_summary.csv
+E16_Tg_2,21,Macrophage,48.2,cellmarker3.0\E16_Tg_2_cluster21_CellMarker_summary.csv
+E16_Tg_2,22,Endothelial cell,47.65,cellmarker3.0\E16_Tg_2_cluster22_CellMarker_summary.csv
+E16_Tg_2,23,Proximal tubule cell,1.88,cellmarker3.0\E16_Tg_2_cluster23_CellMarker_summary.csv
+E16_Tg_2,24,Ascending loop of henle cell,2.54,cellmarker3.0\E16_Tg_2_cluster24_CellMarker_summary.csv
+E16_Tg_2,25,S1 proximal tubule cell,2.43,cellmarker3.0\E16_Tg_2_cluster25_CellMarker_summary.csv

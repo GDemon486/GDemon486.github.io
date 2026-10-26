@@ -1,0 +1,17 @@
+===================================================
+  Seurat Pipeline Run Parameters Summary (Esample)
+===================================================
+Sample ID                     : E12_Tg_2
+Input Matrix                  : Y:/PhD_work/GaoGe_project/cellranger/20260716_scRNAseq_WT_TG_E12_kidney/cellranger/E12_Tg_2/outs/outs/filtered_feature_bc_matrix
+Timepoint / Group             : E12 / Tg
+---------------------------------------------------
+[ Quality Control ]
+Min Features                  : 200
+Max Features                  : 5213
+  - Method                    : Auto (Median + 3*MAD = 5213)
+MT Cutoff (Unified)           : 10
+Cells after QC                : 14198
+---------------------------------------------------
+[ Clustering ]
+Resolution                    : 0.8
+  - Method                    : Auto (heuristic by cell count: 14198 cells)

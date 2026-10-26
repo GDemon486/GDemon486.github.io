@@ -1,0 +1,26 @@
+﻿sample,cluster,cell_type,score,summary_file
+E16_WT_1,0,Stromal cell,37.56,cellmarker3.0\E16_WT_1_cluster0_CellMarker_summary.csv
+E16_WT_1,1,Natural killer T cell,3.06,cellmarker3.0\E16_WT_1_cluster1_CellMarker_summary.csv
+E16_WT_1,2,S2 proximal tubule cell,44.8,cellmarker3.0\E16_WT_1_cluster2_CellMarker_summary.csv
+E16_WT_1,3,Ascending loop of henle cell,3.0,cellmarker3.0\E16_WT_1_cluster3_CellMarker_summary.csv
+E16_WT_1,4,Endothelial cell,13.41,cellmarker3.0\E16_WT_1_cluster4_CellMarker_summary.csv
+E16_WT_1,5,Endothelial cell,7.89,cellmarker3.0\E16_WT_1_cluster5_CellMarker_summary.csv
+E16_WT_1,6,Macula densa cell,2.46,cellmarker3.0\E16_WT_1_cluster6_CellMarker_summary.csv
+E16_WT_1,7,Parietal epithelial cell,4.34,cellmarker3.0\E16_WT_1_cluster7_CellMarker_summary.csv
+E16_WT_1,8,Endothelial cell,46.18,cellmarker3.0\E16_WT_1_cluster8_CellMarker_summary.csv
+E16_WT_1,9,Connecting tubular cell,7.58,cellmarker3.0\E16_WT_1_cluster9_CellMarker_summary.csv
+E16_WT_1,10,Stromal cell,13.75,cellmarker3.0\E16_WT_1_cluster10_CellMarker_summary.csv
+E16_WT_1,11,Ureteric bud tip cell,6.99,cellmarker3.0\E16_WT_1_cluster11_CellMarker_summary.csv
+E16_WT_1,12,Injured thick ascending limb cell,11.66,cellmarker3.0\E16_WT_1_cluster12_CellMarker_summary.csv
+E16_WT_1,13,Collecting duct principal cell,34.39,cellmarker3.0\E16_WT_1_cluster13_CellMarker_summary.csv
+E16_WT_1,14,Macula densa thick ascending limb cell,41.57,cellmarker3.0\E16_WT_1_cluster14_CellMarker_summary.csv
+E16_WT_1,15,Stromal cell,5.72,cellmarker3.0\E16_WT_1_cluster15_CellMarker_summary.csv
+E16_WT_1,16,Collecting duct principal cell,5.93,cellmarker3.0\E16_WT_1_cluster16_CellMarker_summary.csv
+E16_WT_1,17,Collecting duct principal cell,25.48,cellmarker3.0\E16_WT_1_cluster17_CellMarker_summary.csv
+E16_WT_1,18,Podocyte,40.86,cellmarker3.0\E16_WT_1_cluster18_CellMarker_summary.csv
+E16_WT_1,19,Transitional intercalated cell,3.82,cellmarker3.0\E16_WT_1_cluster19_CellMarker_summary.csv
+E16_WT_1,20,Endothelial cell,3.19,cellmarker3.0\E16_WT_1_cluster20_CellMarker_summary.csv
+E16_WT_1,21,Macrophage,52.15,cellmarker3.0\E16_WT_1_cluster21_CellMarker_summary.csv
+E16_WT_1,22,Collecting duct principal cell,13.09,cellmarker3.0\E16_WT_1_cluster22_CellMarker_summary.csv
+E16_WT_1,23,Endothelial cell,13.5,cellmarker3.0\E16_WT_1_cluster23_CellMarker_summary.csv
+E16_WT_1,24,Endothelial cell,49.23,cellmarker3.0\E16_WT_1_cluster24_CellMarker_summary.csv

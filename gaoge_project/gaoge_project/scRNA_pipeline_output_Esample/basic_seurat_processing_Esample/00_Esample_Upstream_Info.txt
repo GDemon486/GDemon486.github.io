@@ -1,0 +1,4 @@
+E12 Cell Ranger dir : Y:/PhD_work/GaoGe_project/cellranger/20260716_scRNAseq_WT_TG_E12_kidney/cellranger
+E16 Cell Ranger dir : Y:/PhD_work/GaoGe_project/cellranger/20261020_scRNAseq_WT_TG_E16_kidney/cellranger
+Unified MT cutoff   : 10
+Samples             : E12_Tg_1, E12_Tg_2, E12_Tg_3, E16_Tg_1, E16_Tg_2, E16_Tg_3, E12_WT_1, E12_WT_2, E12_WT_3, E16_WT_1, E16_WT_2, E16_WT_3

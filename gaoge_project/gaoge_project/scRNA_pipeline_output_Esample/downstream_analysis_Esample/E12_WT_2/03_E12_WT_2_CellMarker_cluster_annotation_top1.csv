@@ -1,0 +1,24 @@
+﻿sample,cluster,cell_type,score,summary_file
+E12_WT_2,0,Parietal epithelial cell,8.85,cellmarker3.0\E12_WT_2_cluster0_CellMarker_summary.csv
+E12_WT_2,1,Intercalated cell,5.71,cellmarker3.0\E12_WT_2_cluster1_CellMarker_summary.csv
+E12_WT_2,2,Intercalated cell,7.72,cellmarker3.0\E12_WT_2_cluster2_CellMarker_summary.csv
+E12_WT_2,3,Natural killer T cell,3.31,cellmarker3.0\E12_WT_2_cluster3_CellMarker_summary.csv
+E12_WT_2,4,Endothelial cell,7.11,cellmarker3.0\E12_WT_2_cluster4_CellMarker_summary.csv
+E12_WT_2,5,Podocyte,17.13,cellmarker3.0\E12_WT_2_cluster5_CellMarker_summary.csv
+E12_WT_2,6,Podocyte,6.83,cellmarker3.0\E12_WT_2_cluster6_CellMarker_summary.csv
+E12_WT_2,7,Stromal cell,7.56,cellmarker3.0\E12_WT_2_cluster7_CellMarker_summary.csv
+E12_WT_2,8,Descending thin limb cell,15.38,cellmarker3.0\E12_WT_2_cluster8_CellMarker_summary.csv
+E12_WT_2,9,Stromal cell,9.31,cellmarker3.0\E12_WT_2_cluster9_CellMarker_summary.csv
+E12_WT_2,10,Stromal cell,34.17,cellmarker3.0\E12_WT_2_cluster10_CellMarker_summary.csv
+E12_WT_2,11,Ureteric bud tip cell,6.9,cellmarker3.0\E12_WT_2_cluster11_CellMarker_summary.csv
+E12_WT_2,12,Glomerular endothelial cell,9.6,cellmarker3.0\E12_WT_2_cluster12_CellMarker_summary.csv
+E12_WT_2,13,Collecting duct principal cell,38.66,cellmarker3.0\E12_WT_2_cluster13_CellMarker_summary.csv
+E12_WT_2,14,Stromal cell,6.99,cellmarker3.0\E12_WT_2_cluster14_CellMarker_summary.csv
+E12_WT_2,15,Collecting duct principal cell,22.27,cellmarker3.0\E12_WT_2_cluster15_CellMarker_summary.csv
+E12_WT_2,16,Glomerular endothelial cell,44.29,cellmarker3.0\E12_WT_2_cluster16_CellMarker_summary.csv
+E12_WT_2,17,Glomerular endothelial cell,2.87,cellmarker3.0\E12_WT_2_cluster17_CellMarker_summary.csv
+E12_WT_2,18,Red blood cell,5.22,cellmarker3.0\E12_WT_2_cluster18_CellMarker_summary.csv
+E12_WT_2,19,Beta intercalated cell,2.89,cellmarker3.0\E12_WT_2_cluster19_CellMarker_summary.csv
+E12_WT_2,20,Distal convoluted tubule type 2 cell,7.82,cellmarker3.0\E12_WT_2_cluster20_CellMarker_summary.csv
+E12_WT_2,21,Macrophage,52.12,cellmarker3.0\E12_WT_2_cluster21_CellMarker_summary.csv
+E12_WT_2,22,Parietal epithelial cell,2.6,cellmarker3.0\E12_WT_2_cluster22_CellMarker_summary.csv

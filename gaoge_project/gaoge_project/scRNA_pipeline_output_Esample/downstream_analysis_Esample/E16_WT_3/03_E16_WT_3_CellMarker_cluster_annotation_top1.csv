@@ -1,0 +1,21 @@
+﻿sample,cluster,cell_type,score,summary_file
+E16_WT_3,0,Natural killer T cell,1.51,cellmarker3.0\E16_WT_3_cluster0_CellMarker_summary.csv
+E16_WT_3,1,Stromal cell,37.45,cellmarker3.0\E16_WT_3_cluster1_CellMarker_summary.csv
+E16_WT_3,2,Beta intercalated cell,23.71,cellmarker3.0\E16_WT_3_cluster2_CellMarker_summary.csv
+E16_WT_3,3,Endothelial cell,5.39,cellmarker3.0\E16_WT_3_cluster3_CellMarker_summary.csv
+E16_WT_3,4,Natural killer T cell,3.16,cellmarker3.0\E16_WT_3_cluster4_CellMarker_summary.csv
+E16_WT_3,5,Macula densa thick ascending limb cell,34.18,cellmarker3.0\E16_WT_3_cluster5_CellMarker_summary.csv
+E16_WT_3,6,Ureteric bud tip cell,7.19,cellmarker3.0\E16_WT_3_cluster6_CellMarker_summary.csv
+E16_WT_3,7,Proximal tubule cell,52.92,cellmarker3.0\E16_WT_3_cluster7_CellMarker_summary.csv
+E16_WT_3,8,Glomerular endothelial cell,39.96,cellmarker3.0\E16_WT_3_cluster8_CellMarker_summary.csv
+E16_WT_3,9,Connecting tubular cell,3.75,cellmarker3.0\E16_WT_3_cluster9_CellMarker_summary.csv
+E16_WT_3,10,Collecting duct principal cell,24.88,cellmarker3.0\E16_WT_3_cluster10_CellMarker_summary.csv
+E16_WT_3,11,Parietal epithelial cell,8.32,cellmarker3.0\E16_WT_3_cluster11_CellMarker_summary.csv
+E16_WT_3,12,Stromal cell,11.82,cellmarker3.0\E16_WT_3_cluster12_CellMarker_summary.csv
+E16_WT_3,13,Stromal cell,4.64,cellmarker3.0\E16_WT_3_cluster13_CellMarker_summary.csv
+E16_WT_3,14,Glomerular endothelial cell,47.6,cellmarker3.0\E16_WT_3_cluster14_CellMarker_summary.csv
+E16_WT_3,15,Collecting duct principal cell,4.32,cellmarker3.0\E16_WT_3_cluster15_CellMarker_summary.csv
+E16_WT_3,16,Podocyte,30.74,cellmarker3.0\E16_WT_3_cluster16_CellMarker_summary.csv
+E16_WT_3,17,Collecting duct principal cell,17.26,cellmarker3.0\E16_WT_3_cluster17_CellMarker_summary.csv
+E16_WT_3,18,Macrophage,39.79,cellmarker3.0\E16_WT_3_cluster18_CellMarker_summary.csv
+E16_WT_3,19,Red blood cell,9.77,cellmarker3.0\E16_WT_3_cluster19_CellMarker_summary.csv

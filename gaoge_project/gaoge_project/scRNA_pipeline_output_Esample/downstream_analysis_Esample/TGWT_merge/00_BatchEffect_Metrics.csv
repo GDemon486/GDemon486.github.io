@@ -1,0 +1,3 @@
+"stage","method","observed_same_batch","expected_same_batch","enrichment","threshold","batch_effect_flag"
+"before","raw_merge",NA,NA,NA,0.15,FALSE
+"after","raw_merge_forced",NA,NA,NA,0.15,FALSE

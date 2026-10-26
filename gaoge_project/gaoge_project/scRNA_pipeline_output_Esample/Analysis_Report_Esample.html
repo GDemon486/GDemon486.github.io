@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单细胞转录组分析 (scRNA-seq) 综合报告 — Esample (E12/E16)</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6; color: #333;
+            max-width: 1480px; margin: 0 auto; padding: 20px;
+            background-color: #f0f2f5;
+        }
+        h1, h2, h3, h4 { color: #2c3e50; }
+        .header, .section, .sticky-nav {
+            background-color: #fff; border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header { text-align: center; padding: 30px 24px; margin-bottom: 20px; }
+        .header h1 { margin: 0; font-size: 2.15em; }
+        .header p { font-size: 1.05em; color: #667085; margin: 10px 0 0 0; }
+        .sticky-nav { position: sticky; top: 0; z-index: 1000; margin-bottom: 24px; padding: 16px 20px; }
+        .control-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+        .control-row:last-child { margin-bottom: 0; }
+        .control-row h3 { margin: 0; min-width: 130px; font-size: 1em; }
+        .section { padding: 28px; margin-bottom: 24px; }
+        .section h2 { margin-top: 0; }
+        .selector-panel {
+            background-color: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 10px; padding: 16px 18px; margin-bottom: 18px;
+        }
+        .selector-panel p { margin: 0 0 10px 0; color: #475467; }
+        .tab-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tab-btn {
+            padding: 10px 18px; background-color: #eef2f7;
+            border: 1px solid #cbd5e1; border-radius: 8px;
+            cursor: pointer; font-size: 0.96em; font-weight: 600;
+            color: #475467; transition: all 0.2s ease;
+        }
+        .tab-btn:hover { background-color: #e2e8f0; color: #1f2937; }
+        .tab-btn.active { background-color: #2563eb; color: #fff; border-color: #1d4ed8; }
+        .explanation {
+            background-color: #f8fafc; border-left: 4px solid #94a3b8;
+            padding: 14px 18px; margin-bottom: 18px; border-radius: 0 8px 8px 0;
+        }
+        .explanation p { margin: 0 0 6px 0; color: #475467; }
+        .explanation p:last-child { margin-bottom: 0; }
+        .warn {
+            background-color: #fffbeb; border-left: 4px solid #f59e0b;
+            padding: 14px 18px; margin-bottom: 18px; border-radius: 0 8px 8px 0;
+        }
+        .warn p { margin: 0 0 6px 0; color: #92400e; }
+        .warn p:last-child { margin-bottom: 0; }
+        .grid-1, .grid-2, .grid-3 { display: grid; gap: 18px; margin-bottom: 18px; }
+        .grid-1 { grid-template-columns: 1fr; }
+        .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .plot-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; }
+        .plot-card h4 {
+            margin-top: 0; margin-bottom: 12px;
+            border-bottom: 1px solid #edf2f7; padding-bottom: 10px; font-size: 1.05em;
+        }
+        .pdf-container { width: 100%; height: 450px; border: none; background-color: #f8fafc; }
+        .pdf-large { height: 620px; }
+        .txt-container {
+            width: 100%; height: 240px; border: 1px solid #e5e7eb;
+            border-radius: 8px; background-color: #f8fafc;
+            font-family: Consolas, "Courier New", monospace; font-size: 0.9em;
+            overflow: auto; padding: 12px; white-space: pre; color: #334155;
+        }
+        .download-link {
+            display: block; margin-top: 10px; text-align: right;
+            color: #2563eb; text-decoration: none; font-size: 0.92em;
+        }
+        .download-link:hover { text-decoration: underline; }
+        .link-list { margin: 10px 0 0 0; padding-left: 18px; }
+        .link-list li { margin-bottom: 6px; }
+        .mini-note { font-size: 0.94em; color: #667085; margin-top: 10px; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+        th, td { border: 1px solid #e5e7eb; padding: 9px 11px; text-align: center; }
+        th { background-color: #f8fafc; color: #334155; }
+        tbody tr:nth-child(even) { background-color: #fbfdff; }
+        .table-compact { font-size: 0.88em; }
+        .inline-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 999px;
+            font-size: 0.82em; font-weight: 700;
+        }
+        .tag-sample { background-color: #ecfdf3; color: #027a48; }
+        .tag-dev { background-color: #fef3c7; color: #b45309; }
+        .tag-focus { background-color: #fce7f3; color: #9d174d; }
+        .tag-l2 { background-color: #e0e7ff; color: #4338ca; }
+        .badge-tg { background-color: #d73027; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; vertical-align: middle; }
+        .badge-wt { background-color: #4c78a8; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; vertical-align: middle; }
+        .badge-tp { background-color: #94a3b8; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; vertical-align: middle; }
+        @media (max-width: 1100px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .sticky-nav { position: static; } .control-row { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body onload="initReport()">
+
+    <div class="header">
+        <h1>单细胞转录组分析 (scRNA-seq) 综合报告 — Esample (E12/E16)</h1>
+        <p>12 个胚胎肾样本（E12/E16 × Tg/WT × 3 生物学重复，共 170,364 细胞）。scVI 参考 GSM4794634（E12.5 胚胎肾）。主注释为 <strong>predicted_Predicted_Celltype_resolved</strong>（11 类群，融合 L1 cluster 级与 L2 区室细分结果）。含单样本质控聚类、TGWT_merge 五视图、5 个分化谱系 Focus。</p>
+    </div>
+
+    <div class="sticky-nav">
+        <div class="control-row">
+            <h3>Merge 视角</h3>
+            <div class="tab-buttons">
+                <button class="tab-btn merge-btn active" data-merge="Merge" onclick="updateMerge('Merge')">Merge</button>
+                <button class="tab-btn merge-btn" data-merge="Tg" onclick="updateMerge('Tg')">Tg <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn merge-btn" data-merge="WT" onclick="updateMerge('WT')">WT <span class="badge-wt">WT</span></button>
+                <button class="tab-btn merge-btn" data-merge="E12" onclick="updateMerge('E12')">E12 <span class="badge-tp">E12</span></button>
+                <button class="tab-btn merge-btn" data-merge="E16" onclick="updateMerge('E16')">E16 <span class="badge-tp">E16</span></button>
+            </div>
+        </div>
+        <div class="control-row">
+            <h3>注释方法</h3>
+            <div class="tab-buttons">
+                <button class="tab-btn method-btn active" data-method="predicted_Predicted_Celltype_resolved" onclick="updateMethod('predicted_Predicted_Celltype_resolved')">scVI resolved（主）</button>
+                <button class="tab-btn method-btn" data-method="cellmarker3.0" onclick="updateMethod('cellmarker3.0')">CellMarker 3.0</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>1. 分析方案与注释体系</h2>
+        <div class="explanation">
+            <p>流程主线：① 单样本质控与聚类（Cell Ranger + Seurat QC + 降维聚类）；② 单样本 scVI 注释（GSM4794634 参考，3-fold 集成 KNN 标签迁移 + 多数投票）；③ TGWT_merge（12 样本唯一合并对象）五视图同步分析（Merge / Tg / WT / E12 / E16 均为同一注释结果的细胞子集视图）；④ 5 个分化谱系 Focus 群体高亮 UMAP。</p>
+            <p>注释层级：<strong>L0</strong> <code>predicted_Predicted_Celltype_mapped</code>（7 类群一阶归并）；<strong>L1</strong> <code>predicted_Predicted_Celltype_cluster</code>（Seurat cluster 众数标签）；<strong>L2</strong> <code>predicted_Predicted_Celltype_L2</code>（区内再聚类亚型）；<strong>最终主注释</strong> <code>predicted_Predicted_Celltype_resolved</code>（融合 L1 与 L2，11 类群）。单细胞原始标签 <code>predicted_Predicted_Celltype</code>（15 类）完整保留在 metadata 中。</p>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>主注释类群构成（resolved，170,364 细胞）</h4>
+                <div class="table-wrap">
+                    <table class="table-compact">
+                        <thead><tr><th>类群</th><th>细胞数</th><th>占比</th><th>来源层级</th></tr></thead>
+                        <tbody>
+                            <tr><td>cortical_stroma</td><td>67,502</td><td>39.62%</td><td>L2（Stroma）</td></tr>
+                            <tr><td>NPC</td><td>32,098</td><td>18.84%</td><td>L0 / L1</td></tr>
+                            <tr><td>Ureteric bud / CD</td><td>28,304</td><td>16.61%</td><td>L0 / L1</td></tr>
+                            <tr><td>differentiating</td><td>21,001</td><td>12.33%</td><td>L0 / L1</td></tr>
+                            <tr><td>Endothelial</td><td>6,024</td><td>3.54%</td><td>L0 / L1</td></tr>
+                            <tr><td>mesangial_stroma</td><td>5,475</td><td>3.21%</td><td>L2（Stroma）</td></tr>
+                            <tr><td>medullary_stroma</td><td>4,054</td><td>2.38%</td><td>L2（Stroma）</td></tr>
+                            <tr><td>Podocyte</td><td>2,435</td><td>1.43%</td><td>L2（Segmented）</td></tr>
+                            <tr><td>Hematopoietic</td><td>1,365</td><td>0.80%</td><td>L0 / L1</td></tr>
+                            <tr><td>Distal tubule</td><td>1,292</td><td>0.76%</td><td>L2（Segmented）</td></tr>
+                            <tr><td>Proximal tubule</td><td>814</td><td>0.48%</td><td>L2（Segmented）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mini-note">11 列合计 = 170,364（与 QC 后总细胞数一致）。L0 mapped 层（7 类）：Stroma 85,653 / Ureteric bud·CD 26,574 / NPC 26,492 / differentiating 19,296 / Endothelial 6,755 / Segmented nephron epithelium 4,524 / Hematopoietic 1,070。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. 单样本报告入口</h2>
+        <div class="explanation">
+            <p>本节与 QC 节跟随样本按钮切换。Cell Ranger Web Summary 位于输出目录之外的上游 cellranger 目录（E12 批次：20260716，E16 批次：20261020）。</p>
+        </div>
+        <div class="selector-panel">
+            <p><span class="inline-tag tag-sample">单样本视角</span> 当前样本：<strong id="current-sample-label">E12_Tg_1</strong></p>
+            <div class="tab-buttons">
+                <button class="tab-btn sample-btn active" data-sample="E12_Tg_1" onclick="updateSample('E12_Tg_1')">E12_Tg_1 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E12_Tg_2" onclick="updateSample('E12_Tg_2')">E12_Tg_2 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E12_Tg_3" onclick="updateSample('E12_Tg_3')">E12_Tg_3 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E12_WT_1" onclick="updateSample('E12_WT_1')">E12_WT_1 <span class="badge-wt">WT</span></button>
+                <button class="tab-btn sample-btn" data-sample="E12_WT_2" onclick="updateSample('E12_WT_2')">E12_WT_2 <span class="badge-wt">WT</span></button>
+                <button class="tab-btn sample-btn" data-sample="E12_WT_3" onclick="updateSample('E12_WT_3')">E12_WT_3 <span class="badge-wt">WT</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_Tg_1" onclick="updateSample('E16_Tg_1')">E16_Tg_1 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_Tg_2" onclick="updateSample('E16_Tg_2')">E16_Tg_2 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_Tg_3" onclick="updateSample('E16_Tg_3')">E16_Tg_3 <span class="badge-tg">Tg</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_WT_1" onclick="updateSample('E16_WT_1')">E16_WT_1 <span class="badge-wt">WT</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_WT_2" onclick="updateSample('E16_WT_2')">E16_WT_2 <span class="badge-wt">WT</span></button>
+                <button class="tab-btn sample-btn" data-sample="E16_WT_3" onclick="updateSample('E16_WT_3')">E16_WT_3 <span class="badge-wt">WT</span></button>
+            </div>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>Cell Ranger Web Summary</h4>
+                <iframe id="iframe-cellranger" class="pdf-container pdf-large" src="" style="height: 620px; border: 1px solid #e5e7eb;"></iframe>
+                <a id="dl-cellranger" class="download-link" href="" target="_blank">在新窗口打开当前样本 Cell Ranger 报告</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. 数据质量控制 (QC) 与过滤</h2>
+        <div class="explanation">
+            <p>QC 策略：Min Features = 200；Max Features = Median + 3*MAD 自动阈值；线粒体比例统一阈值 percent.mt &lt; 10（E12/E16 两批统一）。</p>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>QC 后每样本细胞数与核心统计</h4>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sample</th><th>Timepoint</th><th>Group</th><th>QC 后细胞数</th>
+                                <th>中位 nFeature_RNA</th><th>中位 nCount_RNA</th>
+                                <th>中位 percent.mt (%)</th><th>平均 percent.mt (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="qc-summary-body"></tbody>
+                        <tfoot>
+                            <tr><td colspan="3"><strong>合计</strong></td><td colspan="5"><strong>170,364</strong></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <a id="dl-qc-summary-info" class="download-link" href="basic_seurat_processing_Esample/00_Esample_Upstream_Info.txt" target="_blank">查看：Esample 上游信息（Cell Ranger 目录、QC 阈值、样本清单）</a>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>过滤前质控分布 (Violin Plot)</h4>
+                <iframe id="iframe-qc-before" class="pdf-container" src=""></iframe>
+                <a id="dl-qc-before" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>过滤后总体 QC 分布 (Violin Plot)</h4>
+                <iframe id="iframe-qc-after" class="pdf-container" src=""></iframe>
+                <a id="dl-qc-after" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. 单样本降维与聚类</h2>
+        <div class="explanation">
+            <p>跟随样本按钮切换，展示当前样本的高变基因、PCA、Elbow 与 UMAP 聚类结果。聚类分辨率为按细胞数自动启发式选择（默认 0.8）。</p>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>高变基因 (Variable Features)</h4>
+                <iframe id="iframe-varfeatures" class="pdf-container" src=""></iframe>
+                <a id="dl-varfeatures" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>PCA Plot</h4>
+                <iframe id="iframe-pca" class="pdf-container" src=""></iframe>
+                <a id="dl-pca" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>PCA Elbow Plot</h4>
+                <iframe id="iframe-elbow" class="pdf-container" src=""></iframe>
+                <a id="dl-elbow" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>UMAP 聚类图</h4>
+                <iframe id="iframe-umap-single" class="pdf-container" src=""></iframe>
+                <a id="dl-umap-single" class="download-link" href="" target="_blank">全屏查看/下载</a>
+                <ul class="link-list">
+                    <li><a id="dl-single-cluster-markers" href="" target="_blank">下载：当前样本 cluster markers CSV</a></li>
+                    <li><a id="dl-single-run-params" href="" target="_blank">查看：当前样本运行参数摘要</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. 单样本注释与 Marker</h2>
+        <div class="explanation">
+            <p>跟随样本按钮与顶部注释方法切换。当前方法 <span id="method-name-single">scVI resolved（主）</span> 下的单样本输出。单样本阶段不启用 GOI 与 Focus 模块（流水线写入 00_skipped_by_report_config.txt），这两类分析在 Merge 节统一进行。</p>
+        </div>
+        <div id="single-unavail-note" class="warn" style="display: none;">
+            <p id="single-unavail-text"></p>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>单样本注释 UMAP</h4>
+                <iframe id="iframe-single-anno" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-single-anno" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card" id="single-heatmap-card">
+                <h4>Cell Type Top5 Marker Heatmap</h4>
+                <iframe id="iframe-single-heatmap" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-single-heatmap" class="download-link" href="" target="_blank">全屏查看/下载</a>
+                <ul class="link-list">
+                    <li><a id="dl-single-ct-markers" href="" target="_blank">下载：单样本 cell type Top20 marker</a></li>
+                    <li><a id="dl-single-seurat-markers" href="" target="_blank">下载：单样本 Seurat cluster Top20 marker</a></li>
+                    <li><a id="dl-single-cellmarker-top1" href="" target="_blank">下载：单样本 CellMarker top1</a></li>
+                    <li><a id="dl-single-cellmarker-all" href="" target="_blank">下载：单样本 CellMarker 全候选</a></li>
+                    <li><a id="dl-single-metadata" href="" target="_blank">下载：单样本 metadata（含 L0 / L1 注释列）</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-2" id="single-prop-wrap">
+            <div class="plot-card">
+                <h4>Cell Type Proportion Barplot</h4>
+                <iframe id="iframe-single-prop-bar" class="pdf-container" src=""></iframe>
+                <a id="dl-single-prop-bar" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>Cell Type Proportion Grouped Barplot</h4>
+                <iframe id="iframe-single-prop-grouped" class="pdf-container" src=""></iframe>
+                <a id="dl-single-prop-grouped" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Merge 整合结果（TGWT_merge）</h2>
+        <div class="explanation">
+            <p>全流程只构建一个 merge 对象 TGWT_merge（12 样本、170,364 细胞，强制 raw merge：基因型/时间点差异视为生物学差异而非批次）。后续各节中的 Merge/Tg/WT/E12/E16 为同一注释结果的同步细胞子集视图。</p>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>整合后 UMAP by Batch</h4>
+                <iframe id="iframe-after-batch" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-after-batch" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>整合后 UMAP by Cluster</h4>
+                <iframe id="iframe-after-cluster" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-after-cluster" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>Tg-only UMAP by Sample</h4>
+                <iframe id="iframe-after-tg-only" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-after-tg-only" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>WT-only UMAP by Sample</h4>
+                <iframe id="iframe-after-wt-only" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-after-wt-only" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <ul class="link-list">
+                    <li><a id="dl-merge-info" href="" target="_blank">查看：Merge 信息（来源样本、合并后端、批次效应阈值）</a></li>
+                    <li><a id="dl-batch-metrics" href="" target="_blank">下载：批次效应指标 CSV</a></li>
+                    <li><a id="dl-merge-metadata" href="" target="_blank">下载：TGWT_merge metadata（含 L0 / L1 / L2 / resolved 注释列）</a></li>
+                    <li><a id="dl-merge-seurat-markers" href="" target="_blank">下载：merge 的 Seurat cluster Top20 marker</a></li>
+                    <li><a id="dl-merge-cellmarker-top1" href="" target="_blank">下载：merge CellMarker top1</a></li>
+                    <li><a id="dl-merge-cellmarker-all" href="" target="_blank">下载：merge CellMarker 全候选</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>7. Merge 注释与全局 Marker</h2>
+        <div class="explanation">
+            <p>当前图像来自 <span id="merge-name-anno">Merge</span> 视角在 <span id="method-name-anno">scVI resolved（主）</span> 下的 downstream 输出。含注释 UMAP、cell type top marker 热图、单样本比例、分组比例与分组 × 时间点比例。</p>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>Merge 注释 UMAP (<span class="merge-view-label">Merge</span> 视角)</h4>
+                <iframe id="iframe-anno" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-anno" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>Cell Type Top5 Marker Heatmap</h4>
+                <iframe id="iframe-global-markers" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-global-markers" class="download-link" href="" target="_blank">全屏查看/下载</a>
+                <ul class="link-list">
+                    <li><a id="dl-global-markers-csv" href="" target="_blank">下载：cell type Top20 marker</a></li>
+                    <li><a id="dl-global-markers-all-csv" href="" target="_blank">下载：cell type 全量 marker</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>Cell Type Proportion Barplot</h4>
+                <iframe id="iframe-proportion-bar" class="pdf-container" src=""></iframe>
+                <a id="dl-proportion-bar" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>Cell Type Proportion Grouped Barplot（WT vs Tg）</h4>
+                <iframe id="iframe-proportion-grouped" class="pdf-container" src=""></iframe>
+                <a id="dl-proportion-grouped" class="download-link" href="" target="_blank">全屏查看/下载</a>
+                <ul class="link-list">
+                    <li><a id="dl-proportion-csv" href="" target="_blank">下载：细胞类型比例表</a></li>
+                    <li><a id="dl-proportion-group-summary" href="" target="_blank">下载：比例汇总表</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>Cell Type Proportion Group × Timepoint Barplot</h4>
+                <iframe id="iframe-proportion-grouptime" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-proportion-grouptime" class="download-link" href="" target="_blank">全屏查看/下载</a>
+                <ul class="link-list">
+                    <li><a id="dl-proportion-grouptime-summary" href="" target="_blank">下载：Group × Timepoint 比例汇总表</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>8. 目的基因分析 (Genes of Interest)</h2>
+        <div class="explanation">
+            <p>当前图像来自 <span class="merge-view-label">Merge</span> 视角在 <span id="method-name-goi">scVI resolved（主）</span> 下的 03_GenesOfInterest 输出：全基因集 DotPlot 与 4 组主题子 DotPlot（Primary / PEC-Podo / Nephron Progenitor / Nephron Segment）。</p>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>Genes of Interest DotPlot（全基因集）</h4>
+                <iframe id="iframe-goi-dot" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-goi-dot" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>Primary Markers DotPlot</h4>
+                <iframe id="iframe-goi-dot-primary" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-goi-dot-primary" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="plot-card">
+                <h4>PEC / Podo Markers DotPlot</h4>
+                <iframe id="iframe-goi-dot-pecpodo" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-goi-dot-pecpodo" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+            <div class="plot-card">
+                <h4>Nephron Progenitor Markers DotPlot</h4>
+                <iframe id="iframe-goi-dot-np" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-goi-dot-np" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        <div class="grid-1" id="goi-ns-wrap">
+            <div class="plot-card">
+                <h4>Nephron Segment Markers DotPlot</h4>
+                <iframe id="iframe-goi-dot-ns" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-goi-dot-ns" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>9. 分化谱系 Focus（5 个谱系）</h2>
+        <div class="explanation">
+            <p>选取 5 个重点谱系：NPC、differentiating、Podocyte、Proximal tubule、Distal tubule。在同一张全局 UMAP 上同时高亮这 5 个群体，高亮细胞沿用主注释 UMAP 的原始分组配色；其余细胞统一显示为灰色并绘制在最底层，不会遮挡任何高亮细胞。本节仅展示这一张“Focus 群体高亮 UMAP”，不展示子集再聚类、marker 与 GOI 图。</p>
+        </div>
+        <div class="selector-panel">
+            <p><span class="inline-tag tag-focus">Focus 视角</span> 当前合并视角：<strong id="current-focus-view-label">Merge</strong>（跟随上方 Merge 视角切换）</p>
+            <p class="mini-note">各视角命中 5 个 focus 群体的细胞数合计（Merge / Tg / WT / E12 / E16）：57,640 / 25,668 / 31,972 / 29,729 / 27,911。</p>
+        </div>
+        <div id="focus-skipped-note" class="warn" style="display: none;">
+            <p>当前注释方法 <strong>CellMarker 3.0</strong> 使用大类标签（Stromal cell / Immune cell 等），不含分化谱系标签，Focus 模块无输出。请切换到 <strong>scVI resolved（主）</strong> 查看。</p>
+            <ul class="link-list">
+                <li><a id="dl-focus-skipped-txt" href="" target="_blank">查看：CellMarker 3.0 Focus 跳过说明</a></li>
+            </ul>
+        </div>
+        <div id="focus-plots-wrap">
+        <div class="grid-1">
+            <div class="plot-card">
+                <h4>Focus 群体高亮 UMAP（NPC / differentiating / Podocyte / Proximal tubule / Distal tubule）</h4>
+                <iframe id="iframe-focus-highlight" class="pdf-container pdf-large" src=""></iframe>
+                <a id="dl-focus-highlight" class="download-link" href="" target="_blank">全屏查看/下载</a>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const basicDir = "basic_seurat_processing_Esample";
+        const downstreamDir = "downstream_analysis_Esample";
+        const tgwtRoot = downstreamDir + "/TGWT_merge/";
+
+        const sampleConfigs = {
+            "E12_Tg_1": "cellranger/E12_Tg_1/web_summary.html",
+            "E12_Tg_2": "cellranger/E12_Tg_2/web_summary.html",
+            "E12_Tg_3": "cellranger/E12_Tg_3/web_summary.html",
+            "E12_WT_1": "cellranger/E12_WT_1/web_summary.html",
+            "E12_WT_2": "cellranger/E12_WT_2/web_summary.html",
+            "E12_WT_3": "cellranger/E12_WT_3/web_summary.html",
+            "E16_Tg_1": "cellranger/E16_Tg_1/web_summary.html",
+            "E16_Tg_2": "cellranger/E16_Tg_2/web_summary.html",
+            "E16_Tg_3": "cellranger/E16_Tg_3/web_summary.html",
+            "E16_WT_1": "cellranger/E16_WT_1/web_summary.html",
+            "E16_WT_2": "cellranger/E16_WT_2/web_summary.html",
+            "E16_WT_3": "cellranger/E16_WT_3/web_summary.html"
+        };
+
+        const viewConfigs = {
+            "Merge": { label: "Merge", dir: "00_Merge_View/" },
+            "Tg": { label: "Tg", dir: "01_Tg_View/" },
+            "WT": { label: "WT", dir: "02_WT_View/" },
+            "E12": { label: "E12", dir: "03_E12_View/" },
+            "E16": { label: "E16", dir: "04_E16_View/" }
+        };
+
+        const methodConfigs = {
+            "predicted_Predicted_Celltype_resolved": { dir: "predicted_Predicted_Celltype_resolved/", label: "scVI resolved（主）" },
+            "cellmarker3.0": { dir: "cellmarker3.0/", label: "CellMarker 3.0" }
+        };
+
+
+        const qcSummaryData = [
+            ["E12_Tg_1", "E12", "Tg", "15601", "3008", "6077", "0.24", "0.41"],
+            ["E12_Tg_2", "E12", "Tg", "14198", "2865", "5642", "0.26", "0.43"],
+            ["E12_Tg_3", "E12", "Tg", "19261", "2572", "4709", "0.40", "0.54"],
+            ["E12_WT_1", "E12", "WT", "17474", "3049", "5983", "0.44", "0.64"],
+            ["E12_WT_2", "E12", "WT", "11212", "3770", "8932", "0.44", "0.71"],
+            ["E12_WT_3", "E12", "WT", "17673", "2987", "5686", "0.49", "0.70"],
+            ["E16_Tg_1", "E16", "Tg", "12345", "3815", "9484", "0.32", "0.49"],
+            ["E16_Tg_2", "E16", "Tg", "13006", "3896", "9788", "0.29", "0.47"],
+            ["E16_Tg_3", "E16", "Tg", "12252", "3632", "8916", "0.17", "0.30"],
+            ["E16_WT_1", "E16", "WT", "15195", "3329", "7046", "0.31", "0.44"],
+            ["E16_WT_2", "E16", "WT", "10544", "4284", "11190", "0.26", "0.42"],
+            ["E16_WT_3", "E16", "WT", "11603", "4008", "10327", "0.23", "0.39"]
+        ];
+
+
+
+        let currentSample = "E12_Tg_1";
+        let currentMerge = "Merge";
+        let currentMethod = "predicted_Predicted_Celltype_resolved";
+
+        function initReport() {
+            renderQcSummaryTable();
+            renderSampleButtons();
+            renderMergeButtons();
+            renderMethodButtons();
+            renderSampleSections();
+            renderMergeSections();
+            renderFocusSection();
+        }
+
+        function updateSample(sample) { currentSample = sample; renderSampleButtons(); renderSampleSections(); }
+        function updateMerge(mergeName) { currentMerge = mergeName; renderMergeButtons(); renderMergeSections(); renderFocusSection(); }
+        function updateMethod(method) { currentMethod = method; renderMethodButtons(); renderSampleSections(); renderMergeSections(); renderFocusSection(); }
+
+        function renderSampleButtons() {
+            document.querySelectorAll(".sample-btn").forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.sample === currentSample);
+            });
+            setText("current-sample-label", currentSample);
+        }
+
+        function renderMergeButtons() {
+            document.querySelectorAll(".merge-btn").forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.merge === currentMerge);
+            });
+            setText("merge-name-anno", viewConfigs[currentMerge].label);
+            document.querySelectorAll(".merge-view-label").forEach((el) => {
+                el.textContent = viewConfigs[currentMerge].label;
+            });
+            setText("current-focus-view-label", viewConfigs[currentMerge].label);
+        }
+
+        function renderMethodButtons() {
+            document.querySelectorAll(".method-btn").forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.method === currentMethod);
+            });
+            const label = methodConfigs[currentMethod].label;
+            setText("method-name-single", label);
+            setText("method-name-anno", label);
+            setText("method-name-goi", label);
+        }
+
+
+
+        function setFrameAndLink(baseId, path) {
+            const frame = document.getElementById("iframe-" + baseId);
+            const link = document.getElementById("dl-" + baseId);
+            if (frame) { frame.src = path; }
+            if (link) { link.href = path; }
+        }
+
+        function setHref(id, path) {
+            const el = document.getElementById(id);
+            if (el) { el.href = path; }
+        }
+
+        function setText(id, text) {
+            const el = document.getElementById(id);
+            if (el) { el.textContent = text; }
+        }
+
+        function setVisible(id, visible) {
+            const el = document.getElementById(id);
+            if (el) { el.style.display = visible ? "block" : "none"; }
+        }
+
+        function renderQcSummaryTable() {
+            document.getElementById("qc-summary-body").innerHTML = qcSummaryData.map((row) => {
+                return "<tr>" + row.map((cell) => "<td>" + cell + "</td>").join("") + "</tr>";
+            }).join("");
+        }
+
+
+        function renderSampleSections() {
+            const upDir = basicDir + "/" + currentSample + "_seurat_results/";
+            const singleDownDir = downstreamDir + "/" + currentSample + "/";
+            const methodDir = singleDownDir + methodConfigs[currentMethod].dir;
+
+            setFrameAndLink("cellranger", sampleConfigs[currentSample]);
+            setFrameAndLink("qc-before", upDir + "01_QC_ViolinPlot_BeforeFilter.pdf");
+            setFrameAndLink("qc-after", upDir + "03_QC_ViolinPlot_AfterFilter.pdf");
+            setFrameAndLink("varfeatures", upDir + "04_VariableFeatures.pdf");
+            setFrameAndLink("pca", upDir + "05_PCA_Plot.pdf");
+            setFrameAndLink("elbow", upDir + "06_PCA_ElbowPlot.pdf");
+            setFrameAndLink("umap-single", upDir + "07_UMAP_Plot.pdf");
+            setHref("dl-single-cluster-markers", upDir + "08_Cluster_Markers.csv");
+            setHref("dl-single-run-params", upDir + "run_parameters_summary.txt");
+
+            setFrameAndLink("single-anno", methodDir + "00_UMAP_Annotation.pdf");
+
+            // E16_WT_3 的 resolved 结果只生成了注释 UMAP，GlobalMarkers / Proportion 缺失
+            const partial = (currentSample === "E16_WT_3" && currentMethod === "predicted_Predicted_Celltype_resolved");
+            setVisible("single-unavail-note", partial);
+            setVisible("single-heatmap-card", !partial);
+            setVisible("single-prop-wrap", !partial);
+            if (partial) {
+                setText("single-unavail-text", "该样本的 resolved 结果只完成了注释 UMAP，Cell Type Marker 热图与比例图未生成（流水线在该样本处中断）。其余 11 个样本输出完整；如需补齐请对该样本单独重跑。");
+                setHref("dl-single-metadata", singleDownDir + "05_" + currentSample + "_metadata.csv");
+                setHref("dl-single-seurat-markers", singleDownDir + "02_" + currentSample + "_SeuratCluster_Top20_Markers.csv");
+                setHref("dl-single-cellmarker-top1", singleDownDir + "03_" + currentSample + "_CellMarker_cluster_annotation_top1.csv");
+                setHref("dl-single-cellmarker-all", singleDownDir + "04_" + currentSample + "_CellMarker_cluster_annotation_all_candidates.csv");
+                return;
+            }
+
+            setFrameAndLink("single-heatmap", methodDir + "01_GlobalMarkers/03_CellType_Top5_Heatmap.pdf");
+            setFrameAndLink("single-prop-bar", methodDir + "02_CellTypeProportion/02_CellType_Proportion_Barplot.pdf");
+            setFrameAndLink("single-prop-grouped", methodDir + "02_CellTypeProportion/04_CellType_Proportion_GroupedBarplot.pdf");
+            setHref("dl-single-ct-markers", methodDir + "01_GlobalMarkers/02_CellType_Markers_Top20.csv");
+            setHref("dl-single-seurat-markers", singleDownDir + "02_" + currentSample + "_SeuratCluster_Top20_Markers.csv");
+            setHref("dl-single-cellmarker-top1", singleDownDir + "03_" + currentSample + "_CellMarker_cluster_annotation_top1.csv");
+            setHref("dl-single-cellmarker-all", singleDownDir + "04_" + currentSample + "_CellMarker_cluster_annotation_all_candidates.csv");
+            setHref("dl-single-metadata", singleDownDir + "05_" + currentSample + "_metadata.csv");
+        }
+
+        function renderMergeSections() {
+            const viewCfg = viewConfigs[currentMerge];
+            const methodCfg = methodConfigs[currentMethod];
+            const viewDir = tgwtRoot + methodCfg.dir + viewCfg.dir;
+            const isResolved = currentMethod === "predicted_Predicted_Celltype_resolved";
+
+            setFrameAndLink("after-batch", tgwtRoot + "00_AfterBatchCorrection_UMAP_byBatch.pdf");
+            setFrameAndLink("after-cluster", tgwtRoot + "00_AfterBatchCorrection_UMAP_byCluster.pdf");
+            setFrameAndLink("after-tg-only", tgwtRoot + "00_AfterBatchCorrection_UMAP_TgOnly_bySample.pdf");
+            setFrameAndLink("after-wt-only", tgwtRoot + "00_AfterBatchCorrection_UMAP_WTOnly_bySample.pdf");
+            setHref("dl-merge-info", tgwtRoot + "00_Merge_Info.txt");
+            setHref("dl-batch-metrics", tgwtRoot + "00_BatchEffect_Metrics.csv");
+            setHref("dl-merge-metadata", tgwtRoot + "05_TGWT_merge_metadata.csv");
+            setHref("dl-merge-seurat-markers", tgwtRoot + "02_TGWT_merge_SeuratCluster_Top20_Markers.csv");
+            setHref("dl-merge-cellmarker-top1", tgwtRoot + "03_TGWT_merge_CellMarker_cluster_annotation_top1.csv");
+            setHref("dl-merge-cellmarker-all", tgwtRoot + "04_TGWT_merge_CellMarker_cluster_annotation_all_candidates.csv");
+
+            setFrameAndLink("anno", viewDir + "00_UMAP_Annotation.pdf");
+            setFrameAndLink("global-markers", viewDir + "01_GlobalMarkers/03_CellType_Top5_Heatmap.pdf");
+            setHref("dl-global-markers-csv", viewDir + "01_GlobalMarkers/02_CellType_Markers_Top20.csv");
+            setHref("dl-global-markers-all-csv", viewDir + "01_GlobalMarkers/01_CellType_Markers_All.csv");
+
+            setFrameAndLink("proportion-bar", viewDir + "02_CellTypeProportion/02_CellType_Proportion_Barplot.pdf");
+            setFrameAndLink("proportion-grouped", viewDir + "02_CellTypeProportion/04_CellType_Proportion_GroupedBarplot.pdf");
+            setFrameAndLink("proportion-grouptime", viewDir + "02_CellTypeProportion/06_CellType_Proportion_GroupTimepoint_Barplot.pdf");
+            setHref("dl-proportion-csv", viewDir + "02_CellTypeProportion/01_CellType_Proportion.csv");
+            setHref("dl-proportion-group-summary", viewDir + "02_CellTypeProportion/03_CellType_Proportion_GroupSummary.csv");
+            setHref("dl-proportion-grouptime-summary", viewDir + "02_CellTypeProportion/05_CellType_Proportion_GroupTimepoint_Summary.csv");
+
+            setFrameAndLink("goi-dot", viewDir + "03_GenesOfInterest/02_GenesOfInterest_DotPlot.pdf");
+            setFrameAndLink("goi-dot-primary", viewDir + "03_GenesOfInterest/02A_GenesOfInterest_Primary_DotPlot.pdf");
+            setFrameAndLink("goi-dot-pecpodo", viewDir + "03_GenesOfInterest/02B_GenesOfInterest_PEC_Podo_DotPlot.pdf");
+            setFrameAndLink("goi-dot-np", viewDir + "03_GenesOfInterest/02C_GenesOfInterest_Nephron_Progenitor_DotPlot.pdf");
+
+            setVisible("goi-ns-wrap", isResolved);
+            if (isResolved) {
+                setFrameAndLink("goi-dot-ns", viewDir + "03_GenesOfInterest/02D_GenesOfInterest_Nephron_Segment_DotPlot.pdf");
+            }
+        }
+
+        function renderFocusSection() {
+            const viewCfg = viewConfigs[currentMerge];
+            const methodCfg = methodConfigs[currentMethod];
+            const isResolved = currentMethod === "predicted_Predicted_Celltype_resolved";
+
+            setVisible("focus-skipped-note", !isResolved);
+            setVisible("focus-plots-wrap", isResolved);
+
+            if (!isResolved) {
+                setHref("dl-focus-skipped-txt", tgwtRoot + methodCfg.dir + viewCfg.dir + "04_Podo_Focus/00_Podo_skipped.txt");
+                return;
+            }
+            setFrameAndLink("focus-highlight", tgwtRoot + methodCfg.dir + viewCfg.dir + "04_Focus_CellTypes/00_Focus_Group_Highlight_UMAP.pdf");
+        }
+
+
+    </script>
+</body>
+</html>

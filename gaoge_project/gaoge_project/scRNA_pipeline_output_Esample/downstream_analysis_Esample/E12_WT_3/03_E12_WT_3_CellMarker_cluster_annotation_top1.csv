@@ -1,0 +1,26 @@
+﻿sample,cluster,cell_type,score,summary_file
+E12_WT_3,0,Descending and ascending thin limb cell,7.54,cellmarker3.0\E12_WT_3_cluster0_CellMarker_summary.csv
+E12_WT_3,1,Stromal cell,12.93,cellmarker3.0\E12_WT_3_cluster1_CellMarker_summary.csv
+E12_WT_3,2,Descending and ascending thin limb cell,10.55,cellmarker3.0\E12_WT_3_cluster2_CellMarker_summary.csv
+E12_WT_3,3,Stromal cell,14.65,cellmarker3.0\E12_WT_3_cluster3_CellMarker_summary.csv
+E12_WT_3,4,Macrophage,11.56,cellmarker3.0\E12_WT_3_cluster4_CellMarker_summary.csv
+E12_WT_3,5,Stromal cell,9.11,cellmarker3.0\E12_WT_3_cluster5_CellMarker_summary.csv
+E12_WT_3,6,Distal convoluted tubule cell,4.73,cellmarker3.0\E12_WT_3_cluster6_CellMarker_summary.csv
+E12_WT_3,7,Injured distal tubule cell,4.18,cellmarker3.0\E12_WT_3_cluster7_CellMarker_summary.csv
+E12_WT_3,8,Endothelial cell,4.93,cellmarker3.0\E12_WT_3_cluster8_CellMarker_summary.csv
+E12_WT_3,9,Stromal cell,34.14,cellmarker3.0\E12_WT_3_cluster9_CellMarker_summary.csv
+E12_WT_3,10,Connecting tubular cell,23.34,cellmarker3.0\E12_WT_3_cluster10_CellMarker_summary.csv
+E12_WT_3,11,Glomerular endothelial cell,57.9,cellmarker3.0\E12_WT_3_cluster11_CellMarker_summary.csv
+E12_WT_3,12,Collecting duct principal cell,38.97,cellmarker3.0\E12_WT_3_cluster12_CellMarker_summary.csv
+E12_WT_3,13,Stromal cell,17.87,cellmarker3.0\E12_WT_3_cluster13_CellMarker_summary.csv
+E12_WT_3,14,Podocyte,3.6,cellmarker3.0\E12_WT_3_cluster14_CellMarker_summary.csv
+E12_WT_3,15,Distal tubule cell,11.67,cellmarker3.0\E12_WT_3_cluster15_CellMarker_summary.csv
+E12_WT_3,16,Proximal tubule cell,19.75,cellmarker3.0\E12_WT_3_cluster16_CellMarker_summary.csv
+E12_WT_3,17,Stromal cell,5.94,cellmarker3.0\E12_WT_3_cluster17_CellMarker_summary.csv
+E12_WT_3,18,Collecting duct principal cell,33.06,cellmarker3.0\E12_WT_3_cluster18_CellMarker_summary.csv
+E12_WT_3,19,Podocyte,9.05,cellmarker3.0\E12_WT_3_cluster19_CellMarker_summary.csv
+E12_WT_3,20,Red blood cell,5.22,cellmarker3.0\E12_WT_3_cluster20_CellMarker_summary.csv
+E12_WT_3,21,Immune cell,41.97,cellmarker3.0\E12_WT_3_cluster21_CellMarker_summary.csv
+E12_WT_3,22,S3 proximal tubule cell,1.15,cellmarker3.0\E12_WT_3_cluster22_CellMarker_summary.csv
+E12_WT_3,23,Distal convoluted tubule type 2 cell,4.39,cellmarker3.0\E12_WT_3_cluster23_CellMarker_summary.csv
+E12_WT_3,24,Transitional intercalated cell,2.25,cellmarker3.0\E12_WT_3_cluster24_CellMarker_summary.csv

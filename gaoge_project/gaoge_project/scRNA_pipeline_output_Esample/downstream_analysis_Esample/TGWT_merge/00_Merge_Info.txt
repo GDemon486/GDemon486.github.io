@@ -1,0 +1,5 @@
+Merged sample: TGWT_merge
+Source samples: E12_WT_1, E12_WT_2, E12_WT_3, E16_WT_1, E16_WT_2, E16_WT_3, E12_Tg_1, E12_Tg_2, E12_Tg_3, E16_Tg_1, E16_Tg_2, E16_Tg_3
+Raw merge backend: bpcells
+Final method: raw_merge_forced
+Batch effect threshold: 0.1500

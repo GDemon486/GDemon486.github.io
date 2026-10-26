@@ -1,0 +1,26 @@
+﻿sample,cluster,cell_type,score,summary_file
+E12_Tg_1,0,Intercalated cell,8.43,cellmarker3.0\E12_Tg_1_cluster0_CellMarker_summary.csv
+E12_Tg_1,1,Descending and ascending thin limb cell,9.18,cellmarker3.0\E12_Tg_1_cluster1_CellMarker_summary.csv
+E12_Tg_1,2,Stromal cell,25.83,cellmarker3.0\E12_Tg_1_cluster2_CellMarker_summary.csv
+E12_Tg_1,3,Stromal cell,20.83,cellmarker3.0\E12_Tg_1_cluster3_CellMarker_summary.csv
+E12_Tg_1,4,Stromal cell,4.25,cellmarker3.0\E12_Tg_1_cluster4_CellMarker_summary.csv
+E12_Tg_1,5,Stromal cell,8.53,cellmarker3.0\E12_Tg_1_cluster5_CellMarker_summary.csv
+E12_Tg_1,6,Stromal cell,4.18,cellmarker3.0\E12_Tg_1_cluster6_CellMarker_summary.csv
+E12_Tg_1,7,Epithelial cell,5.06,cellmarker3.0\E12_Tg_1_cluster7_CellMarker_summary.csv
+E12_Tg_1,8,Alpha intercalated cell,2.23,cellmarker3.0\E12_Tg_1_cluster8_CellMarker_summary.csv
+E12_Tg_1,9,Connecting tubular cell,27.74,cellmarker3.0\E12_Tg_1_cluster9_CellMarker_summary.csv
+E12_Tg_1,10,Glomerular endothelial cell,55.55,cellmarker3.0\E12_Tg_1_cluster10_CellMarker_summary.csv
+E12_Tg_1,11,Podocyte,16.16,cellmarker3.0\E12_Tg_1_cluster11_CellMarker_summary.csv
+E12_Tg_1,12,Type B intercalated cell,4.32,cellmarker3.0\E12_Tg_1_cluster12_CellMarker_summary.csv
+E12_Tg_1,13,Beta intercalated cell,24.6,cellmarker3.0\E12_Tg_1_cluster13_CellMarker_summary.csv
+E12_Tg_1,14,Collecting duct principal cell,8.67,cellmarker3.0\E12_Tg_1_cluster14_CellMarker_summary.csv
+E12_Tg_1,15,Stromal cell,4.67,cellmarker3.0\E12_Tg_1_cluster15_CellMarker_summary.csv
+E12_Tg_1,16,S3 proximal tubule cell,3.43,cellmarker3.0\E12_Tg_1_cluster16_CellMarker_summary.csv
+E12_Tg_1,17,Macula densa thick ascending limb cell,13.85,cellmarker3.0\E12_Tg_1_cluster17_CellMarker_summary.csv
+E12_Tg_1,18,Red blood cell,9.16,cellmarker3.0\E12_Tg_1_cluster18_CellMarker_summary.csv
+E12_Tg_1,19,Immune cell,36.4,cellmarker3.0\E12_Tg_1_cluster19_CellMarker_summary.csv
+E12_Tg_1,20,Descending and ascending thin limb cell,2.83,cellmarker3.0\E12_Tg_1_cluster20_CellMarker_summary.csv
+E12_Tg_1,21,Collecting duct principal cell,16.05,cellmarker3.0\E12_Tg_1_cluster21_CellMarker_summary.csv
+E12_Tg_1,22,Injured distal tubule cell,2.59,cellmarker3.0\E12_Tg_1_cluster22_CellMarker_summary.csv
+E12_Tg_1,23,Descending and ascending thin limb cell,2.74,cellmarker3.0\E12_Tg_1_cluster23_CellMarker_summary.csv
+E12_Tg_1,24,Collecting duct principal cell,16.91,cellmarker3.0\E12_Tg_1_cluster24_CellMarker_summary.csv

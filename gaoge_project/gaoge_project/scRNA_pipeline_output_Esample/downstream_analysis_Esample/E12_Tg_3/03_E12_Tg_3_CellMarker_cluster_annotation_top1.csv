@@ -1,0 +1,23 @@
+﻿sample,cluster,cell_type,score,summary_file
+E12_Tg_3,0,Intercalated cell,3.64,cellmarker3.0\E12_Tg_3_cluster0_CellMarker_summary.csv
+E12_Tg_3,1,Parietal epithelial cell,4.23,cellmarker3.0\E12_Tg_3_cluster1_CellMarker_summary.csv
+E12_Tg_3,2,Podocyte,14.16,cellmarker3.0\E12_Tg_3_cluster2_CellMarker_summary.csv
+E12_Tg_3,3,Ureteric bud tip cell,7.09,cellmarker3.0\E12_Tg_3_cluster3_CellMarker_summary.csv
+E12_Tg_3,4,Endothelial cell,7.09,cellmarker3.0\E12_Tg_3_cluster4_CellMarker_summary.csv
+E12_Tg_3,5,Stromal cell,19.31,cellmarker3.0\E12_Tg_3_cluster5_CellMarker_summary.csv
+E12_Tg_3,6,Connecting tubular cell,21.63,cellmarker3.0\E12_Tg_3_cluster6_CellMarker_summary.csv
+E12_Tg_3,7,Parietal epithelial cell,11.66,cellmarker3.0\E12_Tg_3_cluster7_CellMarker_summary.csv
+E12_Tg_3,8,Distal tubule cell,20.04,cellmarker3.0\E12_Tg_3_cluster8_CellMarker_summary.csv
+E12_Tg_3,9,Collecting duct principal cell,31.54,cellmarker3.0\E12_Tg_3_cluster9_CellMarker_summary.csv
+E12_Tg_3,10,Stromal cell,35.95,cellmarker3.0\E12_Tg_3_cluster10_CellMarker_summary.csv
+E12_Tg_3,11,Glomerular endothelial cell,57.17,cellmarker3.0\E12_Tg_3_cluster11_CellMarker_summary.csv
+E12_Tg_3,12,Stromal cell,6.69,cellmarker3.0\E12_Tg_3_cluster12_CellMarker_summary.csv
+E12_Tg_3,13,Stromal cell,4.78,cellmarker3.0\E12_Tg_3_cluster13_CellMarker_summary.csv
+E12_Tg_3,14,Stromal cell,13.94,cellmarker3.0\E12_Tg_3_cluster14_CellMarker_summary.csv
+E12_Tg_3,15,Stromal cell,6.26,cellmarker3.0\E12_Tg_3_cluster15_CellMarker_summary.csv
+E12_Tg_3,16,Descending and ascending thin limb cell,13.4,cellmarker3.0\E12_Tg_3_cluster16_CellMarker_summary.csv
+E12_Tg_3,17,Collecting duct principal cell,30.11,cellmarker3.0\E12_Tg_3_cluster17_CellMarker_summary.csv
+E12_Tg_3,18,Intercalated cell,6.19,cellmarker3.0\E12_Tg_3_cluster18_CellMarker_summary.csv
+E12_Tg_3,19,Macrophage,33.32,cellmarker3.0\E12_Tg_3_cluster19_CellMarker_summary.csv
+E12_Tg_3,20,Red blood cell,8.99,cellmarker3.0\E12_Tg_3_cluster20_CellMarker_summary.csv
+E12_Tg_3,21,Dendritic cell,1.19,cellmarker3.0\E12_Tg_3_cluster21_CellMarker_summary.csv

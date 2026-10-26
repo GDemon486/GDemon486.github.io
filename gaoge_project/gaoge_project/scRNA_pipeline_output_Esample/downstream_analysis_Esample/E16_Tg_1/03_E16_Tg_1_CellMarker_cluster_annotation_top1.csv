@@ -1,0 +1,24 @@
+﻿sample,cluster,cell_type,score,summary_file
+E16_Tg_1,0,Parietal epithelial cell,6.42,cellmarker3.0\E16_Tg_1_cluster0_CellMarker_summary.csv
+E16_Tg_1,1,Stromal cell,25.0,cellmarker3.0\E16_Tg_1_cluster1_CellMarker_summary.csv
+E16_Tg_1,2,Epithelial cell,9.05,cellmarker3.0\E16_Tg_1_cluster2_CellMarker_summary.csv
+E16_Tg_1,3,Collecting duct principal cell,4.37,cellmarker3.0\E16_Tg_1_cluster3_CellMarker_summary.csv
+E16_Tg_1,4,Glomerular endothelial cell,52.72,cellmarker3.0\E16_Tg_1_cluster4_CellMarker_summary.csv
+E16_Tg_1,5,Distal convoluted tubule type 2 cell,5.17,cellmarker3.0\E16_Tg_1_cluster5_CellMarker_summary.csv
+E16_Tg_1,6,Stromal cell,12.28,cellmarker3.0\E16_Tg_1_cluster6_CellMarker_summary.csv
+E16_Tg_1,7,Connecting tubular cell,8.84,cellmarker3.0\E16_Tg_1_cluster7_CellMarker_summary.csv
+E16_Tg_1,8,Intercalated cell,8.56,cellmarker3.0\E16_Tg_1_cluster8_CellMarker_summary.csv
+E16_Tg_1,9,Transitional intercalated cell,3.26,cellmarker3.0\E16_Tg_1_cluster9_CellMarker_summary.csv
+E16_Tg_1,10,Thick ascending limb cell,4.91,cellmarker3.0\E16_Tg_1_cluster10_CellMarker_summary.csv
+E16_Tg_1,11,Proximal tubule cell,57.02,cellmarker3.0\E16_Tg_1_cluster11_CellMarker_summary.csv
+E16_Tg_1,12,Stromal cell,13.03,cellmarker3.0\E16_Tg_1_cluster12_CellMarker_summary.csv
+E16_Tg_1,13,Collecting duct principal cell,24.83,cellmarker3.0\E16_Tg_1_cluster13_CellMarker_summary.csv
+E16_Tg_1,14,Macula densa thick ascending limb cell,34.18,cellmarker3.0\E16_Tg_1_cluster14_CellMarker_summary.csv
+E16_Tg_1,15,Endothelial cell,4.04,cellmarker3.0\E16_Tg_1_cluster15_CellMarker_summary.csv
+E16_Tg_1,16,Podocyte,37.1,cellmarker3.0\E16_Tg_1_cluster16_CellMarker_summary.csv
+E16_Tg_1,17,Connecting tubular cell,2.12,cellmarker3.0\E16_Tg_1_cluster17_CellMarker_summary.csv
+E16_Tg_1,18,Macrophage,36.21,cellmarker3.0\E16_Tg_1_cluster18_CellMarker_summary.csv
+E16_Tg_1,19,Collecting duct principal cell,2.3,cellmarker3.0\E16_Tg_1_cluster19_CellMarker_summary.csv
+E16_Tg_1,20,Descending and ascending thin limb cell,2.24,cellmarker3.0\E16_Tg_1_cluster20_CellMarker_summary.csv
+E16_Tg_1,21,Collecting duct principal cell,6.54,cellmarker3.0\E16_Tg_1_cluster21_CellMarker_summary.csv
+E16_Tg_1,22,S3 proximal tubule cell,3.27,cellmarker3.0\E16_Tg_1_cluster22_CellMarker_summary.csv

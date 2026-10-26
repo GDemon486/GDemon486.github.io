@@ -1,0 +1,85 @@
+"sample_id","group","timepoint","analysis_celltype","n_cells","total_cells","proportion"
+"E12_Tg_3","Tg","E12","Stromal cell",7795,19261,0.404703805617569
+"E12_WT_1","WT","E12","Stromal cell",6373,17474,0.364713288314067
+"E12_WT_3","WT","E12","Stromal cell",6042,17673,0.34187744016296
+"E12_Tg_1","Tg","E12","Stromal cell",5905,15601,0.378501378116787
+"E12_Tg_2","Tg","E12","Stromal cell",5442,14198,0.383293421608677
+"E12_WT_2","WT","E12","Stromal cell",3931,11212,0.350606493043168
+"E12_Tg_1","Tg","E12","Intercalated cell",3766,15601,0.241394782385744
+"E12_Tg_2","Tg","E12","Intercalated cell",3353,14198,0.236160022538386
+"E12_Tg_3","Tg","E12","Intercalated cell",3047,19261,0.158195316961736
+"E12_WT_3","WT","E12","Collecting duct principal cell",2888,17673,0.163413116052736
+"E12_Tg_3","Tg","E12","Collecting duct principal cell",2698,19261,0.140075800841078
+"E12_WT_1","WT","E12","Collecting duct principal cell",2524,17474,0.144443172713746
+"E12_WT_3","WT","E12","Podocyte",2130,17673,0.120522831437786
+"E12_WT_1","WT","E12","Podocyte",1940,17474,0.11102208996223
+"E12_WT_1","WT","E12","Intercalated cell",1909,17474,0.109248025638091
+"E12_WT_3","WT","E12","Intercalated cell",1770,17673,0.100152775420132
+"E12_Tg_3","Tg","E12","Podocyte",1755,19261,0.0911167644462904
+"E12_WT_2","WT","E12","Intercalated cell",1747,11212,0.155815198002141
+"E12_Tg_3","Tg","E12","Ureteric bud tip cell",1372,19261,0.0712320232594362
+"E12_WT_3","WT","E12","Ureteric bud tip cell",1298,17673,0.0734453686414304
+"E12_WT_2","WT","E12","Ureteric bud tip cell",1284,11212,0.11452015697467
+"E12_WT_1","WT","E12","Ureteric bud tip cell",1277,17474,0.0730800045782305
+"E12_Tg_1","Tg","E12","Ureteric bud tip cell",1211,15601,0.0776232292801743
+"E12_Tg_1","Tg","E12","Collecting duct principal cell",1175,15601,0.0753156848919941
+"E12_Tg_2","Tg","E12","Ureteric bud tip cell",1131,14198,0.0796591069164671
+"E12_Tg_2","Tg","E12","Collecting duct principal cell",1129,14198,0.0795182420059163
+"E12_WT_2","WT","E12","Collecting duct principal cell",1073,11212,0.0957010346057795
+"E12_WT_1","WT","E12","Descending and ascending thin limb cell",838,17474,0.0479569646331693
+"E12_WT_3","WT","E12","Proximal tubule cell",835,17673,0.0472472132631698
+"E12_WT_3","WT","E12","Descending and ascending thin limb cell",829,17673,0.0469077123295422
+"E12_WT_2","WT","E12","Descending and ascending thin limb cell",811,11212,0.0723332144131288
+"E12_WT_1","WT","E12","Proximal tubule cell",800,17474,0.0457823051390637
+"E12_WT_2","WT","E12","Proximal tubule cell",670,11212,0.0597574027827328
+"E12_Tg_1","Tg","E12","Glomerular endothelial cell",617,15601,0.0395487468752003
+"E12_Tg_1","Tg","E12","Descending and ascending thin limb cell",598,15601,0.038330876225883
+"E12_Tg_1","Tg","E12","Medullary cell",568,15601,0.0364079225690661
+"E12_Tg_3","Tg","E12","Descending and ascending thin limb cell",566,19261,0.0293858055137324
+"E12_Tg_2","Tg","E12","Glomerular endothelial cell",551,14198,0.0388082828567404
+"E12_WT_3","WT","E12","Medullary cell",544,17673,0.0307814179822328
+"E12_WT_2","WT","E12","Podocyte",514,11212,0.0458437388512308
+"E12_Tg_2","Tg","E12","Descending and ascending thin limb cell",513,14198,0.0361318495562755
+"E12_Tg_3","Tg","E12","Endothelial cell",497,19261,0.0258034369970407
+"E12_Tg_2","Tg","E12","Medullary cell",494,14198,0.0347936329060431
+"E12_Tg_1","Tg","E12","Podocyte",469,15601,0.0300621755015704
+"E12_WT_1","WT","E12","Ascending loop of henle cell",469,17474,0.0268398763877761
+"E12_WT_3","WT","E12","Endothelial cell",439,17673,0.0248401516437504
+"E12_WT_1","WT","E12","Endothelial cell",427,17474,0.0244363053679753
+"E12_WT_3","WT","E12","Ascending loop of henle cell",404,17673,0.0228597295309229
+"E12_Tg_2","Tg","E12","Podocyte",388,14198,0.0273277926468517
+"E12_Tg_3","Tg","E12","Proximal tubule cell",364,19261,0.0188982918851565
+"E12_Tg_2","Tg","E12","Proximal tubule cell",347,14198,0.0244400619805606
+"E12_Tg_1","Tg","E12","Proximal tubule cell",343,15601,0.0219857701429396
+"E12_Tg_3","Tg","E12","Glomerular endothelial cell",343,19261,0.017808005814859
+"E12_WT_2","WT","E12","Ascending loop of henle cell",307,11212,0.0273813770959686
+"E12_WT_1","WT","E12","Glomerular endothelial cell",299,17474,0.0171111365457251
+"E12_Tg_3","Tg","E12","Medullary cell",293,19261,0.015212086599865
+"E12_WT_1","WT","E12","Medullary cell",293,17474,0.0167677692571821
+"E12_WT_2","WT","E12","Medullary cell",290,11212,0.0258651444880485
+"E12_WT_2","WT","E12","Glomerular endothelial cell",261,11212,0.0232786300392437
+"E12_Tg_1","Tg","E12","S3 proximal tubule cell",255,15601,0.0163451060829434
+"E12_Tg_3","Tg","E12","Ascending loop of henle cell",245,19261,0.0127200041534707
+"E12_Tg_2","Tg","E12","S3 proximal tubule cell",234,14198,0.0164811945344415
+"E12_WT_3","WT","E12","Glomerular endothelial cell",223,17673,0.0126181180331579
+"E12_Tg_1","Tg","E12","Red blood cell",206,15601,0.0132042817768092
+"E12_Tg_2","Tg","E12","Endothelial cell",179,14198,0.012607409494295
+"E12_Tg_1","Tg","E12","Ascending loop of henle cell",169,15601,0.0108326389334017
+"E12_Tg_1","Tg","E12","Macrophage",168,15601,0.0107685404781745
+"E12_Tg_2","Tg","E12","Ascending loop of henle cell",153,14198,0.0107761656571348
+"E12_Tg_1","Tg","E12","Endothelial cell",151,15601,0.00967886673931158
+"E12_Tg_2","Tg","E12","Red blood cell",150,14198,0.0105648682913086
+"E12_Tg_3","Tg","E12","Macrophage",144,19261,0.0074762473391828
+"E12_Tg_3","Tg","E12","Red blood cell",137,19261,0.00711281864908364
+"E12_Tg_2","Tg","E12","Macrophage",134,14198,0.00943794900690238
+"E12_WT_2","WT","E12","Red blood cell",130,11212,0.0115947199429183
+"E12_WT_1","WT","E12","Red blood cell",125,17474,0.00715348517797871
+"E12_WT_3","WT","E12","Red blood cell",116,17673,0.00656368471679964
+"E12_WT_1","WT","E12","Macrophage",115,17474,0.00658120636374041
+"E12_WT_2","WT","E12","Endothelial cell",98,11212,0.00874063503389226
+"E12_WT_1","WT","E12","S3 proximal tubule cell",85,17474,0.00486436992102552
+"E12_WT_3","WT","E12","Macrophage",85,17673,0.00480959655972387
+"E12_WT_3","WT","E12","S3 proximal tubule cell",70,17673,0.00396084422565495
+"E12_WT_2","WT","E12","Macrophage",59,11212,0.00526221905101677
+"E12_WT_2","WT","E12","S3 proximal tubule cell",37,11212,0.00330003567606136
+"E12_Tg_3","Tg","E12","S3 proximal tubule cell",5,19261,0.000259591921499403

@@ -1,0 +1,28 @@
+﻿sample,cluster,cell_type,score,summary_file
+E16_Tg_3,0,Stromal cell,4.25,cellmarker3.0\E16_Tg_3_cluster0_CellMarker_summary.csv
+E16_Tg_3,1,Erythrocyte,7.44,cellmarker3.0\E16_Tg_3_cluster1_CellMarker_summary.csv
+E16_Tg_3,2,Stromal cell,29.19,cellmarker3.0\E16_Tg_3_cluster2_CellMarker_summary.csv
+E16_Tg_3,3,Intercalated cell,3.64,cellmarker3.0\E16_Tg_3_cluster3_CellMarker_summary.csv
+E16_Tg_3,4,Connecting tubular cell,14.92,cellmarker3.0\E16_Tg_3_cluster4_CellMarker_summary.csv
+E16_Tg_3,5,Parietal epithelial cell,8.42,cellmarker3.0\E16_Tg_3_cluster5_CellMarker_summary.csv
+E16_Tg_3,6,Endothelial cell,39.57,cellmarker3.0\E16_Tg_3_cluster6_CellMarker_summary.csv
+E16_Tg_3,7,Ureteric bud tip cell,6.99,cellmarker3.0\E16_Tg_3_cluster7_CellMarker_summary.csv
+E16_Tg_3,8,Distal convoluted tubule type 2 cell,4.93,cellmarker3.0\E16_Tg_3_cluster8_CellMarker_summary.csv
+E16_Tg_3,9,Stromal cell,5.71,cellmarker3.0\E16_Tg_3_cluster9_CellMarker_summary.csv
+E16_Tg_3,10,Stromal cell,8.81,cellmarker3.0\E16_Tg_3_cluster10_CellMarker_summary.csv
+E16_Tg_3,11,Intercalated cell,3.09,cellmarker3.0\E16_Tg_3_cluster11_CellMarker_summary.csv
+E16_Tg_3,12,Macula densa thick ascending limb cell,32.25,cellmarker3.0\E16_Tg_3_cluster12_CellMarker_summary.csv
+E16_Tg_3,13,Stromal cell,4.11,cellmarker3.0\E16_Tg_3_cluster13_CellMarker_summary.csv
+E16_Tg_3,14,Proximal tubule cell,50.35,cellmarker3.0\E16_Tg_3_cluster14_CellMarker_summary.csv
+E16_Tg_3,15,Collecting duct principal cell,19.09,cellmarker3.0\E16_Tg_3_cluster15_CellMarker_summary.csv
+E16_Tg_3,16,Stromal cell,10.37,cellmarker3.0\E16_Tg_3_cluster16_CellMarker_summary.csv
+E16_Tg_3,17,Podocyte,35.46,cellmarker3.0\E16_Tg_3_cluster17_CellMarker_summary.csv
+E16_Tg_3,18,Epithelial cell,5.73,cellmarker3.0\E16_Tg_3_cluster18_CellMarker_summary.csv
+E16_Tg_3,19,Intercalated cell,5.42,cellmarker3.0\E16_Tg_3_cluster19_CellMarker_summary.csv
+E16_Tg_3,20,Collecting duct principal cell,1.91,cellmarker3.0\E16_Tg_3_cluster20_CellMarker_summary.csv
+E16_Tg_3,21,Macrophage,30.43,cellmarker3.0\E16_Tg_3_cluster21_CellMarker_summary.csv
+E16_Tg_3,22,Endothelial cell,21.56,cellmarker3.0\E16_Tg_3_cluster22_CellMarker_summary.csv
+E16_Tg_3,23,Thick ascending limb cell,5.95,cellmarker3.0\E16_Tg_3_cluster23_CellMarker_summary.csv
+E16_Tg_3,24,Basophil,1.08,cellmarker3.0\E16_Tg_3_cluster24_CellMarker_summary.csv
+E16_Tg_3,25,Transitional intercalated cell,2.04,cellmarker3.0\E16_Tg_3_cluster25_CellMarker_summary.csv
+E16_Tg_3,26,Renin cell,8.75,cellmarker3.0\E16_Tg_3_cluster26_CellMarker_summary.csv
