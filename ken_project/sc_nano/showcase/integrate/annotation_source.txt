@@ -1,0 +1,17 @@
+09_integrate annotation source
+generated: 2026-11-08 15:50:22.745525
+10X annotation: Y:/PhD_work/ken_project/sc_10x/downstream/03_annotation/annotated.rds
+10X pipeline  : Y:/PhD_work/ken_project/sc_10x/downstream
+annotation cells: 34839
+cell_type levels: Stem cell | TA | Imm ent | Cybrd1+ ent | Fabp1+ ent | EEC | Paneth | Goblet | Pre-Paneth | Pre-goblet
+
+Coverage (% of nano cells with annotation):
+             WT  KO A1-Het A1-Rescue
+cDNA_TXdB7j   0 100      0         0
+cDNA_TXdH8k   0   0      0       100
+cDNA_TXdC7j   0   0    100         0
+cDNA_TXdE5k 100   0      0         0
+
+Note: v2 10X annotation is post-QC; coverage < 100% is expected.
+10X pseudobulk used for logFC is computed from annotated (QC-passed) cells.
+Composition / UMAP use the annotated intersection only.

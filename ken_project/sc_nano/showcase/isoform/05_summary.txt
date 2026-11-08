@@ -3,6 +3,8 @@
 
   细胞 x 转录本: 16973 x 39718
 
+  10X QC filter: 7228 / 16973 cells kept
+
   tx->gene 匹配率: 39585/39718 (99.7%)
 
   pseudobulk: 39585 tx / 22027 genes
@@ -10,6 +12,8 @@
 === cDNA_TXdH8k (A1-Rescue) ===
 
   细胞 x 转录本: 15529 x 38176
+
+  10X QC filter: 9334 / 15529 cells kept
 
   tx->gene 匹配率: 38065/38176 (99.7%)
 
@@ -19,6 +23,8 @@
 
   细胞 x 转录本: 16603 x 39909
 
+  10X QC filter: 10916 / 16603 cells kept
+
   tx->gene 匹配率: 39779/39909 (99.7%)
 
   pseudobulk: 39779 tx / 21783 genes
@@ -26,6 +32,8 @@
 === cDNA_TXdE5k (WT) ===
 
   细胞 x 转录本: 14278 x 39609
+
+  10X QC filter: 7361 / 14278 cells kept
 
   tx->gene 匹配率: 39474/39609 (99.7%)
 

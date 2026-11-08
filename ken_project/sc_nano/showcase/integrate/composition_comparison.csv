@@ -1,89 +1,81 @@
 "genotype","platform","type","n","frac"
-"A1-Het","10X","Paneth Cells Progenitors",2541,0.153044630488466
-"A1-Het","10X","Paneth Cells",1330,0.0801060049388665
-"A1-Het","10X","Dedifferentiating Paneth-like cells",1547,0.093175932060471
-"A1-Het","10X","TA Cells - G2/M",2674,0.161055230982353
-"A1-Het","10X","TA Cells - S",2546,0.153345780882973
-"A1-Het","10X","TA Cells",174,0.0104800337288442
-"A1-Het","10X","Intestinal Stem Cells",3918,0.235981449135698
-"A1-Het","10X","Goblet cells",555,0.0334276937902789
-"A1-Het","10X","Enteroendocrine Cells",572,0.0344516051316027
-"A1-Het","10X","Absorptive enterocytes",564,0.0339697645003915
-"A1-Het","10X","Early Differentiating Enterocytes",182,0.0109618743600554
-"A1-Het","Nanopore","Paneth Cells Progenitors",2541,0.153044630488466
-"A1-Het","Nanopore","Paneth Cells",1330,0.0801060049388665
-"A1-Het","Nanopore","Dedifferentiating Paneth-like cells",1547,0.093175932060471
-"A1-Het","Nanopore","TA Cells - G2/M",2674,0.161055230982353
-"A1-Het","Nanopore","TA Cells - S",2546,0.153345780882973
-"A1-Het","Nanopore","TA Cells",174,0.0104800337288442
-"A1-Het","Nanopore","Intestinal Stem Cells",3918,0.235981449135698
-"A1-Het","Nanopore","Goblet cells",555,0.0334276937902789
-"A1-Het","Nanopore","Enteroendocrine Cells",572,0.0344516051316027
-"A1-Het","Nanopore","Absorptive enterocytes",564,0.0339697645003915
-"A1-Het","Nanopore","Early Differentiating Enterocytes",182,0.0109618743600554
-"A1-Rescue","10X","Paneth Cells Progenitors",3704,0.238521475948226
-"A1-Rescue","10X","Paneth Cells",1568,0.1009723742675
-"A1-Rescue","10X","Dedifferentiating Paneth-like cells",761,0.0490050872561015
-"A1-Rescue","10X","TA Cells - G2/M",1630,0.104964904372464
-"A1-Rescue","10X","TA Cells - S",204,0.0131367119582716
-"A1-Rescue","10X","TA Cells",3105,0.199948483482517
-"A1-Rescue","10X","Intestinal Stem Cells",2092,0.134715693219138
-"A1-Rescue","10X","Goblet cells",811,0.0522248695988151
-"A1-Rescue","10X","Enteroendocrine Cells",565,0.036383540472664
-"A1-Rescue","10X","Absorptive enterocytes",840,0.054092343357589
-"A1-Rescue","10X","Early Differentiating Enterocytes",249,0.0160345160667139
-"A1-Rescue","Nanopore","Paneth Cells Progenitors",3704,0.238521475948226
-"A1-Rescue","Nanopore","Paneth Cells",1568,0.1009723742675
-"A1-Rescue","Nanopore","Dedifferentiating Paneth-like cells",761,0.0490050872561015
-"A1-Rescue","Nanopore","TA Cells - G2/M",1630,0.104964904372464
-"A1-Rescue","Nanopore","TA Cells - S",204,0.0131367119582716
-"A1-Rescue","Nanopore","TA Cells",3105,0.199948483482517
-"A1-Rescue","Nanopore","Intestinal Stem Cells",2092,0.134715693219138
-"A1-Rescue","Nanopore","Goblet cells",811,0.0522248695988151
-"A1-Rescue","Nanopore","Enteroendocrine Cells",565,0.036383540472664
-"A1-Rescue","Nanopore","Absorptive enterocytes",840,0.054092343357589
-"A1-Rescue","Nanopore","Early Differentiating Enterocytes",249,0.0160345160667139
-"KO","10X","Paneth Cells Progenitors",6467,0.380972017673049
-"KO","10X","Paneth Cells",1673,0.0985567010309278
-"KO","10X","Dedifferentiating Paneth-like cells",1280,0.0754050073637702
-"KO","10X","TA Cells - G2/M",1424,0.0838880706921944
-"KO","10X","TA Cells - S",2216,0.130544918998527
-"KO","10X","TA Cells",19,0.00111929307805596
-"KO","10X","Intestinal Stem Cells",2775,0.163475699558174
-"KO","10X","Goblet cells",460,0.0270986745213549
-"KO","10X","Enteroendocrine Cells",363,0.0213843888070692
-"KO","10X","Absorptive enterocytes",231,0.0136082474226804
-"KO","10X","Early Differentiating Enterocytes",67,0.00394698085419735
-"KO","Nanopore","Paneth Cells Progenitors",6465,0.380899075001473
-"KO","Nanopore","Paneth Cells",1673,0.098568314381665
-"KO","Nanopore","Dedifferentiating Paneth-like cells",1280,0.0754138926530372
-"KO","Nanopore","TA Cells - G2/M",1424,0.0838979555765039
-"KO","Nanopore","TA Cells - S",2216,0.130560301655571
-"KO","Nanopore","TA Cells",19,0.00111942496906852
-"KO","Nanopore","Intestinal Stem Cells",2775,0.163494962587639
-"KO","Nanopore","Goblet cells",460,0.0271018676721852
-"KO","Nanopore","Enteroendocrine Cells",363,0.0213869086195723
-"KO","Nanopore","Absorptive enterocytes",231,0.0136098509397278
-"KO","Nanopore","Early Differentiating Enterocytes",67,0.00394744594355741
-"WT","10X","Paneth Cells Progenitors",3397,0.237918475977028
-"WT","10X","Paneth Cells",1765,0.123616753046645
-"WT","10X","Dedifferentiating Paneth-like cells",1327,0.0929401877013587
-"WT","10X","TA Cells - G2/M",2297,0.160876873511696
-"WT","10X","TA Cells - S",1022,0.0715786524723351
-"WT","10X","TA Cells",257,0.0179997198487183
-"WT","10X","Intestinal Stem Cells",1848,0.129429892141757
-"WT","10X","Goblet cells",589,0.0412522762291637
-"WT","10X","Enteroendocrine Cells",373,0.0261241070177896
-"WT","10X","Absorptive enterocytes",214,0.0149880935705281
-"WT","10X","Early Differentiating Enterocytes",1189,0.0832749684829808
-"WT","Nanopore","Paneth Cells Progenitors",3397,0.237918475977028
-"WT","Nanopore","Paneth Cells",1765,0.123616753046645
-"WT","Nanopore","Dedifferentiating Paneth-like cells",1327,0.0929401877013587
-"WT","Nanopore","TA Cells - G2/M",2297,0.160876873511696
-"WT","Nanopore","TA Cells - S",1022,0.0715786524723351
-"WT","Nanopore","TA Cells",257,0.0179997198487183
-"WT","Nanopore","Intestinal Stem Cells",1848,0.129429892141757
-"WT","Nanopore","Goblet cells",589,0.0412522762291637
-"WT","Nanopore","Enteroendocrine Cells",373,0.0261241070177896
-"WT","Nanopore","Absorptive enterocytes",214,0.0149880935705281
-"WT","Nanopore","Early Differentiating Enterocytes",1189,0.0832749684829808
+"A1-Het","10X","Stem cell",5437,0.498076218395016
+"A1-Het","10X","TA",2808,0.257237083180652
+"A1-Het","10X","Imm ent",1532,0.14034444851594
+"A1-Het","10X","Cybrd1+ ent",79,0.00723708318065225
+"A1-Het","10X","Fabp1+ ent",148,0.0135580798827409
+"A1-Het","10X","EEC",446,0.0408574569439355
+"A1-Het","10X","Paneth",162,0.0148406009527299
+"A1-Het","10X","Goblet",134,0.0122755588127519
+"A1-Het","10X","Pre-Paneth",127,0.0116342982777574
+"A1-Het","10X","Pre-goblet",43,0.00393917185782338
+"A1-Het","Nanopore","Stem cell",5437,0.498076218395016
+"A1-Het","Nanopore","TA",2808,0.257237083180652
+"A1-Het","Nanopore","Imm ent",1532,0.14034444851594
+"A1-Het","Nanopore","Cybrd1+ ent",79,0.00723708318065225
+"A1-Het","Nanopore","Fabp1+ ent",148,0.0135580798827409
+"A1-Het","Nanopore","EEC",446,0.0408574569439355
+"A1-Het","Nanopore","Paneth",162,0.0148406009527299
+"A1-Het","Nanopore","Goblet",134,0.0122755588127519
+"A1-Het","Nanopore","Pre-Paneth",127,0.0116342982777574
+"A1-Het","Nanopore","Pre-goblet",43,0.00393917185782338
+"A1-Rescue","10X","Stem cell",3142,0.336618812941933
+"A1-Rescue","10X","TA",3171,0.339725733876152
+"A1-Rescue","10X","Imm ent",1476,0.158131562031283
+"A1-Rescue","10X","Cybrd1+ ent",69,0.00739232911934862
+"A1-Rescue","10X","Fabp1+ ent",283,0.0303192629097922
+"A1-Rescue","10X","EEC",450,0.0482108420827084
+"A1-Rescue","10X","Paneth",107,0.0114634668952218
+"A1-Rescue","10X","Goblet",209,0.0223912577673023
+"A1-Rescue","10X","Pre-Paneth",390,0.0417827298050139
+"A1-Rescue","10X","Pre-goblet",37,0.00396400257124491
+"A1-Rescue","Nanopore","Stem cell",3142,0.336618812941933
+"A1-Rescue","Nanopore","TA",3171,0.339725733876152
+"A1-Rescue","Nanopore","Imm ent",1476,0.158131562031283
+"A1-Rescue","Nanopore","Cybrd1+ ent",69,0.00739232911934862
+"A1-Rescue","Nanopore","Fabp1+ ent",283,0.0303192629097922
+"A1-Rescue","Nanopore","EEC",450,0.0482108420827084
+"A1-Rescue","Nanopore","Paneth",107,0.0114634668952218
+"A1-Rescue","Nanopore","Goblet",209,0.0223912577673023
+"A1-Rescue","Nanopore","Pre-Paneth",390,0.0417827298050139
+"A1-Rescue","Nanopore","Pre-goblet",37,0.00396400257124491
+"KO","10X","Stem cell",3443,0.476342003320421
+"KO","10X","TA",1535,0.212368566685113
+"KO","10X","Imm ent",222,0.0307138904261206
+"KO","10X","Cybrd1+ ent",1127,0.155921416712784
+"KO","10X","Fabp1+ ent",312,0.0431654676258993
+"KO","10X","EEC",240,0.0332042058660764
+"KO","10X","Paneth",148,0.0204759269507471
+"KO","10X","Goblet",114,0.0157719977863863
+"KO","10X","Pre-Paneth",52,0.00719424460431655
+"KO","10X","Pre-goblet",35,0.00484228002213614
+"KO","Nanopore","Stem cell",3443,0.476342003320421
+"KO","Nanopore","TA",1535,0.212368566685113
+"KO","Nanopore","Imm ent",222,0.0307138904261206
+"KO","Nanopore","Cybrd1+ ent",1127,0.155921416712784
+"KO","Nanopore","Fabp1+ ent",312,0.0431654676258993
+"KO","Nanopore","EEC",240,0.0332042058660764
+"KO","Nanopore","Paneth",148,0.0204759269507471
+"KO","Nanopore","Goblet",114,0.0157719977863863
+"KO","Nanopore","Pre-Paneth",52,0.00719424460431655
+"KO","Nanopore","Pre-goblet",35,0.00484228002213614
+"WT","10X","Stem cell",2104,0.285830729520446
+"WT","10X","TA",2370,0.321967124032061
+"WT","10X","Imm ent",1863,0.253090612688493
+"WT","10X","Cybrd1+ ent",63,0.00855861975275098
+"WT","10X","Fabp1+ ent",221,0.0300230946882217
+"WT","10X","EEC",263,0.0357288411900557
+"WT","10X","Paneth",98,0.0133134085042793
+"WT","10X","Goblet",171,0.0232305393288955
+"WT","10X","Pre-Paneth",171,0.0232305393288955
+"WT","10X","Pre-goblet",37,0.00502649096590137
+"WT","Nanopore","Stem cell",2104,0.285830729520446
+"WT","Nanopore","TA",2370,0.321967124032061
+"WT","Nanopore","Imm ent",1863,0.253090612688493
+"WT","Nanopore","Cybrd1+ ent",63,0.00855861975275098
+"WT","Nanopore","Fabp1+ ent",221,0.0300230946882217
+"WT","Nanopore","EEC",263,0.0357288411900557
+"WT","Nanopore","Paneth",98,0.0133134085042793
+"WT","Nanopore","Goblet",171,0.0232305393288955
+"WT","Nanopore","Pre-Paneth",171,0.0232305393288955
+"WT","Nanopore","Pre-goblet",37,0.00502649096590137

@@ -1,0 +1,19 @@
+=== 10 global AS figures ===
+输入 pb_tx : Y:/PhD_work/ken_project/sc_nano/downstream_rescued/05_isoform/pb_tx_all.csv
+输入 tx_map: Y:/PhD_work/ken_project/sc_nano/downstream_rescued/05_isoform/tx_gene_map.csv
+输出      : Y:/PhD_work/ken_project/sc_nano/downstream_rescued/10_global_as
+阈值      : min_umi=50 min_if=0.05 |dIF|>=0.1
+样本: WT=cDNA_TXdE5k KO=cDNA_TXdB7j Het=cDNA_TXdC7j Res=cDNA_TXdH8k
+[过滤] 基因 5027 / 25735，转录本 17458 / 54936
+[基因] KO 受影响 2808 / 5027；Het 受影响 2807 / 5027
+[KO 轴] 受影响基因 2808；farther than KO=1161(41.3%) no change=469(16.7%) partial=467(16.6%) rescued=711(25.3%) over-rescued=0(0.0%)
+[HET 轴] 受影响基因 2807；farther than KO=1162(41.4%) no change=508(18.1%) partial=483(17.2%) rescued=654(23.3%) over-rescued=0(0.0%)
+[ECDF] 中位 max|dIF|: KO 0.136 | Het 0.134 | Res 0.138
+[10] 完成. 输出目录: Y:/PhD_work/ken_project/sc_nano/downstream_rescued/10_global_as
+
+说明：
+1) n=1/基因型，所有结果为描述性效应量，无 p 值。
+2) 转录本水平 RI = 1 - dIF_Rescue/dIF_Perturbation；基因水平 RI = 1 - ||ΔIF_Res||/||ΔIF_Pert||（模长比，保守）。
+   RI_*_proj 为投影位置，仅作参考，不参与分级（独立噪声下会偏向 1）。
+3) 分级：farther than KO<0, no change[0,0.2), partial[0.2,0.5), rescued[0.5,1.2), over>=1.2。
+4) 细胞组成未匹配；正式结论前应按细胞类型分层复核（见 P0 诊断）。
