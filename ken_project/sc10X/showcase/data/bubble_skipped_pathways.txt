@@ -1,0 +1,11 @@
+以下通路只在部分基因型检出显著互作，CellChat merged 出图会报
+'names' attribute [N] must be the same length as the vector [M]（库内部 bug），
+本步跳过；若要看，可对单个对象调用 netVisual_bubble(cc_list[["KO"]], signaling = "...")：
+
+ADGRE  [检出: WT, KO, A1_Het]
+HSPG  [检出: WT, KO, A1_Het]
+NCAM  [检出: KO]
+PTPR  [检出: WT]
+Prostaglandin  [检出: KO]
+SEMA3  [检出: KO]
+THBS  [检出: KO]

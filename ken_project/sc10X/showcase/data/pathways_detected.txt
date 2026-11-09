@@ -1,0 +1,6 @@
+genotypes: WT, KO, A1_Het, A1_Rescue
+pathways detected (union, n = 44 ): 27HC, ADGRE, ADGRG, ADGRL, AGRN, ANGPTL, APP, BMP, CDH, CDH1, CEACAM, CLDN, Cholesterol, CypA, DESMOSOME, Desmosterol, EGF, EPHA, EPHB, FLRT, GALECTIN, GDF, GRN, GUCA, HH, HSPG, JAM, KIT, L1CAM, LAMININ, MPZ, NCAM, NECTIN, NOTCH, OCLN, PTPR, Prostaglandin, SEMA3, SEMA4, SEMA7, THBS, TRAIL, UNC5, WNT
+pathways in all genotypes (n = 30 ): CypA, CLDN, GALECTIN, CDH, GUCA, LAMININ, NECTIN, DESMOSOME, SEMA4, JAM, EPHB, APP, MPZ, GDF, KIT, WNT, ANGPTL, Desmosterol, AGRN, GRN, BMP, EPHA, Cholesterol, NOTCH, CEACAM, ADGRL, FLRT, HH, ADGRG, L1CAM
+
+说明：TGFb / TNF / CXCL / FGF 未出现在任何基因型中，表示本次推断没有检出
+显著互作（可回看 cellchat_list.rds 的 netP$pathways 复核），非绘图失败。

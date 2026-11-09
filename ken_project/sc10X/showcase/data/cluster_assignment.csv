@@ -1,0 +1,9 @@
+cluster,n,label,score,margin
+0,9584,TA,0.952,0.851
+1,8286,Stem cell,0.175,0.002
+2,6957,Enterocyte,0.395,0.407
+3,5840,Stem cell,0.353,0.379
+4,2035,Paneth-Goblet,2.278,2.019
+5,1399,EEC,3.616,3.467
+6,438,Enterocyte,2.275,2.314
+7,300,TA,0.253,0.181

@@ -1,0 +1,5 @@
+root_cell   : A1_Het_TGACCCTGTGCCTTTC-1
+root_rule   : R1 = max StemScore among 'Stem cell' (Lgr5/Olfm4/Ascl2/Smoc2/Axin2 module)
+graph       : monocle3 learn_graph in CC-regressed PCA space (ncenter=150, minimal_branch_len=10)
+display     : original pipeline UMAP (UMAP slot restored after learn_graph)
+P(TA>Stem)  : 0.662 | Cliff's delta = 0.323

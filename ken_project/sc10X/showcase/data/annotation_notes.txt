@@ -1,0 +1,11 @@
+generated: 2026-11-06 21:12:18.609375
+----
+Pass1 resolution: clusters_res0.3 (k=8; scan=clusters_res0.05=3 clusters_res0.1=4 clusters_res0.15=5 clusters_res0.2=5 clusters_res0.25=6 clusters_res0.3=8 clusters_res0.35=7 clusters_res0.4=8 clusters_res0.45=10 clusters_res0.5=11 clusters_res0.55=11 clusters_res0.6=11 clusters_res0.65=11 clusters_res0.7=11 clusters_res0.75=13 clusters_res0.8=15)
+Pass1: no cluster won the Tuft panel -> Tuft cell absent (per design, no cell-level rescue)
+Pass1 labels present: EEC, Enterocyte, Paneth-Goblet, Stem cell, TA
+Pass2 ent pool res=0.2 (k=5)
+Pass2 WARNING: low-confidence ent subcluster(s) (max panel score < 0): 0,3
+Pass3 PG pool res=0.3 (k=5)
+Pass3 WARNING: subclusters flagged other_lineage (excl panel >20%): 4
+Pass3 L3 res=0.08 (2-cluster res with max PG gap)
+Final labels: Stem cell=14126, TA=9884, Imm ent=5093, Cybrd1+ ent=1338, Fabp1+ ent=964, EEC=1399, Paneth=515, Goblet=628, Pre-Paneth=740, Pre-goblet=152, Tuft cell=0, Enterocyte=0, Paneth-Goblet=0, Unassigned=0

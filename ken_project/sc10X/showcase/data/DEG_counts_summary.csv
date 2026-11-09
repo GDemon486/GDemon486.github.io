@@ -1,0 +1,56 @@
+"cell_type","contrast","n_tested","n_up_group1","n_down_group2"
+"Global","KO_vs_WT",14391,2357,2249
+"Global","A1_Het_vs_WT",14391,2122,2430
+"Global","A1_Rescue_vs_KO",14391,2099,2646
+"Global","A1_Rescue_vs_A1_Het",14391,1830,1962
+"Global","A1_Rescue_vs_WT",14391,1563,1937
+"Stem cell","KO_vs_WT",12431,1516,1516
+"Stem cell","A1_Het_vs_WT",12431,1303,1484
+"Stem cell","A1_Rescue_vs_KO",12431,1617,1980
+"Stem cell","A1_Rescue_vs_A1_Het",12431,1254,1534
+"Stem cell","A1_Rescue_vs_WT",12431,875,1288
+"TA","KO_vs_WT",12564,1998,2179
+"TA","A1_Het_vs_WT",12564,1563,2044
+"TA","A1_Rescue_vs_KO",12564,2074,2254
+"TA","A1_Rescue_vs_A1_Het",12564,1580,1528
+"TA","A1_Rescue_vs_WT",12564,1373,1684
+"Imm ent","KO_vs_WT",11293,1185,941
+"Imm ent","A1_Het_vs_WT",11293,1569,1658
+"Imm ent","A1_Rescue_vs_KO",11293,1265,1348
+"Imm ent","A1_Rescue_vs_A1_Het",11293,1502,1458
+"Imm ent","A1_Rescue_vs_WT",11293,1431,1466
+"Cybrd1+ ent","KO_vs_WT",5811,401,672
+"Cybrd1+ ent","A1_Het_vs_WT",5811,297,404
+"Cybrd1+ ent","A1_Rescue_vs_KO",5811,1241,956
+"Cybrd1+ ent","A1_Rescue_vs_A1_Het",5811,744,659
+"Cybrd1+ ent","A1_Rescue_vs_WT",5811,532,529
+"Fabp1+ ent","KO_vs_WT",8429,983,1009
+"Fabp1+ ent","A1_Het_vs_WT",8429,889,656
+"Fabp1+ ent","A1_Rescue_vs_KO",8429,982,872
+"Fabp1+ ent","A1_Rescue_vs_A1_Het",8429,482,559
+"Fabp1+ ent","A1_Rescue_vs_WT",8429,767,587
+"EEC","KO_vs_WT",10280,799,830
+"EEC","A1_Het_vs_WT",10280,784,912
+"EEC","A1_Rescue_vs_KO",10280,1734,1964
+"EEC","A1_Rescue_vs_A1_Het",10280,1309,1501
+"EEC","A1_Rescue_vs_WT",10280,1126,1440
+"Paneth","KO_vs_WT",5326,290,406
+"Paneth","A1_Het_vs_WT",5326,343,354
+"Paneth","A1_Rescue_vs_KO",5326,514,348
+"Paneth","A1_Rescue_vs_A1_Het",5326,374,265
+"Paneth","A1_Rescue_vs_WT",5326,295,229
+"Goblet","KO_vs_WT",7251,716,633
+"Goblet","A1_Het_vs_WT",7251,629,550
+"Goblet","A1_Rescue_vs_KO",7251,564,697
+"Goblet","A1_Rescue_vs_A1_Het",7251,421,495
+"Goblet","A1_Rescue_vs_WT",7251,569,545
+"Pre-Paneth","KO_vs_WT",9510,980,692
+"Pre-Paneth","A1_Het_vs_WT",9510,981,999
+"Pre-Paneth","A1_Rescue_vs_KO",9510,771,1049
+"Pre-Paneth","A1_Rescue_vs_A1_Het",9510,722,839
+"Pre-Paneth","A1_Rescue_vs_WT",9510,924,1174
+"Pre-goblet","KO_vs_WT",3249,146,188
+"Pre-goblet","A1_Het_vs_WT",3249,118,136
+"Pre-goblet","A1_Rescue_vs_KO",3249,203,167
+"Pre-goblet","A1_Rescue_vs_A1_Het",3249,135,92
+"Pre-goblet","A1_Rescue_vs_WT",3249,121,105

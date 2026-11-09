@@ -1,0 +1,5 @@
+"genotype","n_before","n_after","pct_retained"
+"WT",14278,7361,51.6
+"KO",16975,7228,42.6
+"A1_Het",16603,10916,65.7
+"A1_Rescue",15529,9334,60.1

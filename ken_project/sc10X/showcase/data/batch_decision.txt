@@ -1,0 +1,4 @@
+enrichment_before= 0.3017
+threshold= 0.15
+batch_effect_detected= TRUE
+INTEGRATION_DO= FALSE

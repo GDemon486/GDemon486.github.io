@@ -1,0 +1,15 @@
+axis,cell_type,median_pt
+secretory,Stem cell,29.26
+secretory,TA,36.73
+secretory,Pre-Paneth,57.25
+secretory,Goblet,57.5
+secretory,Pre-goblet,65.54
+secretory,Paneth,90.39
+enterocyte,Stem cell,29.26
+enterocyte,TA,36.73
+enterocyte,Imm ent,42.88
+enterocyte,Fabp1+ ent,44.25
+enterocyte,Cybrd1+ ent,47.25
+eec,Stem cell,29.26
+eec,TA,36.73
+eec,EEC,47.05

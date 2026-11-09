@@ -1,0 +1,5 @@
+"sample_id","genotype","n_raw_barcodes","n_cells_cr","n_pass_mt","n_pass_all","pct_retained","n_genes_before","n_genes_after","median_nFeature_after","median_nCount_after","median_percent_mt_before"
+"WT","WT",1349499,14278,10267,7361,51.6,32285,17514,3532,10285,8.76
+"KO","KO",1377053,16975,13709,7228,42.6,32285,17695,3908,12156,5.5
+"A1_Het","A1_Het",1363436,16603,13424,10916,65.7,32285,17716,3289,8824,6.03
+"A1_Rescue","A1_Rescue",1689405,15529,13575,9334,60.1,32285,17384,3393,9600,5.11
