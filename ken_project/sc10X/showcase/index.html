@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIRT6-hnRNP A1 肠道类器官 10X scRNA-seq 分析报告</title>
+<title>SIRT6-hnRNP A1 肠道类器官 10X scRNA-seq 分析报告（v2）</title>
 <style>
   * { box-sizing: border-box; }
   body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2d3748; max-width: 1500px; margin: 0 auto; padding: 20px; background-color: #eef1f6; }
@@ -13,7 +13,7 @@
   .card-header h2 { margin: 0; font-size: 1.4em; }
   .card-body { padding: 22px 26px; }
   .hero { text-align: center; padding: 34px 24px; margin-bottom: 26px; }
-  .hero h1 { font-size: 2.1em; margin: 0 0 6px; }
+  .hero h1 { font-size: 2.05em; margin: 0 0 6px; }
   .hero .sub { color: #5b6b83; font-size: 1.05em; }
   .hero .meta { color: #718096; font-size: .9em; margin-top: 12px; }
   .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(20,40,80,.08); padding: 12px 18px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -27,25 +27,30 @@
   th, td { border: 1px solid #d9dee8; padding: 6px 10px; text-align: left; }
   th { background: #f0f3f9; color: #33415c; font-weight: 600; }
   tr:nth-child(even) td { background: #fafbfe; }
-  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .tab-btn { padding: 8px 16px; background: #eef2f7; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: .95em; font-weight: 600; color: #475467; }
+  td.num, th.num { text-align: right; }
+  .tab-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .tab-btn { padding: 7px 15px; background: #eef2f7; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-size: .93em; font-weight: 600; color: #475467; }
   .tab-btn:hover { background: #dde5f3; }
   .tab-btn.active { background: #2563eb; color: #fff; border-color: #1d4ed8; }
   .pdfframe { width: 100%; height: 640px; border: 1px solid #d9dee8; border-radius: 8px; background: #f8f8f8; }
   .pdfframe.wide { height: 560px; }
   .imgcol { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .imgcol .one { grid-column: 1 / -1; }
-  .imgcol .three { grid-column: span 1; }
   .imgbox { background: #fafbfe; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; }
   .imgbox iframe { width: 100%; height: 520px; border: none; border-radius: 6px; background: #fff; }
+  .imgbox img { width: 100%; border-radius: 6px; display: block; background: #fff; }
   .imgbox figcaption { font-size: .9em; color: #5b6b83; margin-top: 8px; text-align: center; font-weight: 600; }
   .dl { display: inline-block; margin: 4px 6px 4px 0; text-decoration: none; background: #385898; color: #fff; padding: 7px 14px; border-radius: 8px; font-weight: 600; font-size: .9em; }
   .dl:hover { background: #2b4377; }
+  .missing { display: none; border: 1px dashed #c7ced9; border-radius: 8px; background: #f8fafd; padding: 26px; text-align: center; color: #667085; font-size: .95em; }
   .filelist { columns: 3; font-size: .9em; }
   .filelist div { break-inside: avoid; margin: 4px 0; }
   .filelist a { color: #385898; text-decoration: none; }
+  details { margin: 8px 0 16px; }
+  summary { cursor: pointer; font-weight: 600; color: #385898; padding: 6px 0; }
   .small { font-size: .86em; color: #718096; }
   .mono { font-family: Consolas, monospace; }
+  .tag { display: inline-block; background: #eef2fa; color: #385898; border-radius: 6px; padding: 1px 8px; font-size: .85em; font-weight: 600; margin-left: 6px; }
   @media (max-width: 1000px) { .imgcol { grid-template-columns: 1fr; } .filelist { columns: 1; } }
 </style>
 </head>
@@ -53,8 +58,10 @@
 
 <div class="card hero">
   <h1>SIRT6 · hnRNP A1 肠道类器官 · 10X scRNA-seq 分析报告</h1>
-  <div class="sub">10X Genomics 3' v3 · Cell Ranger 6.0.1（mm10-2020-A）· 标准 R/Seurat 流程 · 两级细胞注释</div>
-  <div class="meta">数据源：ZhouZJ_10X3RNA_CPOS-240719-YLC-24658a（WT / KO / A1-Het / A1-Rescue，n=1/基因型）&nbsp;|&nbsp; 报告更新：2026-09-21（KO 与 A1-Het 样本标签勘误对调，所有图表数据已同步）</div>
+  <div class="sub">10X Genomics 3' v3 · Cell Ranger 6.0.1（mm10-2020-A）· R/Seurat v5 流程 v2 · 两层细胞过滤 + 三层细胞注释</div>
+  <div class="meta">数据源：ZhouZJ_10X3RNA_CPOS-240719-YLC-24658a（WT / KO / A1-Het / A1-Rescue，n=1/基因型，共 34,839 细胞）&nbsp;|&nbsp;
+  报告更新：2026-11-09（拟时序按 R1 重跑版重建、注释 UMAP 图同步更新；其余沿用 2026-11-07 downstream v2 全量结果）&nbsp;|&nbsp;
+  2026-09-21（KO 与 A1-Het 样本标签勘误对调）</div>
 </div>
 
 <div class="sticky-nav" id="nav"></div>
@@ -63,28 +70,40 @@
 <div class="card">
   <div class="card-header"><h2 id="sec-overview">1. 数据概览与质控</h2></div>
   <div class="card-body">
-    <p>上游为测序公司返回的 Cell Ranger 6.0.1 标准结果（参考基因组 mm10-2020-A，Single Cell 3' v3）。<b>流程不额外做本地 QC 过滤</b>：直接用 Cell Ranger cell calling 后的 filtered 矩阵进行分析。</p>
-    <div class="warn"><b>重要提示：</b>每种基因型目前仅 <b>1 个独立样本（n=1）</b>。细胞组成、DEG、Milo/propeller 等<b>统计检验</b>因无生物学重复而受限（报告中已标注）——聚类、注释、比例图、拟时序、评分等描述性结果均完整可用。</div>
+    <p>上游为测序公司返回的 Cell Ranger 6.0.1 标准结果（mm10-2020-A，Single Cell 3' v3）。本版流程与旧版最大的差别之一是<b>不再"零过滤"</b>，而是按已发表文献做<b>两层细胞过滤</b>：</p>
+    <table>
+      <tr><th>层</th><th>规则</th><th>依据</th></tr>
+      <tr><td>层 1</td><td><span class="mono">percent.mt &lt; 20%</span>（按全部基因计算）</td><td>肠类器官 scRNA 主流档位（PMC11987515 / PMC13394574 / BMC Methods 2025）；10–15% 会系统性优先删除 Paneth/Goblet</td></tr>
+      <tr><td>层 2</td><td>删除 <span class="mono">^mt-</span> 与 <span class="mono">^Rp[sl]</span> 基因后，要求 <span class="mono">nCount ≥ 2000</span> 且 <span class="mono">nFeature ≥ 250</span></td><td>Nat Commun 2023;14:5093 Methods 原文（"empty droplets" 判定）</td></tr>
+      <tr><td>基因层</td><td>表达细胞数 &lt; 3 的基因丢弃</td><td>同上（"genes expressed in fewer than three cells were discarded"）</td></tr>
+    </table>
+    <div class="warn"><b>三个必须一起读的前提：</b>①每种基因型仍只有 <b>1 个独立样本（n=1）</b>，DEG、组成差异均为<b>无生物学重复</b>下的探索性结果；②两层过滤的<b>保留率在基因型间并不一致</b>（WT 51.6% / KO 42.6% / A1_Het 65.7% / A1_Rescue 60.1%），因此<b>任何跨基因型的组成比较，分母本身就不同</b>，须同时报告下表，不能当成纯粹的生物学差异；③旧版（零过滤）入库 <b>63,385</b> 细胞，本版两层过滤后为 <b>34,839</b> 细胞（约 −45%），<b>新旧两版结果不可直接按数值比较</b>。</div>
     <table id="qc-table"></table>
-    <p class="small">n_cells = Cell Ranger 判定的细胞数（= filtered 矩阵，与 web_summary 的 Estimated Number of Cells 一致）；median_percent_mt 为线粒体基因 UMI 占比中位数。</p>
+    <p class="small">n_cells_cr = Cell Ranger 判定的细胞数；pass_mt = 通过层 1；pass_all = 两层 + 基因层后进入下游的细胞数（下游全部分析的分母）；median_* 为过滤后中位数。</p>
 
-    <h3>全样本 QC 小提琴图（描述性，无本地过滤）</h3>
-    <div class="imgbox"><iframe src="qc/QC_violin_all_samples.pdf"></iframe><figcaption>每细胞基因数 / UMI 数 / 线粒体%</figcaption></div>
+    <h3>QC 小提琴图</h3>
+    <div class="tab-bar" id="qc-tabs"></div>
+    <iframe class="pdfframe" id="qc-frame" loading="lazy"></iframe>
+    <p class="small"><a id="qc-frame-link" href="qc/QC_violin_all_samples.pdf" target="_blank">在新标签页打开当前图 ↗</a></p>
 
-    <h3>Cell Ranger cell calling 效果（barcode rank / knee 图）</h3>
-    <p class="small">横轴为全部 barcode 按 UMI 数排序的序号（raw 矩阵，含背景液滴），绿色段为 Cell Ranger 判定为细胞的部分。绿色与灰色分界清晰说明 cell calling 合理。</p>
+    <h3>Cell Ranger cell calling 效果</h3>
+    <p class="small">横轴为 raw 矩阵中全部 barcode 按 UMI 数排序的序号（含背景液滴），绿色段为 Cell Ranger 判定为细胞的部分。绿/灰分界清晰说明 cell calling 合理；本流程的额外过滤发生在 cell calling 之后。</p>
     <div class="tab-bar" id="br-tabs"></div>
-    <iframe class="pdfframe" id="br-frame"></iframe>
+    <iframe class="pdfframe" id="br-frame" loading="lazy"></iframe>
+    <p class="small"><a id="br-frame-link" href="qc/barcode_rank_WT.pdf" target="_blank">在新标签页打开当前图 ↗</a></p>
+    <p><a class="dl" href="data/QC_summary.csv" download>下载 QC 汇总表</a>
+       <a class="dl" href="data/filter_gate_by_genotype.csv" download>下载各基因型过滤门限表</a></p>
   </div>
 </div>
 
-<!-- ============ 2 Cell Ranger QC ============ -->
+<!-- ============ 2 Cell Ranger ============ -->
 <div class="card">
   <div class="card-header"><h2 id="sec-cellranger">2. Cell Ranger 上游 QC 报告</h2></div>
   <div class="card-body">
-    <p>测序公司返回的官方 web_summary（含比对率、饱和度、barcode/UMI 质量等）。</p>
+    <p>测序公司返回的官方 web_summary（比对率、饱和度、barcode/UMI 质量等），与第 1 节的两层过滤互相独立。</p>
     <div class="tab-bar" id="ws-tabs"></div>
-    <iframe class="pdfframe wide" id="ws-frame"></iframe>
+    <iframe class="pdfframe wide" id="ws-frame" loading="lazy" style="height:780px"></iframe>
+    <p class="small"><a id="ws-frame-link" href="cellranger/web_summary_WT.html" target="_blank">在新标签页打开当前报告 ↗</a></p>
   </div>
 </div>
 
@@ -92,52 +111,69 @@
 <div class="card">
   <div class="card-header"><h2 id="sec-cluster">3. 标准化 · 降维 · 聚类</h2></div>
   <div class="card-body">
-    <p>Seurat 标准流程：NormalizeData → FindVariableFeatures(3000) → ScaleData → PCA(50) → UMAP → 聚类（主分辨率 0.5，0.2–1.2 扫描）。<b>未做批次/基因型整合</b>（样本与基因型一一对应，整合会抹掉真实差异）。</p>
-    <div class="note">批次富集度（kNN 同基因型比例 vs 期望）：observed=0.527，expected=0.251，enrichment=<b>0.276</b>（阈值 0.15 → 检出示批次/基因型差异明显）。此提示基因型间确有转录差异，与"不整合、分组比较"的分析策略一致。</div>
+    <p>Seurat v5 标准流程：NormalizeData → FindVariableFeatures(<b>2000</b>) → ScaleData → PCA(<b>50</b>) → UMAP（使用前 <b>30</b> PCs）→ 聚类，分辨率扫描 0.05–0.80（步长 0.05）。按 NC2023 复刻口径，<b>取扫描中第一个恰好得到 8 簇的分辨率</b>，即 <b>res = 0.3</b>（8 簇）。</p>
+    <div class="note"><b>未做批次/基因型整合（有意为之）。</b>批次富集度（kNN 同基因型比例 vs 期望）：observed = 0.5599，expected = 0.2582，enrichment = <b>0.3017</b>（阈值 0.15 → 检出明显结构差异）。但本设计中<b>样本与基因型一一对应</b>，用 harmony 整合会把真实的基因型差异一起抹掉，故 <span class="mono">INTEGRATION_DO = FALSE</span>，后续全部按基因型分组比较。</div>
     <div class="imgcol">
-      <div class="imgbox"><iframe src="clustering/UMAP_byGenotype.pdf"></iframe><figcaption>UMAP · 按基因型上色</figcaption></div>
-      <div class="imgbox"><iframe src="clustering/UMAP_byCluster.pdf"></iframe><figcaption>UMAP · 按聚类簇上色</figcaption></div>
+      <div class="imgbox"><iframe src="clustering/UMAP_byGenotype.pdf" loading="lazy"></iframe><figcaption>UMAP · 按基因型上色（未整合）</figcaption></div>
+      <div class="imgbox"><iframe src="clustering/UMAP_byCluster.pdf" loading="lazy"></iframe><figcaption>UMAP · 按聚类簇上色（res 0.3，8 簇）</figcaption></div>
     </div>
-    <p class="small">分辨率扫描图（clustree）因 clustree 与本机 ggplot2 兼容性未出图（详见运行说明），各分辨率聚类结果均保留在对象元数据中。</p>
+    <p class="small">分辨率扫描图（clustree）因 clustree 与当前 ggplot2 版本不兼容未出图，各分辨率聚类结果均保留在对象元数据 <span class="mono">clusters_res*</span> 列。</p>
+    <p><a class="dl" href="data/batch_metrics_before_integration.csv" download>下载批次富集度指标</a>
+       <a class="dl" href="data/batch_decision.txt" download>下载整合决策记录</a>
+       <a class="dl" href="data/clustree_failed.txt" download>查看 clustree 失败说明</a></p>
   </div>
 </div>
 
 <!-- ============ 4 注释 ============ -->
 <div class="card">
-  <div class="card-header"><h2 id="sec-annotation">4. 细胞类型注释（两级流程）</h2></div>
+  <div class="card-header"><h2 id="sec-annotation">4. 细胞类型注释</h2></div>
   <div class="card-body">
-    <p>细胞注释采用<b>数据驱动打分</b>（非硬编码映射）：marker 完全来自 <span class="mono">single_cell_marker.txt</span> / PPT 原表，对每个 cluster 计算各类 cell type 的 marker 集合平均表达 z-score（消除 mt-基因等高基线偏倚）等 <b>4 种打分方法</b>（avg_zscore / AddModuleScore / UCell / AUCell），投票确定注释。命名采用 PPT 原名。</p>
-    <div class="note"><b>L1 主谱系注释（分辨率 0.5，11 个 cluster → 6 大谱系）：</b>Paneth lineage、TA lineage、Intestinal Stem Cells、Enterocyte lineage、Goblet、EEC。L1 分辨率扫描在覆盖度（6 谱系 × 4 打分法 = 24/24 全覆盖）最优时停止拆分。</div>
-    <div class="note"><b>L2 谱系内亚群注释（解决 PPT 11 类全覆盖）：</b>对 Enterocyte / Paneth / TA 三大谱系分别<b>子聚类</b>并重新打分，区分终末与祖细胞亚群：
-      Enterocyte lineage（3,530 cells）→ <b>Absorptive enterocytes / Early Differentiating Enterocytes</b>；
-      Paneth lineage（27,362 cells）→ <b>Paneth Cells Progenitors / Paneth Cells / Dedifferentiating Paneth-like cells</b>；
-      TA lineage（17,578 cells）→ <b>TA Cells / TA Cells - S / TA Cells - G2/M</b>。
-      最终 <b>11/11 全部 PPT 细胞类型均被注释</b>（63,385 cells，见 <span class="mono">celltype_cell_counts.csv</span>）。</div>
+    <p>注释采用"<b>簇级打分 + argmax</b>"，marker 全部来自已发表文献面板（详见 <span class="mono">scripts/README.md</span> 第 4 节）：<b>Pass 1</b> 用 NC2023 Fig.4k 的 18 个 marker 做全局 6 粗分类；<b>Pass 2</b> 把总 Enterocyte 池单独二次聚类，拆成三段成熟梯度；<b>Pass 3</b> 把 Paneth-Goblet 池二次聚类三分后，再对 PG 亚群做第三次聚类二分前体。</p>
+    <table>
+      <tr><th>层</th><th>做法</th><th>结果</th></tr>
+      <tr><td>Pass 1</td><td>8 簇 × 6 面板（Stem cell / TA / Enterocyte / EEC / Tuft cell / Paneth-Goblet）求平均 z-score，簇级 argmax</td><td>Stem cell、TA、Enterocyte、EEC、Paneth-Goblet（Tuft 无簇胜出）</td></tr>
+      <tr><td>Pass 2</td><td>Enterocyte 池（7,395 cells）二次聚类 res 0.2 → 5 亚簇 × 三面板 argmax</td><td>Imm ent / Cybrd1+ ent / Fabp1+ ent</td></tr>
+      <tr><td>Pass 3</td><td>Paneth-Goblet 池（2,035 cells）二次聚类 res 0.3 → 5 亚簇，按 D = median(G) − median(P) 三分（|D| &gt; 0.30）；剩余 PG 亚群三次聚类（res 0.08，2 群）</td><td>Paneth / Goblet / Pre-Paneth / Pre-goblet</td></tr>
+    </table>
+    <div class="note"><b>最终 10 类、34,839 细胞，Unassigned = 0：</b>
+      Stem cell 14,126 · TA 9,884 · Imm ent 5,093 · EEC 1,399 · Cybrd1+ ent 1,338 · Fabp1+ ent 964 · Pre-Paneth 740 · Goblet 628 · Paneth 515 · Pre-goblet 152。
+      <b>Tuft cell = 0</b>：<span class="mono">Sh2d6 / Trpm5</span> 在 8 簇的检出率仅 0.1% / 0.3%，无簇可赢该面板，按设计（仅簇级判定、不做细胞级救援）认定本数据无 Tuft。</div>
+    <div class="warn"><b>注释环节的已知软点（摘自 annotation_notes.txt，不隐藏）：</b>
+      ①Pass 2 有 2 个 Enterocyte 亚簇的最高面板分为负（低置信，仍按 argmax 分配）；
+      ②Pass 3 有一个 19 细胞的亚簇被标为 <span class="mono">other_lineage</span>（Chga/Tph1/Pou2f3/Dclk1 检出 31.6%）后按 Paneth 处理——量极小，但属于需人工复核的点；
+      ③<b>Pre-Paneth / Pre-goblet 是沿 Paneth−Goblet 连续谱的操作性二分</b>，不是自然离散群（测试实测两群 P−G 中位差仅 0.033），引用时须写明这一点。</div>
+    <div class="skip"><b>与旧版标签体系的关系（showcase_bak / v1）：</b>旧版为"零过滤 + 单层打分注释"，得到 11 类（Paneth Cells Progenitors / Paneth Cells / Dedifferentiating Paneth-like cells / TA Cells-G2/M / TA Cells-S / TA Cells / Intestinal Stem Cells / Goblet / EEC / Absorptive enterocytes / Early Differentiating Enterocytes，63,385 细胞）；本版按 NC2023 + CSC2025 面板重建为 10 类。<b>两套标签不是一一对应</b>：吸收系由旧版 2 类（Absorptive / Early differentiating）变为 3 段成熟梯度（Imm / Cybrd1+ / Fabp1+），TA 由 3 档并为 1 档，分泌系由 3 类（含 Dedifferentiating Paneth-like）变为 Paneth / Goblet / Pre-Paneth / Pre-goblet。跨版本引用时请以本版标签 + 细胞数为准，不要按名称硬对齐。</div>
     <div class="imgcol">
-      <div class="imgbox one"><iframe src="annotation/marker_DotPlot.pdf"></iframe><figcaption>PPT 11 细胞类型 marker DotPlot（按最终注释分组）</figcaption></div>
-      <div class="imgbox"><iframe src="annotation/UMAP_celltype.pdf"></iframe><figcaption>UMAP · 最终细胞类型</figcaption></div>
-      <div class="imgbox"><iframe src="annotation/UMAP_lineage_broad.pdf"></iframe><figcaption>UMAP · L1 主谱系（6 大类）</figcaption></div>
+      <div class="imgbox one"><iframe src="annotation/UMAP_cell_type.pdf" loading="lazy"></iframe><figcaption>UMAP · 最终 10 类细胞注释（含细胞数标注）</figcaption></div>
     </div>
-    <h3>L2 谱系内亚群 UMAP</h3>
+    <h3>四基因型分面</h3>
+    <div class="imgbox"><img src="annotation/UMAP_split_genotype.png" alt="UMAP split by genotype"><figcaption>UMAP · 按基因型分面（分面标题含各基因型细胞数）</figcaption></div>
+
+    <h3>marker 表达验证</h3>
     <div class="imgcol">
-      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_Enterocyte_lineage.pdf"></iframe><figcaption>Enterocyte 谱系子聚类</figcaption></div>
-      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_Paneth_lineage.pdf"></iframe><figcaption>Paneth 谱系子聚类</figcaption></div>
-      <div class="imgbox"><iframe src="annotation/UMAP_subcluster_TA_lineage.pdf"></iframe><figcaption>TA 谱系子聚类</figcaption></div>
-      <div class="imgbox"><iframe src="annotation/UMAP_split_genotype.pdf"></iframe><figcaption>UMAP · 按基因型分面（最终注释）</figcaption></div>
+      <div class="imgbox one"><iframe src="annotation/marker_DotPlot.pdf" loading="lazy"></iframe><figcaption>10 类 × NC2023 Fig.4k 18 marker（+Stem 辅助）：颜色 = 每基因跨细胞类型的相对表达，点径 = 检出率</figcaption></div>
+      <div class="imgbox"><iframe src="annotation/pg_DotPlot.pdf" loading="lazy"></iframe><figcaption>PG 谱系 4 类 × CSC2025 面板（fit / hold-out / lineage check）</figcaption></div>
+      <div class="imgbox"><img src="annotation/pg_pool_subclusters.png" alt="PG pool subclusters"><figcaption>Paneth-Goblet 池二次聚类结构</figcaption></div>
     </div>
-    <h3>细胞类型组成（每基因型 %）与细胞数</h3>
+    <p class="small">DotPlot 的颜色是"每基因在细胞类型间归一化后的相对表达"，用来看<b>行内</b>差异；绝对表达量请看 <span class="mono">marker_DotPlot_values.csv</span>（含 pct / avg / rel / z 四列）。</p>
+
+    <h3>细胞类型组成与细胞数</h3>
     <table id="prop-table"></table>
-    <p class="small">n_CELLS 为该细胞类型全基因型合计细胞数；百分比为各基因型内占比（全细胞注释表 <span class="mono">annotation_table.csv</span> 含每细胞 lineage+cell_type）。</p>
-    <h3>L1 聚类簇 → 谱系 → 最终细胞类型映射（11 cluster）</h3>
+    <p class="small">% 为该细胞类型在<b>该基因型自身</b>通过过滤的细胞中的占比（分母见第 1 节）；n_CELLS 为四基因型合计。</p>
+
+    <h3>Pass 1 聚类簇 → 粗分类 → 最终归属</h3>
     <table id="map-table"></table>
+    <p class="small">score = 该簇在胜出面板上的平均 z-score，margin = 与次优面板的差值；margin &lt; 0.1 的簇建议人工复核（簇 1 margin 0.002 属典型"弱信号"簇）。</p>
     <p>
-      <a class="dl" href="data/annotation_table.csv" download>下载全细胞注释表 (annotation_table.csv)</a>
-      <a class="dl" href="data/L1_annotation_by_score.csv" download>下载 L1 谱系打分表</a>
-      <a class="dl" href="data/L1_score_matrix_avg_zscore.csv" download>下载 L1 打分矩阵</a>
-      <a class="dl" href="data/cluster_to_celltype_mapping.csv" download>下载 cluster→celltype 映射</a>
-      <a class="dl" href="data/celltype_cell_counts.csv" download>下载各细胞类型细胞数</a>
-      <a class="dl" href="data/proportion_per_sample.csv" download>下载细胞比例表</a>
-      <a class="dl" href="data/top_DE_marker_per_celltype.csv" download>下载每类型 top DE marker</a>
+      <a class="dl" href="data/cluster_assignment.csv" download>下载 Pass1 簇级分配表</a>
+      <a class="dl" href="data/cluster_x_panel_score.csv" download>下载簇 × 面板打分矩阵</a>
+      <a class="dl" href="data/marker_detection.csv" download>下载簇 × marker 检出率</a>
+      <a class="dl" href="data/ent_subcluster_assignment.csv" download>下载 Enterocyte 亚簇分配</a>
+      <a class="dl" href="data/pg_subcluster_assignment.csv" download>下载 PG 亚簇分配（含 D 值）</a>
+      <a class="dl" href="data/pg_l3_assignment.csv" download>下载 PG 第三次聚类逐细胞表</a>
+      <a class="dl" href="data/composition.csv" download>下载细胞类型组成表</a>
+      <a class="dl" href="data/marker_DotPlot_values.csv" download>下载 DotPlot 数值表</a>
+      <a class="dl" href="data/annotation_notes.txt" download>查看注释运行记录</a>
     </p>
   </div>
 </div>
@@ -147,215 +183,309 @@
   <div class="card-header"><h2 id="sec-composition">5. 细胞组成分析</h2></div>
   <div class="card-body">
     <div class="imgcol">
-      <div class="imgbox"><iframe src="composition/stacked_bar_by_sample.pdf"></iframe><figcaption>每样本细胞类型堆叠比例</figcaption></div>
-      <div class="imgbox"><iframe src="composition/grouped_bar_genotype.pdf"></iframe><figcaption>基因型分组比例（Mean±SEM）</figcaption></div>
+      <div class="imgbox"><iframe src="composition/stacked_bar_by_sample.pdf" loading="lazy"></iframe><figcaption>每样本细胞类型堆叠比例</figcaption></div>
+      <div class="imgbox"><iframe src="composition/grouped_bar_genotype.pdf" loading="lazy"></iframe><figcaption>基因型分组比例</figcaption></div>
     </div>
-    <div class="warn"><b>统计检验受限：</b>Milo DA 与 propeller 需生物学重复，本批 n=1 无法检验（脚本已记 <span class="mono">milo_failed.txt / propeller_failed.txt</span>）。上述比例图为<b>描述性</b>展示；Rescue Index 同样因无重复全部为 0。<b>需补送生物学重复样本</b>后方可进行差异组成的假设检验。</div>
-    <p>
-      <a class="dl" href="data/rescue_index.csv" download>下载 Rescue Index</a>
-    </p>
+    <div class="warn"><b>统计检验在本批数据上无法成立：</b>Milo DA 与 propeller 都需要生物学重复，n=1 时模型自由度饱和（<span class="mono">milo_failed.txt</span> / <span class="mono">propeller_failed.txt</span> 已记录原始报错），Rescue Index 同样因无重复全部为 0。上面的比例图是<b>描述性</b>展示。</div>
+    <div class="note"><b>描述性观察（不可当作结论）：</b>KO 与 WT 的差别集中在吸收系与增殖区室——KO 的 Cybrd1+ ent 占 15.6%（WT 0.86%）、Imm ent 仅 3.1%（WT 25.3%）、TA 21.2%（WT 32.2%）；A1_Rescue 的谱型更接近 WT（Cybrd1+ ent 0.74%、Imm ent 15.8%）。<b>但 KO 的过滤保留率最低（42.6%）而 A1_Het 最高（65.7%）</b>，不同细胞类型对过滤门限的敏感度不同，这部分偏移有多少来自生物学、多少来自门限，本批数据无法拆分——需补生物学重复 + 门限敏感性分析。</div>
+    <p><a class="dl" href="data/proportion_per_sample.csv" download>下载每样本细胞比例表</a>
+       <a class="dl" href="data/rescue_index.csv" download>下载 Rescue Index</a>
+       <a class="dl" href="data/milo_failed.txt" download>查看 Milo 失败说明</a>
+       <a class="dl" href="data/propeller_failed.txt" download>查看 propeller 失败说明</a></p>
   </div>
 </div>
 
 <!-- ============ 6 DEG ============ -->
 <div class="card">
-  <div class="card-header"><h2 id="sec-deg">6. 差异表达（伪重复 pseudobulk DEG）与 GO/KEGG 富集</h2></div>
+  <div class="card-header"><h2 id="sec-deg">6. 差异表达</h2></div>
   <div class="card-body">
-    <div class="warn"><b>统计设计（n=1 的现实约束）：</b>每基因型仅 1 个生物学样本，无法估计组间生物学方差，不存在正式统计检验。本节采用<b>伪重复策略</b>：每样本每细胞类型的细胞随机拆 3 份（seed=42 可复现）→ 每组 3 个伪重复单元，跑完整 edgeR(filterByExpr+TMM) + limma-voom 流程。<b>p 值来自样本内拆分，系统性偏乐观，仅作探索性排序；正式结论必须补送生物学重复（n≥2/组）。</b>详见 <span class="mono">DEG_pseudorep_note.txt</span>。</div>
-    <p>设计对比（5 组，均可按键切换查看）：<b>KO vs WT</b>、A1_Het vs WT、<b>A1_Rescue vs KO</b>（设计性挽救对比：回补库 vs KO 背景）、<b>A1_Rescue vs A1_Het</b>（A1 剂量效应：回补库 vs A1 单倍剂量不足，同 KO 背景）、A1_Rescue vs WT。阈值 padj&lt;0.05 且 |log2FC|≥0.25；up_in_&lt;组&gt; 表示在该组中升高。除各细胞类型外，另含 <b>Global（全部细胞汇总）</b>层面的同套分析（Global 按钮排在细胞类型列表最前）。TA Cells 因 KO 样本仅 17 个细胞（&lt;30）未纳入检验，其余 10 类全部完成。</p>
-    <h3>火山图（对比 × 细胞类型 双级切换）</h3>
+    <div class="warn"><b>统计设计（n=1 的现实约束）：</b>每基因型仅 1 个生物学样本，无法估计组间生物学方差，不存在正式统计检验。本节采用<b>伪重复策略</b>：每样本每细胞类型的细胞随机拆 3 份（seed=42）→ 每组 3 个伪重复单元 → edgeR(filterByExpr + TMM) + limma-voom。<b>p 值来自样本内拆分，系统性偏乐观，只用于探索性排序；正式结论必须补送生物学重复（n≥2/组）。</b></div>
+    <p>共 <b>11 个层级</b>（Global 全细胞汇总 + 10 个细胞类型）× <b>5 组对比</b>，阈值 padj &lt; 0.05 且 |log2FC| ≥ 0.25。对比设计：<b>KO vs WT</b>（敲除效应）、A1 Het vs WT（A1 单倍剂量不足）、<b>A1 Rescue vs KO</b>（设计性挽救对比：回补库 vs KO 背景）、<b>A1 Rescue vs A1 Het</b>（A1 剂量效应）、A1 Rescue vs WT（回补后与野生型的残余差异）。</p>
+    <div class="note"><b>读数口径：</b>结果表的 direction 写成 <span class="mono">up_in_&lt;组名&gt;</span>（如 <span class="mono">up_in_KO</span> = 在 KO 中升高）。下表的 <b>n_sig</b> 为该"细胞类型 × 对比"下两个阈值都通过的基因数（= up_in_group1 + up_in_group2 两方向之和）。</div>
+    <h3>各层级显著 DEG 数量</h3>
+    <table id="deg-table"></table>
+    <h3>火山图</h3>
     <div class="tab-bar" id="vol-cn-tabs"></div>
     <div class="tab-bar" id="vol-tabs"></div>
-    <iframe class="pdfframe" id="vol-frame"></iframe>
-    <h3>GO 富集 dotplot（GO-BP top terms；对比 × 细胞类型 双级切换，分方向，自上而下按 Gene ratio 降序）</h3>
-    <div class="tab-bar" id="go-cn-tabs"></div>
-    <div class="tab-bar" id="go-tabs"></div>
-    <iframe class="pdfframe" id="go-frame"></iframe>
-    <h3>KEGG 通路富集 dotplot（对比 × 细胞类型 双级切换，分方向，自上而下按 Gene ratio 降序）</h3>
-    <div class="tab-bar" id="kegg-cn-tabs"></div>
-    <div class="tab-bar" id="kegg-tabs"></div>
-    <iframe class="pdfframe" id="kegg-frame"></iframe>
-    <p>挽救基因模式（KO 效应显著 + 回补(A1_Rescue vs KO)显著反转 + 回补后向 WT 靠拢）：<b>11443</b> 个基因×细胞类型组合满足全部三条，完整表见下载。无富集词条的组合切换后显示占位说明图。</p>
+    <iframe class="pdfframe" id="vol-frame" loading="lazy"></iframe>
+    <p class="small"><a id="vol-frame-link" href="deg/Volcano_Global_KO_vs_WT.pdf" target="_blank">在新标签页打开当前火山图 ↗</a></p>
+    <p>挽救基因模式（同时满足：KO vs WT 显著 + A1 Rescue vs KO 显著反向 + 回补后向 WT 靠拢）：<b>8,047</b> 个"基因 × 细胞类型"组合（候选池 100,535 行），完整表见下载。</p>
     <p>
-      <a class="dl" href="data/all_celltypes_all_contrasts_DEG.csv" download>下载全量 DEG 表（全部检测基因 × 5 对比 ×（Global + 10 细胞类型））</a>
+      <a class="dl" href="data/all_celltypes_all_contrasts_DEG.csv" download>下载全量 DEG 表（全部检测基因 × 5 对比 × 11 层级，约 91 MB）</a>
       <a class="dl" href="data/rescue_pattern_genes.csv" download>下载挽救基因模式表</a>
-      <a class="dl" href="data/all_celltypes_GO_enrichment.csv" download>下载 GO 富集（全部对比×方向）</a>
-      <a class="dl" href="data/all_celltypes_KEGG_enrichment.csv" download>下载 KEGG 富集（全部对比×方向）</a>
       <a class="dl" href="data/DEG_counts_summary.csv" download>下载 DEG 数量汇总</a>
-      <a class="dl" href="data/DEG_pseudorep_note.txt" download>查看伪重复统计设计说明</a>
+      <a class="dl" href="data/README_pseudorep_design.txt" download>查看伪重复统计设计说明</a>
     </p>
   </div>
 </div>
 
-<!-- ============ 7 轨迹 ============ -->
+<!-- ============ 7 富集 ============ -->
 <div class="card">
-  <div class="card-header"><h2 id="sec-trajectory">7. 拟时序分析</h2></div>
+  <div class="card-header"><h2 id="sec-enrich">7. 通路富集</h2></div>
   <div class="card-body">
-    <p>Monocle3 拟时序（UMAP 主图推断，ISC 为根）。下图用<b>流线箭头图</b>展示分化方向：从 ISC 根部出发，沿拟时序梯度场收敛到各终末命运（scVelo 风格）。</p>
+    <p>富集按 <b>细胞类型 × 对比 × 方向</b> 逐格进行：输入是该格 <span class="mono">up_in_&lt;组&gt;</span> 的显著基因（padj &lt; 0.05 且 |log2FC| ≥ 0.25，且该方向 ≥ 10 个基因才做），universe 为该细胞类型该对比下通过 <span class="mono">filterByExpr</span> 的全部检测基因；GO 用 <span class="mono">org.Mm.eg.db</span>（BP / CC / MF 分开），Hallmark 与 Reactome 走 msigdbr，KEGG 走<b>本地快照库</b>（mmu，368 条通路 / 41,993 个 gene-pathway 对，2026-11-07 下载）。</p>
+    <div class="note"><b>关于 KEGG 与本节的取数：</b>旧版在线查询被限流（<span class="mono">cannot read from connection</span>，见 05b 的 <span class="mono">KEGG_no_terms.txt</span>），本节采用 08 步基于本地 KEGG 快照的结果，完全离线、可复现。因此 <b>05b_enrichment 的 KEGG 占位图不再代表当前结果</b>，其 GO（ont=ALL）也已被 08 的 BP/CC/MF 三分版取代。</div>
+    <table id="enr-table"></table>
+    <p class="small">理论格数 = 11 细胞类型 × 5 对比 × 2 方向 = 110；无通过阈值词条的格子<b>不会出图</b>（不是出错），切换时页面会显示占位说明。dotplot 横轴为 Gene ratio（已换算成 0–1 数值比例），颜色 = −log10(adj.P)，点径 = 命中基因数，面板内按 Gene ratio 降序。</p>
+    <h3>富集 dotplot</h3>
+    <div class="tab-bar" id="enr-cat-tabs"></div>
+    <div class="tab-bar" id="enr-cv-tabs"></div>
+    <div class="tab-bar" id="enr-dir-tabs"></div>
+    <div class="tab-bar" id="enr-ct-tabs"></div>
+    <iframe class="pdfframe" id="enr-frame" loading="lazy"></iframe>
+    <p class="small" id="enr-frame-link-wrap"><a id="enr-frame-link" href="enrichment/Global/KO_vs_WT/up_in_KO/GO_BP_dotplot.pdf" target="_blank">在新标签页打开当前 dotplot ↗</a></p>
+    <div class="missing" id="enr-missing"></div>
+    <p class="small">文件名规则：<span class="mono">enrichment/&lt;细胞类型&gt;/&lt;对比&gt;/&lt;方向&gt;/&lt;基因集&gt;_dotplot.pdf</span>，可直接在目录里按此路径取原图。</p>
+  </div>
+</div>
+
+<!-- ============ 8 拟时序 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-trajectory">8. 拟时序分析</h2></div>
+  <div class="card-body">
+    <p>Monocle3 拟时序：根细胞按规则 R1 选定单个细胞 —— 在 Stem cell 群内取 StemScore（<span class="mono">Lgr5 / Olfm4 / Ascl2 / Smoc2 / Axin2</span> 模块）最高的细胞（<span class="mono">A1_Het_TGACCCTGTGCCTTTC-1</span>）；learn_graph 在细胞周期回归后的 PCA 空间进行（ncenter=150，minimal_branch_len=10），展示仍用原 pipeline UMAP。方向正确性自检：<b>P(TA &gt; Stem) = 0.662，Cliff's δ = 0.323</b>，即 TA 的拟时序整体大于 Stem，符合 Stem → TA 的分化方向。pseudotime 为图伪时间原始值（约 0–110），分轴图配色在 p98 = 87 处截断。</p>
+    <h3>分轴拟时序 UMAP</h3>
     <div class="imgcol">
-      <div class="imgbox one"><iframe src="trajectory/UMAP_pseudotime_arrows.pdf"></iframe><figcaption>分化流向箭头图 · root (ISC) → 终末命运（main）</figcaption></div>
-      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime.pdf"></iframe><figcaption>UMAP · 拟时序着色</figcaption></div>
-      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_trajectory.pdf"></iframe><figcaption>UMAP · 拟时序 + 主轨迹曲线</figcaption></div>
-      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_lineages.pdf"></iframe><figcaption>代表性 marker 沿拟时序的表达（按谱系分组）</figcaption></div>
-      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_root_terminal.pdf"></iframe><figcaption>根/终态 marker 沿拟时序的表达</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_global.pdf" loading="lazy"></iframe><figcaption>全局</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_enterocyte.pdf" loading="lazy"></iframe><figcaption>吸收轴</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_secretory.pdf" loading="lazy"></iframe><figcaption>分泌轴</figcaption></div>
+      <div class="imgbox"><iframe src="trajectory/UMAP_pseudotime_eec.pdf" loading="lazy"></iframe><figcaption>EEC 轴</figcaption></div>
+    </div>
+    <div class="note"><b>分轴中位拟时序：</b>分泌轴 Stem 29.3 → TA 36.7 → Pre-Paneth 57.3 / Goblet 57.5 → Pre-goblet 65.5 → Paneth 90.4；吸收轴 Imm ent 42.9 → Fabp1+ ent 44.3 → Cybrd1+ ent 47.3；EEC 轴 EEC 47.1。终末类 Paneth 最远，符合类器官分化逻辑。</div>
+    <h3>谱系 marker 模块分沿拟时序</h3>
+    <div class="imgcol">
+      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_lineages.pdf" loading="lazy"></iframe><figcaption>Stem / TA / Enterocyte / Paneth / Goblet / EEC · 模块 z-score vs 拟时序</figcaption></div>
+      <div class="imgbox one"><iframe src="trajectory/marker_along_pseudotime_root_terminal.pdf" loading="lazy"></iframe><figcaption>根 marker 递减 · 终末 marker 组合分升高后回落</figcaption></div>
     </div>
     <h3>各基因型拟时序密度</h3>
     <div class="tab-bar" id="pt-tabs"></div>
-    <iframe class="pdfframe" id="pt-frame"></iframe>
-    <p><a class="dl" href="data/pseudotime_all_cells.csv" download>下载全细胞拟时序表</a></p>
+    <iframe class="pdfframe" id="pt-frame" loading="lazy"></iframe>
+    <p class="small"><a id="pt-frame-link" href="trajectory/pseudotime_density_WT.pdf" target="_blank">在新标签页打开当前图 ↗</a></p>
+    <p><a class="dl" href="data/pseudotime_all_cells.csv" download>下载全细胞拟时序表</a>
+       <a class="dl" href="data/median_pseudotime_by_axis.csv" download>下载分轴中位拟时序表</a>
+       <a class="dl" href="data/root_info.txt" download>查看根细胞选择规则与自检</a>
+       <a class="dl" href="data/marker_score_pseudotime_decile_bins.csv" download>下载拟时序分箱 marker 评分</a></p>
   </div>
 </div>
 
-<!-- ============ 8 通讯 ============ -->
+<!-- ============ 9 通讯 ============ -->
 <div class="card">
-  <div class="card-header"><h2 id="sec-pathway">8. 细胞通讯（CellChat）</h2></div>
+  <div class="card-header"><h2 id="sec-cellchat">9. 细胞通讯</h2></div>
   <div class="card-body">
-    <p>CellChat v2.2 按四基因型（WT/KO/A1_Het/A1_Rescue）分别推断配体-受体通讯，合并后比较。每组 n=1，结果为<b>描述性</b>（无统计检验）。</p>
+    <p>CellChat v2 按四基因型（WT / KO / A1_Het / A1_Rescue）分别推断配体-受体通讯，合并后比较。每组 n=1，结果为<b>描述性</b>（无统计检验）。本数据共检出 <b>44 条</b>信号通路（四基因型并集），其中 <b>30 条</b>在四个基因型中都有；<span class="mono">TGFb / TNF / CXCL / FGF</span> 在任何基因型都未检出显著互作（不是绘图失败）。</p>
     <div class="imgcol">
-      <div class="imgbox"><iframe src="cellchat/compare_interactions.pdf"></iframe><figcaption>互作数与强度比较（4 基因型）</figcaption></div>
-      <div class="imgbox"><iframe src="cellchat/signaling_heatmap.pdf"></iframe><figcaption>信号通路热图（ outgoing · merged ）</figcaption></div>
+      <div class="imgbox"><iframe src="cellchat/compare_interactions.pdf" loading="lazy"></iframe><figcaption>推断互作数比较（WT 1578 · KO 1773 · A1_Het 1368 · A1_Rescue 1684）</figcaption></div>
+      <div class="imgbox"><iframe src="cellchat/signaling_heatmap.pdf" loading="lazy"></iframe><figcaption>信号通路热图（outgoing · merged）</figcaption></div>
     </div>
     <h3>关键通路差异互作气泡图</h3>
-    <p class="small">每个 L-R pair 在 4 基因型间的通讯概率。WNT/NOTCH/BMP 已成功生成；EGF/TGFb/TNF/CXCL/FGF 因部分基因型无该通路推断结果，已自动跳过（见 08 日志的 *_err.txt）。</p>
+    <p class="small">每个 L-R pair 在四基因型间的通讯概率。共 <b>37</b> 条通路可出图（按字母序）；另有 7 条（ADGRE / HSPG / NCAM / PTPR / Prostaglandin / SEMA3 / THBS）只在部分基因型检出，CellChat 合并出图会触发库内部 bug，已跳过并记录在 <span class="mono">bubble_skipped_pathways.txt</span>，单对象出图正常。</p>
     <div class="tab-bar" id="cc-tabs"></div>
-    <iframe class="pdfframe" id="cc-frame"></iframe>
-    <div class="skip"><b>通路富集 / 衰老评分未更新：</b>Progeny、GO/KEGG 富集与 SenMayo 衰老评分（09 步）依赖 DEG 结果（因 n=1 无 DEG）或未在本次注释升级后重新生成——待补送重复样本后一并产出。</div>
+    <iframe class="pdfframe" id="cc-frame" loading="lazy"></iframe>
+    <p class="small"><a id="cc-frame-link" href="cellchat/pathway_bubble_27HC.pdf" target="_blank">在新标签页打开当前图 ↗</a></p>
+    <p><a class="dl" href="data/pathways_detected.txt" download>下载检出通路清单</a>
+       <a class="dl" href="data/bubble_skipped_pathways.txt" download>查看被跳过的通路及原因</a></p>
   </div>
 </div>
 
-<!-- ============ 9 文件清单 ============ -->
+<!-- ============ 10 评分 ============ -->
 <div class="card">
-  <div class="card-header"><h2 id="sec-files">9. 本报告包含的文件</h2></div>
+  <div class="card-header"><h2 id="sec-score">10. 衰老评分与通路活性</h2></div>
   <div class="card-body">
-    <p>以下全部文件与本 <span class="mono">index.html</span> 位于同一 <span class="mono">showcase</span> 目录内，打包整个目录发送后即可在本地浏览器（Chrome/Edge 推荐）直接查看。</p>
-    <div class="filelist" id="filelist"></div>
+    <p>SenMayo 衰老基因集（22 个候选 marker，取与表达矩阵的交集后按细胞求均值）在四基因型间的细胞级评分分布：</p>
+    <div class="imgbox one"><iframe src="pathway/senescence_score_violin.pdf" loading="lazy"></iframe><figcaption>SenMayo 评分 · 按基因型（全细胞）</figcaption></div>
+    <div class="skip"><b>Progeny 通路活性评分未产出：</b>本机 R 库未安装 <span class="mono">progeny</span>，08 步按设计跳过该小节并写入 <span class="mono">progeny_skipped.txt</span>；<b>不影响</b> GO / Hallmark / KEGG / Reactome 富集与 SenMayo 评分。安装 progeny 后重跑 08 即可补齐。</div>
+    <p><a class="dl" href="data/progeny_skipped.txt" download>查看 progeny 跳过说明</a></p>
+  </div>
+</div>
+
+<!-- ============ 11 文件 ============ -->
+<div class="card">
+  <div class="card-header"><h2 id="sec-files">11. 本报告包含的文件</h2></div>
+  <div class="card-body">
+    <p>全部文件与本 <span class="mono">index.html</span> 位于同一 <span class="mono">showcase</span> 目录内，打包整个目录后在本地浏览器（Chrome / Edge 推荐）可直接查看；所有图件与表格均直接取自 <span class="mono">sc_10x/downstream/</span> 当前结果，未做二次加工。</p>
+    <p class="small">图件以浏览器内置 PDF 阅读器内嵌显示（与旧版报告一致）；若某个内嵌框空白，说明当前浏览器/预览器未启用 PDF 插件，点每张图下方的"在新标签页打开当前图 ↗"即可直接查看 PDF。</p>
+    <table id="inv-table"></table>
+    <p class="small">合计 <b>750</b> 个文件，约 <b>191.0 MB</b>（其中全量 DEG 表约 91 MB、Cell Ranger web_summary 约 19 MB、轨迹 PDF 约 20 MB）。</p>
+    <details open><summary>qc / cellranger / clustering / annotation / composition / trajectory / cellchat / pathway / data 文件清单</summary>
+      <div class="filelist" id="filelist"></div>
+    </details>
+    <details><summary>deg/ 全部火山图（55 个）</summary><div class="filelist" id="filelist-deg"></div></details>
+    <details><summary>enrichment/ 目录结构（590 个 dotplot，按细胞类型汇总）</summary><div id="enr-tree"></div></details>
   </div>
 </div>
 
 <script>
-const SAMPLES = ["WT", "KO", "A1_Het", "A1_Rescue"];
-const QC = [
-  {s:"WT", raw:1349499, cells:14278, feat:2431, cnt:9748, mt:8.76},
-  {s:"KO", raw:1377053, cells:16975, feat:1100, cnt:3823, mt:5.5},
-  {s:"A1_Het", raw:1363436, cells:16603, feat:2763, cnt:11158, mt:6.03},
-  {s:"A1_Rescue", raw:1689405, cells:15529, feat:2541, cnt:10021, mt:5.11}
-];
-const CTYPES = ["Paneth Cells Progenitors","Paneth Cells","Dedifferentiating Paneth-like cells","TA Cells - G2/M","TA Cells - S","TA Cells","Intestinal Stem Cells","Goblet cells","Enteroendocrine Cells","Absorptive enterocytes","Early Differentiating Enterocytes"];
-// 细胞类型总细胞数（全基因型合计，来自 celltype_cell_counts.csv）
-const COUNTS = [16102,6351,4909,8022,5971,3585,10638,2409,1868,1858,1672];
-// prop[sample][ctype] = proportion (0-1)，来自 proportion_per_sample.csv（两级注释后）
-const PROP = {
-  "WT":[0.23792,0.12362,0.09294,0.16088,0.07158,0.01800,0.12943,0.04125,0.02612,0.01499,0.08327],
-  "KO":[0.38215,0.09897,0.07535,0.08342,0.13037,0.00100,0.16348,0.02680,0.02138,0.01355,0.00353],
-  "A1_Het":[0.15244,0.08017,0.09287,0.16136,0.15377,0.01042,0.23628,0.03349,0.03451,0.03403,0.01066],
-  "A1_Rescue":[0.23743,0.10142,0.04901,0.10496,0.01178,0.20207,0.13472,0.05210,0.03600,0.05467,0.01584]
-};
-// 11 个 L1 cluster → 谱系 → 主导最终细胞类型（来自 L1_annotation_by_score.csv + cluster_to_celltype_mapping.csv）
-const MAPPING = [
-  [0,"Paneth lineage","Paneth Cells Progenitors",12812],[1,"TA lineage","TA Cells - G2/M",7467],
-  [2,"Paneth lineage","Paneth Cells",5796],[3,"TA lineage","TA Cells - S",5722],
-  [4,"ISC","Intestinal Stem Cells",7554],[5,"Paneth lineage","Dedifferentiating Paneth-like cells",3339],
-  [6,"Enterocyte lineage","Absorptive enterocytes",1858],[7,"ISC","Intestinal Stem Cells",3084],
-  [8,"Goblet","Goblet cells",2409],[9,"EEC","Enteroendocrine Cells",1868],
-  [10,"Paneth lineage","Dedifferentiating Paneth-like cells",1044]
-];
-const FILES = [
-  "qc/barcode_rank_*.pdf (4)", "qc/QC_violin_all_samples.pdf", "clustering/UMAP_byGenotype.pdf",
-  "clustering/UMAP_byCluster.pdf", "annotation/marker_DotPlot.pdf", "annotation/UMAP_celltype.pdf",
-  "annotation/UMAP_lineage_broad.pdf", "annotation/UMAP_split_genotype.pdf",
-  "annotation/UMAP_subcluster_Enterocyte_lineage.pdf", "annotation/UMAP_subcluster_Paneth_lineage.pdf",
-  "annotation/UMAP_subcluster_TA_lineage.pdf", "composition/stacked_bar_by_sample.pdf",
-  "composition/grouped_bar_genotype.pdf", "trajectory/UMAP_pseudotime_arrows.pdf",
-  "trajectory/UMAP_pseudotime.pdf", "trajectory/UMAP_pseudotime_trajectory.pdf",
-  "trajectory/pseudotime_density_*.pdf (5)", "trajectory/marker_along_pseudotime_lineages.pdf",
-  "trajectory/marker_along_pseudotime_root_terminal.pdf", "cellranger/web_summary_*.html (4)",
-  "cellchat/compare_interactions.pdf", "cellchat/signaling_heatmap.pdf",
-  "cellchat/pathway_bubble_*.pdf (WNT/NOTCH/BMP)", "data/annotation_table.csv",
-  "data/L1_annotation_by_score.csv", "data/L1_score_matrix_avg_zscore.csv",
-  "data/L2_*_lineage_annotation_by_score.csv (3)", "data/cluster_to_celltype_mapping.csv",
-  "data/celltype_cell_counts.csv", "data/top_DE_marker_per_celltype.csv",
-  "data/proportion_per_sample.csv", "data/rescue_index.csv", "data/pseudotime_all_cells.csv",
-  "deg/Volcano_*.pdf (Global + 10 细胞类型 × 5 对比)", "go/GO_dotplot_*.pdf (11×5)",
-  "kegg/KEGG_dotplot_*.pdf (11×5)",
-  "data/all_celltypes_all_contrasts_DEG.csv", "data/rescue_pattern_genes.csv",
-  "data/all_celltypes_GO_enrichment.csv", "data/all_celltypes_KEGG_enrichment.csv",
-  "data/DEG_counts_summary.csv", "data/DEG_pseudorep_note.txt", "data/batch_metrics.csv"
-];
-const CT_SHORT = {"Paneth Cells Progenitors":"PCP","Early Differentiating Enterocytes":"EDE","TA Cells - G2/M":"TA-G2M",
-  "Intestinal Stem Cells":"ISC","TA Cells - S":"TA-S","Dedifferentiating Paneth-like cells":"DPL","TA Cells":"TA",
-  "Paneth Cells":"PC","Goblet cells":"GC","Enteroendocrine Cells":"EEC","Absorptive enterocytes":"AE"};
+
+const SAMPLES = ["WT","KO","A1_Het","A1_Rescue"];
+const QC = [["WT","WT",1349499,14278,10267,7361,51.6,32285,17514,3532,10285,8.76],["KO","KO",1377053,16975,13709,7228,42.6,32285,17695,3908,12156,5.5],["A1_Het","A1_Het",1363436,16603,13424,10916,65.7,32285,17716,3289,8824,6.03],["A1_Rescue","A1_Rescue",1689405,15529,13575,9334,60.1,32285,17384,3393,9600,5.11]];
+const CTYPES = ["Stem cell","TA","Imm ent","EEC","Cybrd1+ ent","Fabp1+ ent","Pre-Paneth","Goblet","Paneth","Pre-goblet"];
+const TOTAL = [14126,9884,5093,1399,1338,964,740,628,515,152];
+const PCTALL = [40.55,28.37,14.62,4.02,3.84,2.77,2.12,1.8,1.48,0.44];
+const PROP = {"WT":[28.58,32.2,25.31,3.57,0.86,3.0,2.32,2.32,1.33,0.5],"KO":[47.63,21.24,3.07,3.32,15.59,4.32,0.72,1.58,2.05,0.48],"A1_Het":[49.81,25.72,14.03,4.09,0.72,1.36,1.16,1.23,1.48,0.39],"A1_Rescue":[33.66,33.97,15.81,4.82,0.74,3.03,4.18,2.24,1.15,0.4]};
+const MAPPING = [[0,9584,"TA",0.952,0.851],[1,8286,"Stem cell",0.175,0.002],[2,6957,"Enterocyte",0.395,0.407],[3,5840,"Stem cell",0.353,0.379],[4,2035,"Paneth-Goblet",2.278,2.019],[5,1399,"EEC",3.616,3.467],[6,438,"Enterocyte",2.275,2.314],[7,300,"TA",0.253,0.181]];
+const DEGTAB = [["Global",[4606,4552,4745,3792,3500]],["Stem cell",[3032,2787,3597,2788,2163]],["TA",[4177,3607,4328,3108,3057]],["Imm ent",[2126,3227,2613,2960,2897]],["EEC",[1629,1696,3698,2810,2566]],["Cybrd1+ ent",[1073,701,2197,1403,1061]],["Fabp1+ ent",[1992,1545,1854,1041,1354]],["Pre-Paneth",[1672,1980,1820,1561,2098]],["Goblet",[1349,1179,1261,916,1114]],["Paneth",[696,697,862,639,524]],["Pre-goblet",[334,254,370,227,226]]];
+const DEG_CTS = [["Global","Global"],["Stem cell","Stem_cell"],["TA","TA"],["Imm ent","Imm_ent"],["EEC","EEC"],["Cybrd1+ ent","Cybrd1__ent"],["Fabp1+ ent","Fabp1__ent"],["Pre-Paneth","Pre-Paneth"],["Goblet","Goblet"],["Paneth","Paneth"],["Pre-goblet","Pre-goblet"]];
+const CN_LIST = [["KO vs WT","KO_vs_WT"],["A1 Het vs WT","A1_Het_vs_WT"],["A1 Rescue vs KO","A1_Rescue_vs_KO"],["A1 Rescue vs A1 Het","A1_Rescue_vs_A1_Het"],["A1 Rescue vs WT","A1_Rescue_vs_WT"]];
+const DIRS = {"KO_vs_WT":["up_in_KO","up_in_WT"],"A1_Het_vs_WT":["up_in_A1_Het","up_in_WT"],"A1_Rescue_vs_KO":["up_in_A1_Rescue","up_in_KO"],"A1_Rescue_vs_A1_Het":["up_in_A1_Rescue","up_in_A1_Het"],"A1_Rescue_vs_WT":["up_in_A1_Rescue","up_in_WT"]};
+const AVAIL = {"GO_BP":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_KO","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Het_vs_WT|up_in_WT","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_WT|up_in_WT","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_KO","Goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_KO","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_KO","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_WT","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Paneth|A1_Rescue_vs_WT|up_in_WT","Paneth|KO_vs_WT|up_in_KO","Paneth|KO_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_WT|up_in_WT","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_KO","Pre-goblet|A1_Rescue_vs_WT|up_in_WT","Pre-goblet|KO_vs_WT|up_in_KO","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_A1_Het","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_KO","Stem_cell|A1_Rescue_vs_WT|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_WT|up_in_WT","Stem_cell|KO_vs_WT|up_in_KO","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_A1_Het","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Het","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|A1_Rescue_vs_WT|up_in_WT","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"],"GO_CC":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_A1_Het","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_KO","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Het_vs_WT|up_in_WT","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_WT|up_in_WT","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_KO","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_KO","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|KO_vs_WT|up_in_KO","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Paneth|KO_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_WT|up_in_WT","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_WT","Pre-goblet|KO_vs_WT|up_in_KO","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_A1_Het","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_KO","Stem_cell|KO_vs_WT|up_in_KO","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_A1_Het","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Het","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"],"GO_MF":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_KO","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Het_vs_WT|up_in_WT","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_WT|up_in_WT","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_KO","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_KO","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_WT","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_WT","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_KO","Stem_cell|A1_Rescue_vs_WT|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_WT|up_in_WT","Stem_cell|KO_vs_WT|up_in_KO","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Het","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"],"Hallmark":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_A1_Het","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_KO","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Het_vs_WT|up_in_WT","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_KO","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_KO","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_KO","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_WT","Imm_ent|KO_vs_WT|up_in_KO","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Paneth|A1_Rescue_vs_WT|up_in_WT","Paneth|KO_vs_WT|up_in_KO","Paneth|KO_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_WT|up_in_WT","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_WT","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_KO","Stem_cell|A1_Rescue_vs_WT|up_in_WT","Stem_cell|KO_vs_WT|up_in_KO","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Het","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|A1_Rescue_vs_WT|up_in_WT","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"],"KEGG":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_A1_Het","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_KO","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_KO","Goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_KO","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_KO","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_WT","Imm_ent|KO_vs_WT|up_in_KO","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Paneth|KO_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-goblet|KO_vs_WT|up_in_KO","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_KO","Stem_cell|A1_Rescue_vs_WT|up_in_A1_Rescue","Stem_cell|KO_vs_WT|up_in_KO","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"],"Reactome":["Cybrd1__ent|A1_Het_vs_WT|up_in_A1_Het","Cybrd1__ent|A1_Het_vs_WT|up_in_WT","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Cybrd1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_KO|up_in_KO","Cybrd1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Cybrd1__ent|A1_Rescue_vs_WT|up_in_WT","Cybrd1__ent|KO_vs_WT|up_in_KO","Cybrd1__ent|KO_vs_WT|up_in_WT","EEC|A1_Het_vs_WT|up_in_A1_Het","EEC|A1_Het_vs_WT|up_in_WT","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Het","EEC|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_A1_Rescue","EEC|A1_Rescue_vs_KO|up_in_KO","EEC|A1_Rescue_vs_WT|up_in_A1_Rescue","EEC|A1_Rescue_vs_WT|up_in_WT","EEC|KO_vs_WT|up_in_WT","Fabp1__ent|A1_Het_vs_WT|up_in_A1_Het","Fabp1__ent|A1_Het_vs_WT|up_in_WT","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Het","Fabp1__ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_KO|up_in_KO","Fabp1__ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Fabp1__ent|A1_Rescue_vs_WT|up_in_WT","Fabp1__ent|KO_vs_WT|up_in_KO","Fabp1__ent|KO_vs_WT|up_in_WT","Global|A1_Het_vs_WT|up_in_A1_Het","Global|A1_Het_vs_WT|up_in_WT","Global|A1_Rescue_vs_A1_Het|up_in_A1_Het","Global|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_A1_Rescue","Global|A1_Rescue_vs_KO|up_in_KO","Global|A1_Rescue_vs_WT|up_in_A1_Rescue","Global|A1_Rescue_vs_WT|up_in_WT","Global|KO_vs_WT|up_in_KO","Global|KO_vs_WT|up_in_WT","Goblet|A1_Het_vs_WT|up_in_A1_Het","Goblet|A1_Het_vs_WT|up_in_WT","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Goblet|A1_Rescue_vs_KO|up_in_KO","Goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Goblet|A1_Rescue_vs_WT|up_in_WT","Goblet|KO_vs_WT|up_in_WT","Imm_ent|A1_Het_vs_WT|up_in_A1_Het","Imm_ent|A1_Het_vs_WT|up_in_WT","Imm_ent|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_KO|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_A1_Rescue","Imm_ent|A1_Rescue_vs_WT|up_in_WT","Imm_ent|KO_vs_WT|up_in_WT","Paneth|A1_Het_vs_WT|up_in_A1_Het","Paneth|A1_Het_vs_WT|up_in_WT","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Het","Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Paneth|A1_Rescue_vs_KO|up_in_KO","Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Paneth|A1_Rescue_vs_WT|up_in_WT","Paneth|KO_vs_WT|up_in_KO","Paneth|KO_vs_WT|up_in_WT","Pre-Paneth|A1_Het_vs_WT|up_in_A1_Het","Pre-Paneth|A1_Het_vs_WT|up_in_WT","Pre-Paneth|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-Paneth|A1_Rescue_vs_KO|up_in_KO","Pre-Paneth|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-Paneth|KO_vs_WT|up_in_KO","Pre-Paneth|KO_vs_WT|up_in_WT","Pre-goblet|A1_Het_vs_WT|up_in_WT","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Het","Pre-goblet|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_KO|up_in_KO","Pre-goblet|A1_Rescue_vs_WT|up_in_A1_Rescue","Pre-goblet|A1_Rescue_vs_WT|up_in_WT","Pre-goblet|KO_vs_WT|up_in_KO","Pre-goblet|KO_vs_WT|up_in_WT","Stem_cell|A1_Het_vs_WT|up_in_WT","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Het","Stem_cell|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_KO|up_in_A1_Rescue","Stem_cell|A1_Rescue_vs_WT|up_in_A1_Rescue","Stem_cell|KO_vs_WT|up_in_WT","TA|A1_Het_vs_WT|up_in_WT","TA|A1_Rescue_vs_A1_Het|up_in_A1_Het","TA|A1_Rescue_vs_A1_Het|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_A1_Rescue","TA|A1_Rescue_vs_KO|up_in_KO","TA|A1_Rescue_vs_WT|up_in_A1_Rescue","TA|A1_Rescue_vs_WT|up_in_WT","TA|KO_vs_WT|up_in_KO","TA|KO_vs_WT|up_in_WT"]};
+const CATS = [["GO_BP","GO-BP"],["GO_CC","GO-CC"],["GO_MF","GO-MF"],["Hallmark","Hallmark"],["KEGG","KEGG"],["Reactome","Reactome"]];
+const CATCOUNT = {"GO_BP":105,"GO_CC":98,"GO_MF":93,"Hallmark":101,"KEGG":96,"Reactome":97};
+const BUBBLE = ["27HC","ADGRG","ADGRL","AGRN","ANGPTL","APP","BMP","CDH","CDH1","CEACAM","CLDN","Cholesterol","CypA","DESMOSOME","Desmosterol","EGF","EPHA","EPHB","FLRT","GALECTIN","GDF","GRN","GUCA","HH","JAM","KIT","L1CAM","LAMININ","MPZ","NECTIN","NOTCH","OCLN","SEMA4","SEMA7","TRAIL","UNC5","WNT"];
+const INV = [["qc",6],["cellranger",4],["clustering",2],["annotation",9],["composition",2],["deg",55],["enrichment",590],["trajectory",12],["cellchat",39],["pathway",1],["data",30]];
+const FILES = ["annotation/UMAP_cell_type.pdf","annotation/UMAP_cell_type.png","annotation/UMAP_split_genotype.png","annotation/marker_DotPlot.pdf","annotation/marker_DotPlot.png","annotation/pg_DotPlot.pdf","annotation/pg_DotPlot.png","annotation/pg_l3_clusters.png","annotation/pg_pool_subclusters.png","cellchat/compare_interactions.pdf","cellchat/pathway_bubble_27HC.pdf","cellchat/pathway_bubble_ADGRG.pdf","cellchat/pathway_bubble_ADGRL.pdf","cellchat/pathway_bubble_AGRN.pdf","cellchat/pathway_bubble_ANGPTL.pdf","cellchat/pathway_bubble_APP.pdf","cellchat/pathway_bubble_BMP.pdf","cellchat/pathway_bubble_CDH.pdf","cellchat/pathway_bubble_CDH1.pdf","cellchat/pathway_bubble_CEACAM.pdf","cellchat/pathway_bubble_CLDN.pdf","cellchat/pathway_bubble_Cholesterol.pdf","cellchat/pathway_bubble_CypA.pdf","cellchat/pathway_bubble_DESMOSOME.pdf","cellchat/pathway_bubble_Desmosterol.pdf","cellchat/pathway_bubble_EGF.pdf","cellchat/pathway_bubble_EPHA.pdf","cellchat/pathway_bubble_EPHB.pdf","cellchat/pathway_bubble_FLRT.pdf","cellchat/pathway_bubble_GALECTIN.pdf","cellchat/pathway_bubble_GDF.pdf","cellchat/pathway_bubble_GRN.pdf","cellchat/pathway_bubble_GUCA.pdf","cellchat/pathway_bubble_HH.pdf","cellchat/pathway_bubble_JAM.pdf","cellchat/pathway_bubble_KIT.pdf","cellchat/pathway_bubble_L1CAM.pdf","cellchat/pathway_bubble_LAMININ.pdf","cellchat/pathway_bubble_MPZ.pdf","cellchat/pathway_bubble_NECTIN.pdf","cellchat/pathway_bubble_NOTCH.pdf","cellchat/pathway_bubble_OCLN.pdf","cellchat/pathway_bubble_SEMA4.pdf","cellchat/pathway_bubble_SEMA7.pdf","cellchat/pathway_bubble_TRAIL.pdf","cellchat/pathway_bubble_UNC5.pdf","cellchat/pathway_bubble_WNT.pdf","cellchat/signaling_heatmap.pdf","cellranger/web_summary_A1_Het.html","cellranger/web_summary_A1_Rescue.html","cellranger/web_summary_KO.html","cellranger/web_summary_WT.html","clustering/UMAP_byCluster.pdf","clustering/UMAP_byGenotype.pdf","composition/grouped_bar_genotype.pdf","composition/stacked_bar_by_sample.pdf","data/DEG_counts_summary.csv","data/QC_summary.csv","data/README_pseudorep_design.txt","data/all_celltypes_all_contrasts_DEG.csv","data/annotation_notes.txt","data/batch_decision.txt","data/batch_metrics_before_integration.csv","data/bubble_skipped_pathways.txt","data/cluster_assignment.csv","data/cluster_x_panel_score.csv","data/clustree_failed.txt","data/composition.csv","data/ent_subcluster_assignment.csv","data/filter_gate_by_genotype.csv","data/marker_DotPlot_values.csv","data/marker_detection.csv","data/marker_score_pseudotime_decile_bins.csv","data/median_pseudotime_by_axis.csv","data/milo_failed.txt","data/pathways_detected.txt","data/pg_DotPlot_values.csv","data/pg_l3_assignment.csv","data/pg_subcluster_assignment.csv","data/progeny_skipped.txt","data/propeller_failed.txt","data/proportion_per_sample.csv","data/pseudotime_all_cells.csv","data/rescue_index.csv","data/rescue_pattern_genes.csv","data/root_info.txt","pathway/senescence_score_violin.pdf","qc/QC_violin_after_filter.pdf","qc/QC_violin_all_samples.pdf","qc/barcode_rank_A1_Het.pdf","qc/barcode_rank_A1_Rescue.pdf","qc/barcode_rank_KO.pdf","qc/barcode_rank_WT.pdf","trajectory/UMAP_pseudotime.pdf","trajectory/UMAP_pseudotime_eec.pdf","trajectory/UMAP_pseudotime_enterocyte.pdf","trajectory/UMAP_pseudotime_global.pdf","trajectory/UMAP_pseudotime_secretory.pdf","trajectory/marker_along_pseudotime_lineages.pdf","trajectory/marker_along_pseudotime_root_terminal.pdf","trajectory/pseudotime_density_A1_Het.pdf","trajectory/pseudotime_density_A1_Rescue.pdf","trajectory/pseudotime_density_KO.pdf","trajectory/pseudotime_density_WT.pdf","trajectory/pseudotime_density_all_genotypes.pdf"];
+const DEGFILES = ["Volcano_Cybrd1__ent_A1_Het_vs_WT.pdf","Volcano_Cybrd1__ent_A1_Rescue_vs_A1_Het.pdf","Volcano_Cybrd1__ent_A1_Rescue_vs_KO.pdf","Volcano_Cybrd1__ent_A1_Rescue_vs_WT.pdf","Volcano_Cybrd1__ent_KO_vs_WT.pdf","Volcano_EEC_A1_Het_vs_WT.pdf","Volcano_EEC_A1_Rescue_vs_A1_Het.pdf","Volcano_EEC_A1_Rescue_vs_KO.pdf","Volcano_EEC_A1_Rescue_vs_WT.pdf","Volcano_EEC_KO_vs_WT.pdf","Volcano_Fabp1__ent_A1_Het_vs_WT.pdf","Volcano_Fabp1__ent_A1_Rescue_vs_A1_Het.pdf","Volcano_Fabp1__ent_A1_Rescue_vs_KO.pdf","Volcano_Fabp1__ent_A1_Rescue_vs_WT.pdf","Volcano_Fabp1__ent_KO_vs_WT.pdf","Volcano_Global_A1_Het_vs_WT.pdf","Volcano_Global_A1_Rescue_vs_A1_Het.pdf","Volcano_Global_A1_Rescue_vs_KO.pdf","Volcano_Global_A1_Rescue_vs_WT.pdf","Volcano_Global_KO_vs_WT.pdf","Volcano_Goblet_A1_Het_vs_WT.pdf","Volcano_Goblet_A1_Rescue_vs_A1_Het.pdf","Volcano_Goblet_A1_Rescue_vs_KO.pdf","Volcano_Goblet_A1_Rescue_vs_WT.pdf","Volcano_Goblet_KO_vs_WT.pdf","Volcano_Imm_ent_A1_Het_vs_WT.pdf","Volcano_Imm_ent_A1_Rescue_vs_A1_Het.pdf","Volcano_Imm_ent_A1_Rescue_vs_KO.pdf","Volcano_Imm_ent_A1_Rescue_vs_WT.pdf","Volcano_Imm_ent_KO_vs_WT.pdf","Volcano_Paneth_A1_Het_vs_WT.pdf","Volcano_Paneth_A1_Rescue_vs_A1_Het.pdf","Volcano_Paneth_A1_Rescue_vs_KO.pdf","Volcano_Paneth_A1_Rescue_vs_WT.pdf","Volcano_Paneth_KO_vs_WT.pdf","Volcano_Pre-Paneth_A1_Het_vs_WT.pdf","Volcano_Pre-Paneth_A1_Rescue_vs_A1_Het.pdf","Volcano_Pre-Paneth_A1_Rescue_vs_KO.pdf","Volcano_Pre-Paneth_A1_Rescue_vs_WT.pdf","Volcano_Pre-Paneth_KO_vs_WT.pdf","Volcano_Pre-goblet_A1_Het_vs_WT.pdf","Volcano_Pre-goblet_A1_Rescue_vs_A1_Het.pdf","Volcano_Pre-goblet_A1_Rescue_vs_KO.pdf","Volcano_Pre-goblet_A1_Rescue_vs_WT.pdf","Volcano_Pre-goblet_KO_vs_WT.pdf","Volcano_Stem_cell_A1_Het_vs_WT.pdf","Volcano_Stem_cell_A1_Rescue_vs_A1_Het.pdf","Volcano_Stem_cell_A1_Rescue_vs_KO.pdf","Volcano_Stem_cell_A1_Rescue_vs_WT.pdf","Volcano_Stem_cell_KO_vs_WT.pdf","Volcano_TA_A1_Het_vs_WT.pdf","Volcano_TA_A1_Rescue_vs_A1_Het.pdf","Volcano_TA_A1_Rescue_vs_KO.pdf","Volcano_TA_A1_Rescue_vs_WT.pdf","Volcano_TA_KO_vs_WT.pdf"];
+const ENRTREE = [["Cybrd1__ent",60],["EEC",57],["Fabp1__ent",56],["Global",60],["Goblet",56],["Imm_ent",53],["Paneth",53],["Pre-Paneth",54],["Pre-goblet",40],["Stem_cell",49],["TA",52]];
+const FIRST = {"qc":"qc/QC_violin_after_filter.pdf","cellranger":"cellranger/web_summary_A1_Het.html","clustering":"clustering/UMAP_byCluster.pdf","annotation":"annotation/UMAP_cell_type.pdf","composition":"composition/grouped_bar_genotype.pdf","deg":"deg/Volcano_Cybrd1__ent_A1_Het_vs_WT.pdf","enrichment":"enrichment/Cybrd1__ent/A1_Het_vs_WT/up_in_A1_Het/GO_BP_dotplot.pdf","trajectory":"trajectory/UMAP_pseudotime.pdf","cellchat":"cellchat/compare_interactions.pdf","pathway":"pathway/senescence_score_violin.pdf","data":"data/DEG_counts_summary.csv"};
+
+
+const CT_SHORT = {"Stem cell":"SC","TA":"TA","Imm ent":"ImmE","Cybrd1+ ent":"Cyb+","Fabp1+ ent":"Fab+",
+  "EEC":"EEC","Paneth":"PC","Goblet":"GC","Pre-Paneth":"PreP","Pre-goblet":"PreG","Global":"Global"};
 
 // nav
-const nav = ["overview","cellranger","cluster","annotation","composition","deg","trajectory","pathway","files"];
-const navLabels = ["1 数据概览","2 CellRanger QC","3 聚类","4 注释","5 组成","6 DEG/富集","7 拟时序","8 通讯","9 文件"];
+const nav = ["overview","cellranger","cluster","annotation","composition","deg","enrich","trajectory","cellchat","score","files"];
+const navLabels = ["1 概览/QC","2 CellRanger","3 聚类","4 注释","5 组成","6 DEG","7 富集","8 拟时序","9 通讯","10 衰老评分","11 文件"];
 document.getElementById("nav").innerHTML = navLabels.map((l,i)=>`<a href="#sec-${nav[i]}">${l}</a>`).join("");
 
 // QC table
-let qh = "<tr><th>样本</th><th>基因型</th><th>raw barcode 数</th><th>细胞数</th><th>中位基因数/细胞</th><th>中位UMI/细胞</th><th>线粒体% 中位</th></tr>";
-let qt = QC.map(d=>`<tr><td>${d.s}</td><td>${d.s.replace(/_/g,"-")}</td><td>${d.raw.toLocaleString()}</td><td>${d.cells.toLocaleString()}</td><td>${d.feat}</td><td>${d.cnt}</td><td>${d.mt}</td></tr>`).join("");
+let qh = "<tr><th>样本</th><th>基因型</th><th class='num'>raw barcode</th><th class='num'>CR 细胞</th><th class='num'>过层1</th><th class='num'>最终细胞</th><th class='num'>保留率</th><th class='num'>基因数 前→后</th><th class='num'>中位基因/细胞</th><th class='num'>中位UMI/细胞</th><th class='num'>mt% 中位</th></tr>";
+let qt = QC.map(d=>`<tr><td>${d[0]}</td><td>${d[1].replace(/_/g,"-")}</td><td class='num'>${d[2].toLocaleString()}</td><td class='num'>${d[3].toLocaleString()}</td><td class='num'>${d[4].toLocaleString()}</td><td class='num'><b>${d[5].toLocaleString()}</b></td><td class='num'>${d[6].toFixed(1)}%</td><td class='num'>${d[7].toLocaleString()} → ${d[8].toLocaleString()}</td><td class='num'>${d[9].toLocaleString()}</td><td class='num'>${d[10].toLocaleString()}</td><td class='num'>${d[11]}</td></tr>`).join("");
 document.getElementById("qc-table").innerHTML = qh + qt;
 
-// proportion table: rows=celltype, cols=sample + total cells
-let ph = "<tr><th>细胞类型</th>" + SAMPLES.map(s=>`<th>${s}</th>`).join("") + "<th>n_CELLS</th></tr>";
-let pt = CTYPES.map(ct=>{
-  let cells = SAMPLES.map(s=>{ let p=(PROP[s][CTYPES.indexOf(ct)]*100); return `<td>${p.toFixed(1)}%</td>`; }).join("");
-  return `<tr><th>${ct} (${CT_SHORT[ct]})</th>${cells}<td>${COUNTS[CTYPES.indexOf(ct)].toLocaleString()}</td></tr>`;
+// composition table
+let ph = "<tr><th>细胞类型</th>" + SAMPLES.map(s=>`<th class='num'>${s.replace(/_/g,"-")} (%)</th>`).join("") + "<th class='num'>全部 (%)</th><th class='num'>n_CELLS</th></tr>";
+let pt = CTYPES.map((ct,i)=>{
+  let cells = SAMPLES.map(s=>`<td class='num'>${PROP[s][i].toFixed(2)}</td>`).join("");
+  return `<tr><th>${ct} <span class='tag'>${CT_SHORT[ct]}</span></th>${cells}<td class='num'>${PCTALL[i].toFixed(2)}</td><td class='num'>${TOTAL[i].toLocaleString()}</td></tr>`;
 }).join("");
-document.getElementById("prop-table").innerHTML = ph + pt;
+let totRow = `<tr><th>合计</th>` + SAMPLES.map(()=>`<td class='num'>100.0</td>`).join("") + `<td class='num'>100.0</td><td class='num'><b>${TOTAL.reduce((a,b)=>a+b,0).toLocaleString()}</b></td></tr>`;
+document.getElementById("prop-table").innerHTML = ph + pt + totRow;
 
 // mapping table
-let mh = "<tr><th>Cluster</th><th>L1 谱系</th><th>最终细胞类型</th><th>细胞数</th></tr>";
-let mt = MAPPING.map(m=>`<tr><td>${m[0]}</td><td>${m[1]}</td><td>${m[2]}</td><td>${m[3].toLocaleString()}</td></tr>`).join("");
+const FINAL_MAP = {0:"TA（整簇）",1:"Stem cell（整簇）",2:"→ Imm ent / Cybrd1+ ent / Fabp1+ ent（Pass 2 拆分）",3:"Stem cell（整簇）",
+  4:"→ Paneth / Goblet / Pre-Paneth / Pre-goblet（Pass 3 拆分）",5:"EEC（整簇）",6:"→ 吸收系亚型（Pass 2 拆分）",7:"TA（整簇）"};
+let mh = "<tr><th>Cluster</th><th class='num'>细胞数</th><th>Pass 1 粗分类</th><th class='num'>score</th><th class='num'>margin</th><th>最终归属</th></tr>";
+let mt = MAPPING.map(m=>`<tr><td>${m[0]}</td><td class='num'>${m[1].toLocaleString()}</td><td>${m[2]}</td><td class='num'>${m[3].toFixed(3)}</td><td class='num'>${m[4].toFixed(3)}</td><td>${FINAL_MAP[m[0]]||""}</td></tr>`).join("");
 document.getElementById("map-table").innerHTML = mh + mt;
 
-// tab helper
+// DEG table
+let dh = "<tr><th>层级</th>" + CN_LIST.map(c=>`<th class='num'>${c[0]}</th>`).join("") + "<th class='num'>合计</th></tr>";
+let dt = DEGTAB.map(row=>{
+  const s = row[1].reduce((a,b)=>a+b,0);
+  return `<tr><th>${row[0]}</th>` + row[1].map(v=>`<td class='num'>${v.toLocaleString()}</td>`).join("") + `<td class='num'><b>${s.toLocaleString()}</b></td></tr>`;
+}).join("");
+const colTot = CN_LIST.map((_,j)=>DEGTAB.reduce((a,r)=>a+r[1][j],0));
+let dtf = `<tr><th>全部层级合计</th>` + colTot.map(v=>`<td class='num'><b>${v.toLocaleString()}</b></td>`).join("") + `<td class='num'><b>${colTot.reduce((a,b)=>a+b,0).toLocaleString()}</b></td></tr>`;
+document.getElementById("deg-table").innerHTML = dh + dt + dtf;
+
+// enrichment summary table
+const CATNOTE = {"GO_BP":"GO 生物过程（org.Mm.eg.db）","GO_CC":"GO 细胞组分","GO_MF":"GO 分子功能",
+  "Hallmark":"MSigDB Hallmark（人集正交映射到小鼠）","KEGG":"本地 mmu 快照，368 通路（离线）","Reactome":"Reactome 通路"};
+let eh = "<tr><th>基因集</th><th class='num'>有结果格数 / 110</th><th>说明</th></tr>";
+let et = CATS.map(c=>`<tr><td>${c[1]}</td><td class='num'>${CATCOUNT[c[0]]}</td><td>${CATNOTE[c[0]]}</td></tr>`).join("");
+document.getElementById("enr-table").innerHTML = eh + et;
+
+// inventory table
+const INVNOTE = {"qc":"QC 小提琴（前/后）+ 4 张 barcode rank","cellranger":"4 份官方 web_summary",
+  "clustering":"未整合 UMAP（按簇 / 按基因型）","annotation":"UMAP、分型分面、DotPlot、PG 子聚类",
+  "composition":"堆叠 / 分组比例图","deg":"55 张火山图（11 层级 × 5 对比）",
+  "enrichment":"6 基因集 × 5 对比 × 2 方向 × 11 类型","trajectory":"分轴拟时序 UMAP、marker 曲线、拟时序密度",
+  "cellchat":"互作比较、信号热图、37 张通路气泡图","pathway":"SenMayo 衰老评分",
+  "data":"表格 / 说明 / 全量 DEG（含 91 MB 主表）"};
+let ih = "<tr><th>目录</th><th class='num'>文件数</th><th>内容</th><th>入口</th></tr>";
+let it = INV.map(r=>{
+  const first = FIRST[r[0]];
+  return `<tr><td class='mono'>${r[0]}/</td><td class='num'>${r[1]}</td><td>${INVNOTE[r[0]]||""}</td><td>${first?`<a href="${encodeURI(first)}">${first.split("/").pop()}</a>`:""}</td></tr>`;
+}).join("");
+document.getElementById("inv-table").innerHTML = ih + it;
+
+// 统一设置 iframe 与其"新标签页打开"链接
+function setFrame(frameId, src){
+  const f = document.getElementById(frameId);
+  if (f) f.src = src;
+  const l = document.getElementById(frameId + "-link");
+  if (l) { l.href = src; }
+}
+// ---- generic tab helper ----
 function makeTabs(elId, items, frameId, baseSrc, mapName){
   let el = document.getElementById(elId);
-  let html = items.map((it,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${it}</button>`).join("");
-  el.innerHTML = html;
-  let set = i => { document.getElementById(frameId).src = baseSrc + mapName(items[i]) + ".pdf"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  el.innerHTML = items.map((it,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${it}</button>`).join("");
+  let set = i => { setFrame(frameId, baseSrc + mapName(items[i]) + ".pdf"); el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
   el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
   set(0);
 }
+makeTabs("qc-tabs", ["过滤前（全部 CR 细胞）","过滤后（两层过滤）"], "qc-frame", "qc/",
+         s=>s.indexOf("过滤前")===0?"QC_violin_all_samples":"QC_violin_after_filter");
 makeTabs("br-tabs", SAMPLES, "br-frame", "qc/barcode_rank_", s=>s);
-makeTabs("pt-tabs", SAMPLES, "pt-frame", "trajectory/pseudotime_density_", s=>s);
-// cellranger web_summary
+makeTabs("pt-tabs", ["WT","KO","A1_Het","A1_Rescue","四基因型合并"], "pt-frame", "trajectory/pseudotime_density_",
+         s=>s==="四基因型合并"?"all_genotypes":s);
+makeTabs("cc-tabs", BUBBLE, "cc-frame", "cellchat/pathway_bubble_", s=>s);
+
+// cellranger tabs
 (function(){
   let el = document.getElementById("ws-tabs");
   el.innerHTML = SAMPLES.map((s,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${s}</button>`).join("");
-  let set = i => { document.getElementById("ws-frame").src = "cellranger/web_summary_" + SAMPLES[i] + ".html"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
-  el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
-  set(0);
-})();
-// CellChat pathway bubble tabs (WNT/NOTCH/BMP 已成功生成，EGF 本次跳过)
-(function(){
-  const PATHS = ["WNT","NOTCH","BMP"];
-  let el = document.getElementById("cc-tabs");
-  el.innerHTML = PATHS.map((p,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${p}</button>`).join("");
-  let set = i => { document.getElementById("cc-frame").src = "cellchat/pathway_bubble_" + PATHS[i] + ".pdf"; el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
+  let set = i => { setFrame("ws-frame", "cellranger/web_summary_" + SAMPLES[i] + ".html"); el.querySelectorAll(".tab-btn").forEach((b,j)=>b.classList.toggle("active", j===i)); };
   el.querySelectorAll(".tab-btn").forEach(b=>b.onclick = ()=>set(+b.dataset.i));
   set(0);
 })();
 
-// ---- DEG + GO/KEGG section (pseudorep, 5 contrasts x 10 celltypes, dual tabs) ----
-const DEG_CTS = [["Global (all cells)", "Global"], ["Absorptive enterocytes", "Absorptive_enterocytes"], ["Dedifferentiating Paneth-like cells", "Dedifferentiating_Paneth-like_cells"], ["Early Differentiating Enterocytes", "Early_Differentiating_Enterocytes"], ["Enteroendocrine Cells", "Enteroendocrine_Cells"], ["Goblet cells", "Goblet_cells"], ["Intestinal Stem Cells", "Intestinal_Stem_Cells"], ["Paneth Cells", "Paneth_Cells"], ["Paneth Cells Progenitors", "Paneth_Cells_Progenitors"], ["TA Cells - G2/M", "TA_Cells_-_G2_M"], ["TA Cells - S", "TA_Cells_-_S"]];
-const DEG_CN_LIST = [["KO vs WT", "KO_vs_WT"], ["A1 Het vs WT", "A1_Het_vs_WT"], ["A1 Rescue vs KO", "A1_Rescue_vs_KO"], ["A1 Rescue vs A1 Het", "A1_Rescue_vs_A1_Het"], ["A1 Rescue vs WT", "A1_Rescue_vs_WT"]];
-function makeDualTabs(cnElId, ctElId, frameId, baseSrc, mid, suffix){
-  let cnEl = document.getElementById(cnElId), ctEl = document.getElementById(ctElId);
+// ---- volcano: contrast x celltype ----
+(function(){
+  const cnEl = document.getElementById("vol-cn-tabs"), ctEl = document.getElementById("vol-tabs");
   let s = {cn:0, ct:0};
-  cnEl.innerHTML = DEG_CN_LIST.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
+  cnEl.innerHTML = CN_LIST.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
   ctEl.innerHTML = DEG_CTS.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
-  let upd = ()=>{ document.getElementById(frameId).src = baseSrc + DEG_CTS[s.ct][1] + mid + DEG_CN_LIST[s.cn][1] + suffix; };
+  let upd = ()=>{ setFrame("vol-frame", `deg/Volcano_${DEG_CTS[s.ct][1]}_${CN_LIST[s.cn][1]}.pdf`); };
   cnEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ s.cn=+b.dataset.i; cnEl.querySelectorAll(".tab-btn").forEach((x,j)=>x.classList.toggle("active", j===s.cn)); upd(); });
   ctEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ s.ct=+b.dataset.i; ctEl.querySelectorAll(".tab-btn").forEach((x,j)=>x.classList.toggle("active", j===s.ct)); upd(); });
   upd();
-}
-makeDualTabs("vol-cn-tabs","vol-tabs","vol-frame","deg/Volcano_","_",".pdf");
-makeDualTabs("go-cn-tabs","go-tabs","go-frame","go/GO_dotplot_","_",".pdf");
-makeDualTabs("kegg-cn-tabs","kegg-tabs","kegg-frame","kegg/KEGG_dotplot_","_",".pdf");
+})();
 
-// file list
-document.getElementById("filelist").innerHTML = FILES.map(f=>`<div><a href="${f.replace(/\*/g,"WT")}" download>${f}</a></div>`).join("");
+// ---- enrichment: gene-set x contrast x direction x celltype ----
+(function(){
+  const catEl=document.getElementById("enr-cat-tabs"), cvEl=document.getElementById("enr-cv-tabs"),
+        dirEl=document.getElementById("enr-dir-tabs"), ctEl=document.getElementById("enr-ct-tabs"),
+        frame=document.getElementById("enr-frame"), box=document.getElementById("enr-missing");
+  const st = {cat:0, cv:0, dir:0, ct:0};
+  const sets = {};
+  CATS.forEach(c=>sets[c[0]] = new Set(AVAIL[c[0]]));
+  const setActive=(el,i)=>el.querySelectorAll(".tab-btn").forEach((x,j)=>x.classList.toggle("active", j===i));
+  const dirLabel=d=>"在 " + d.replace("up_in_","") + " 中升高";
+
+  catEl.innerHTML = CATS.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[1]} (${CATCOUNT[c[0]]})</button>`).join("");
+  cvEl.innerHTML  = CN_LIST.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
+  ctEl.innerHTML  = DEG_CTS.map((c,i)=>`<button class="tab-btn ${i===0?'active':''}" data-i="${i}">${c[0]}</button>`).join("");
+
+  function renderDirs(){
+    const ds = DIRS[CN_LIST[st.cv][1]];
+    if (st.dir >= ds.length) st.dir = 0;
+    dirEl.innerHTML = ds.map((d,i)=>`<button class="tab-btn ${i===st.dir?'active':''}" data-i="${i}">${dirLabel(d)}</button>`).join("");
+    dirEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ st.dir=+b.dataset.i; setActive(dirEl, st.dir); upd(); });
+  }
+  function upd(){
+    const cat=CATS[st.cat][0], cv=CN_LIST[st.cv][1], ct=DEG_CTS[st.ct][1], dir=DIRS[cv][st.dir];
+    const key = `${ct}|${cv}|${dir}`;
+    if (sets[cat].has(key)) {
+      frame.style.display="block"; box.style.display="none";
+      setFrame("enr-frame", `enrichment/${ct}/${cv}/${dir}/${cat}_dotplot.pdf`);
+      const lw = document.getElementById("enr-frame-link-wrap"); if (lw) lw.style.display="block";
+    } else {
+      frame.removeAttribute("src"); frame.style.display="none"; box.style.display="block";
+      const lw = document.getElementById("enr-frame-link-wrap"); if (lw) lw.style.display="none";
+      box.innerHTML = `<b>${CATS[st.cat][1]}</b> × <b>${ct}</b> × <b>${CN_LIST[st.cv][0]}</b> × <b>${dirLabel(dir)}</b><br>该组合没有通过阈值（p/q &lt; 0.05）的富集词条，因此未出图（不是绘图失败）。可换基因集、对比或细胞类型查看。`;
+    }
+  }
+  catEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ st.cat=+b.dataset.i; setActive(catEl, st.cat); upd(); });
+  cvEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ st.cv=+b.dataset.i; setActive(cvEl, st.cv); renderDirs(); upd(); });
+  ctEl.querySelectorAll(".tab-btn").forEach(b=>b.onclick=()=>{ st.ct=+b.dataset.i; setActive(ctEl, st.ct); upd(); });
+  renderDirs(); upd();
+})();
+
+// file lists
+document.getElementById("filelist").innerHTML = FILES.map(f=>`<div><a href="${encodeURI(f)}" download>${f}</a></div>`).join("");
+document.getElementById("filelist-deg").innerHTML = DEGFILES.map(f=>`<div><a href="deg/${encodeURI(f)}" download>${f}</a></div>`).join("");
+document.getElementById("enr-tree").innerHTML = "<table><tr><th>细胞类型</th><th class='num'>dotplot 数</th><th>目录</th></tr>" +
+  ENRTREE.map(r=>`<tr><td>${r[0]}</td><td class='num'>${r[1]}</td><td class='mono'>enrichment/${r[0]}/</td></tr>`).join("") + "</table>";
 </script>
 </body>
 </html>
